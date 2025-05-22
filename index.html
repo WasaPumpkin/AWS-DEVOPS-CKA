@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Search in Questions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      /* max-width: 1400px; */
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 1900px;
+      position: relative;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 10px;
+      padding-right: 70px;
+      /* Space for buttons */
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .search-buttons {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 5px;
+    }
+
+    .search-button {
+      background: #ddd;
+      border: none;
+      border-radius: 3px;
+      padding: 3px 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .search-button:hover {
+      background: #ccc;
+    }
+
+    .question-block {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+    }
+
+    .question {
+      color: #333;
+      margin: 0;
+      font-size: 30px;
+      background-color: yellow;
+      padding: 10px;
+    }
+
+    img {
+      width: 40%;
+      height: auto;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .question-form {
+      margin-top: 10px;
+    }
+
+    .question-form label {
+      display: block;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      transition: background-color 0.3s;
+    }
+
+    .correct-answer {
+      font-weight: bold;
+      color: green;
+      background-color: #e0ffe0;
+      border: 1px solid green;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 99;
+    }
+
+    .scroll-top:hover {
+      background: #555;
+    }
+
+    /* CSS */
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="search-container">
+      <input type="text" id="search" class="search-bar" placeholder="Search questions...">
+      <div class="search-buttons">
+        <button class="search-button" id="clear-search">X</button>
+      </div>
+    </div>
+    <div class="question-block">
+      <h1 class="question">
+        A company wants to migrate its content sharing web application hosted on Amazon EC2 to a serverless
+        architecture. The company currently deploys changes to its application by creating a new Auto Scaling group of
+        EC2 instances and a new Elastic Load Balancer, and then shifting the traffic away using an Amazon Route 53
+        weighted routing policy.
+        For its new serverless application, the company is planning to use Amazon API Gateway and AWS Lambda. The
+        company will need to update its deployment processes to work with the new application. It will also need to
+        retain the ability to test new features on a small number of users before rolling the features out to the entire
+        user base.
+        Which deployment strategy will meet these requirements?
+      </h1>
+      <form class="question-form">
+        <label for="optionA">A. Use AWS CDK to deploy API Gateway and Lambda functions. When code needs to be changed,
+          update the AWS CloudFormation stack and deploy the new version of the APIs and Lambda functions. Use a Route
+          53 failover routing policy for the canary release strategy.</label>
+        <label for="optionB" class="correct-answer">B. Use AWS CloudFormation to deploy API Gateway and Lambda functions
+          using Lambda function versions. When code needs to be changed, update the CloudFormation stack with the new
+          Lambda code and update the API versions using a canary release strategy. Promote the new version when testing
+          is complete. ✓✓</label>
+        <label for="optionC">C. Use AWS Elastic Beanstalk to deploy API Gateway and Lambda functions. When code needs to
+          be changed, deploy a new version of the API and Lambda functions. Shift traffic gradually using an Elastic
+          Beanstalk blue/green deployment.</label>
+        <label for="optionD">D. Use AWS OpsWorks to deploy API Gateway in the service layer and Lambda functions in a
+          custom layer. When code needs to be changed, use OpsWorks to perform a blue/green deployment and shift traffic
+          gradually.</label>
+      </form>
+    </div>
+    <div class="question-block">
+      <h1 class="question">
+        A company's application is currently deployed to a single AWS Region. Recently, the company opened a new office
+        on a different continent. The users in the new office are experiencing high latency. The company's application
+        runs on Amazon EC2 instances behind an Application Load Balancer (ALB) and uses Amazon
+        DynamoDB as the database layer. The instances run in an EC2 Auto Scaling group across multiple Availability
+        Zones. A DevOps Engineer is tasked with minimizing application response times and improving availability for
+        users in both Regions.
+        Which combination of actions should be taken to address the latency issues? (Choose three.)
+      </h1>
+      <form class="question-form">
+        <label for="optionA">A. Create a new DynamoDB table in the new Region with cross-Region replication
+          enabled.</label>
+        <label for="optionB">B. Create new ALB and Auto Scaling group global resources and configure the new ALB to
+          direct traffic to the new Auto Scaling group.</label>
+        <label for="optionC" class="correct-answer">C. Create new ALB and Auto Scaling group resources in the new Region
+          and configure the new ALB to direct traffic to the new Auto Scaling group. ✓✓</label>
+        <label for="optionD" class="correct-answer">D. Create Amazon Route 53 records, health checks, and latency-based
+          routing policies to route to the ALB. ✓✓</label>
+        <label for="optionE">E. Create Amazon Route 53 aliases, health checks, and failover routing policies to route to
+          the ALB.</label>
+        <label for="optionF" class="correct-answer">F. Convert the DynamoDB table to a global table. ✓✓</label>
+      </form>
+    </div>
+    <div class="question-block">
+      <h1 class="question">
+        A DevOps engineer used an AWS CloudFormation custom resource to set up AD Connector. The AWS Lambda function
+        executed and created AD Connector, but
+        CloudFormation is not transitioning from CREATE_IN_PROGRESS to CREATE_COMPLETE.
+        Which action should the engineer take to resolve this issue?
+      </h1>
+      <form class="question-form">
+        <label for="optionA">A. Ensure the Lambda function code has exited successfully.</label>
+        <label for="optionB" class="correct-answer">B. Ensure the Lambda function code returns a response to the
+          pre-signed URL. ✓✓</label>
+        <label for="optionC">C. Ensure the Lambda function IAM role has cloudformation:UpdateStack permissions for the
+          stack ARN.</label>
+        <label for="optionD">D. Ensure the Lambda function IAM role has ds:ConnectDirectory permissions for the AWS
+          account.</label>
+      </form>
+    </div>
+    <div class="question-block">
+      <h1 class="question">
+        A company plans to stop using Amazon EC2 key pairs for SSH access, and instead plans to use AWS Systems Manager
+        Session Manager. To further enhance security, access to Session Manager must take place over a private network
+        only.
+        Which combinations of actions will accomplish this? (Choose two.)
+      </h1>
+      <form class="question-form">
+        <label for="optionA">A. Allow inbound access to TCP port 22 in all associated EC2 security groups from the VPC
+          CIDR range.</label>
+        <label for="optionB" class="correct-answer">B. Attach an IAM policy with the necessary Systems Manager
+          permissions to the existing IAM instance profile. ✓✓</label>
+        <label for="optionC" class="correct-answer">C. Create a VPC endpoint for Systems Manager in the desired Region.
+          ✓✓</label>
+        <label for="optionD">D. Deploy a new EC2 instance that will act as a bastion host to the rest of the EC2
+          instance fleet.</label>
+        <label for="optionE">E. Remove any default routes in the associated route tables.</label>
+      </form>
+    </div>
+    <div class="question-block">
+      <h1 class="question">
+        A company runs an application with an Amazon EC2 and on-premises configuration. A DevOps Engineer needs to
+        standardize patching across both environments. Company policy dictates that patching only happens during
+        non-business hours.
+        Which combination of actions will meet these requirements? (Choose three.)
+      </h1>
+      <form class="question-form">
+        <label for="optionA" class="correct-answer">A. Add the physical machines into AWS Systems Manager using Systems
+          Manager Hybrid Activations. ✓✓</label>
+        <label for="optionB" class="correct-answer">B. Attach an IAM role to the EC2 instances, allowing them to be
+          managed by AWS Systems Manager. ✓✓</label>
+        <label for="optionC">C. Create IAM access keys for the on-premises machines to interact with AWS Systems
+          Manager.</label>
+        <label for="optionD">D. Execute an AWS Systems Manager Automation document to patch the systems every
+          hour.</label>
+        <label for="optionE">E. Use Amazon CloudWatch Events scheduled events to schedule a patch window.</label>
+        <label for="optionF" class="correct-answer">F. Use AWS Systems Manager Maintenance Windows to schedule a patch
+          window. ✓✓</label>
+      </form>
+    </div>
+    <div class="question-block">
+      <h1 class="question">
+        Which one of the following components should not influence an organization’s security policy?
+      </h1>
+      <form class="question-form">
+        <label for="optionA">A. Business objectives</label>
+        <label for="optionB">B. Regulatory requirements</label>
+        <label for="optionC">C. Risk</label>
+        <label for="optionD">D. Cost–benefit analysis</label>
+        <label for="optionE" class="correct-answer">E. Current firewall limitations &#x2713;&#x2713;</label>
+      </form>
+    </div>
+    <form class="question-form">
+      <h1 class="question">Consider the following statements about the AAA architecture:</h1>
+      <p>I. Authentication deals with the question “Who is the user?”</p>
+      <p>II. Authorization addresses the question “What is the user allowed to do?”</p>
+      <p>III. Accountability answers the question “What did the user do?”</p>
+      <h1 class="question">Which of the following is correct?</h1>
+      <label for="optionA">A. Only I is correct.</label>
+      <label for="optionB">B. Only II is correct.</label>
+      <label for="optionC">C. I, II, and III are correct.</label>
+      <label for="optionD" class="correct-answer">D. I and II are correct. &#x2713;&#x2713;</label>
+      <label for="optionE">E. II and III are correct.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">What is the difference between denial-of-service (DoS) and distributed denial-of-service
+        (DDoS) attacks?</h1>
+      <label for="optionA">A. DDoS attacks have many targets, whereas DoS attacks have only one each.</label>
+      <label for="optionB">B. DDoS attacks target multiple networks, whereas DoS attacks target a single
+        network.</label>
+      <label for="optionC" class="correct-answer">C. DDoS attacks have many sources, whereas DoS attacks have only one
+        each. &#x2713;&#x2713;</label>
+      <label for="optionD">D. DDoS attacks target multiple layers of the OSI model and DoS attacks only one.</label>
+      <label for="optionE">E. DDoS attacks are synonymous with DoS attacks</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which of the following options is incorrect?</h1>
+      <label for="optionA">A. A firewall is a security system aimed at isolating specific areas of the network and delimiting domains of trust.</label>
+      <label for="optionB">B. Generally speaking, the web application firewall (WAF) is a specialized security element that acts as a full-reverse proxy, protecting applications that are accessed through HTTP.</label>
+      <label for="optionC" class="correct-answer">C. Whereas intrusion prevention system (IPS) devices handle only copies of the packets and are mainly concerned with monitoring and alerting tasks, intrusion detection system (IDS) solutions are deployed inline in the traffic flow and have the inherent design goal of avoiding actual damage to systems. &#x2713;&#x2713;</label>
+      <label for="optionD">D. Security information and event management (SIEM) solutions are designed to collect security-related logs as well as flow information generated by systems (at the host or the application level), networking devices, and dedicated defense elements such as firewalls, IPSs, IDSs, and antivirus software.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">In the standard shared responsibility model, AWS is responsible for which of the following options?</h1>
+      <label for="optionA">A. Regions, availability zones, and data encryption</label>
+      <label for="optionB">B. Hardware, firewall configuration, and hypervisor software</label>
+      <label for="optionC" class="correct-answer">C. Hypervisor software, regions, and availability zones &#x2713;&#x2713;</label>
+      <label for="optionD">D. Network traffic protection and identity and access management</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which AWS service allows you to generate compliance reports that enable you to evaluate the AWS security controls and posture?</h1>
+      <label for="optionA">A. AWS Trusted Advisor</label>
+      <label for="optionB">B. AWS Well-Architected Tool</label>
+      <label for="optionC" class="correct-answer">C. AWS Artifact &#x2713;&#x2713;</label>
+      <label for="optionD">D. Amazon Inspector</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which of the following contains a definition that is not a pillar from the AWS Well-Architected Framework?</h1>
+      <label for="optionA">A. Security and operational excellence</label>
+      <label for="optionB">B. Reliability and performance efficiency</label>
+      <label for="optionC" class="correct-answer">C. Cost optimization and availability &#x2713;&#x2713;</label>
+      <label for="optionD">D. Security and performance efficiency</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which of the following services provides a set of APIs that control access to your resources on the AWS Cloud?</h1>
+      <label for="optionA">A. AWS AAA</label>
+      <label for="optionB" class="correct-answer">B. AWS IAM &#x2713;&#x2713;</label>
+      <label for="optionC">C. AWS Authenticator</label>
+      <label for="optionD">D. AWS AD</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Regarding AWS IAM principals, which option is not correct?</h1>
+      <label for="optionA">A. A principal is an IAM entity that has permission to interact with resources in the AWS Cloud.</label>
+      <label for="optionB" class="correct-answer">B. They can only be permanent. &#x2713;&#x2713;</label>
+      <label for="optionC">C. They can represent a human user, a resource, or an application.</label>
+      <label for="optionD">D. They have three types: root users, IAM users, and roles.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which of the following is not a recommendation for protecting your root user credentials?</h1>
+      <label for="optionA">A. Use a strong password to help protect account-level access to the management console.</label>
+      <label for="optionB">B. Enable MFA on your AWS root user account.</label>
+      <label for="optionC">C. Do not create an access key for programmatic access to your root user account unless such a procedure is mandatory.</label>
+      <label for="optionD" class="correct-answer">D. If you must maintain an access key to your root user account, you should never rotate it using the AWS Console. &#x2713;&#x2713;</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">In AWS Config, which option is not correct?</h1>
+      <label for="optionA">A. The main goal of AWS Config is to record configuration and the changes of the resources.</label>
+      <label for="optionB">B. AWS Config Rules can decide if a change is good or bad and if it needs to execute an action.</label>
+      <label for="optionC" class="correct-answer">C. AWS Config cannot integrate with external resources like on-premises servers and applications. &#x2713;&#x2713;</label>
+      <label for="optionD">D. AWS Config can provide configuration history files, configuration snapshots, and configuration streams.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">AWS CloudTrail is the service in charge of keeping records of API calls to the AWS Cloud. Which option is not a type of AWS CloudTrail event?</h1>
+      <label for="optionA">A. Management</label>
+      <label for="optionB">B. Insights</label>
+      <label for="optionC">C. Data</label>
+      <label for="optionD" class="correct-answer">D. Control &#x2713;&#x2713;</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">In Amazon VPCs, which of the following is not correct?</h1>
+      <label for="optionA">A. VPC is the acronym of Virtual Private Cloud.</label>
+      <label for="optionB">B. VPCs do not extend beyond an AWS region.</label>
+      <label for="optionC" class="correct-answer">C. You can deploy only private IP addresses from RFC 1918 within VPCs. &#x2713;&#x2713;</label>
+      <label for="optionD">D. You can configure your VPC to not share hardware with other AWS accounts.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">In NAT gateways, which option is not correct?</h1>
+      <label for="optionA">A. NAT gateways are always positioned in public subnets.</label>
+      <label for="optionB">B. Route table configuration is usually required to direct traffic to these devices.</label>
+      <label for="optionC" class="correct-answer">C. NAT gateways are highly available by default. &#x2713;&#x2713;</label>
+      <label for="optionD">D. Amazon CloudWatch automatically monitors traffic flowing through NAT gateways</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">In security groups, which option is not correct?</h1>
+      <label for="optionA">A. Security groups only have allow (permit) rules.</label>
+      <label for="optionB">B. The default security group allows all inbound communications from resources that are associated to the same security group.</label>
+      <label for="optionC" class="correct-answer">C. You cannot have more than one security group associated to an instance’s ENI. &#x2713;&#x2713;</label>
+      <label for="optionD">D. The default security group allows all outbound communications to any destination.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">In network ACLs, which option is not correct?</h1>
+      <label for="optionA">A. They can be considered an additional layer of traffic filtering to security groups.</label>
+      <label for="optionB">B. Network ACLs have allow and deny rules.</label>
+      <label for="optionC" class="correct-answer">C. The default network ACL has only one inbound rule, denying all traffic from all protocols, all port ranges, from any source. &#x2713;&#x2713;</label>
+      <label for="optionD">D. A subnet can be associated with only one network ACL at a time.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">In AWS KMS, which option is not correct?</h1>
+      <label for="optionA">A. KMS can integrate with Amazon S3 and Amazon EBS.</label>
+      <label for="optionB" class="correct-answer">B. KMS can be used to generate SSH access keys for Amazon EC2 instances. &#x2713;&#x2713;</label>
+      <label for="optionC">C. KMS is considered multitenant, not a dedicated hardware security module.</label>
+      <label for="optionD">D. KMS can be used to provide data-at-rest encryption for RDS, Aurora, DynamoDB, and Redshift databases</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which option is not correct in regard to AWS KMS customer master keys?</h1>
+      <label for="optionA">A. A CMK is a 256-bit AES for symmetric keys.</label>
+      <label for="optionB">B. A CMK has a key ID, an alias, and an ARN (Amazon Resource Name).</label>
+      <label for="optionC" class="correct-answer">C. A CMK can also use IAM users, IAM groups, and IAM roles. . &#x2713;&#x2713;</label>
+      <label for="optionD">D. A CMK has two policies roles: key administrators and key users</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which of the following actions is not recommended when an Amazon EC2 instance is compromised by malware?</h1>
+      <label for="optionA">A. Take a snapshot of the EBS volume at the time of the incident.</label>
+      <label for="optionB" class="correct-answer">B. Change its security group accordingly and reattach any IAM role attached to the instance. &#x2713;&#x2713;</label>
+      <label for="optionC">C. Tag the instance as compromised together with an AWS IAM policy that explicitly restricts all operations related to the instance, the incident response, and forensics teams.</label>
+      <label for="optionD">D. When the incident forensics team wants to analyze the instance, they should deploy it into a totally isolated environment—ideally a private subnet.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which of the following actions is recommended when temporary credentials from an Amazon EC2 instance are inadvertently made public?</h1>
+      <label for="optionA" class="correct-answer">A. You should assume that the access key was compromised and revoke it immediately. &#x2713;&#x2713;</label>
+      <label for="optionB">B. You should try to locate where the key was exposed and inform AWS.</label>
+      <label for="optionC">C. You should not reevaluate the IAM roles attached to the instance.</label>
+      <label for="optionD">D. You should avoid rotating your key</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which of the following options may not be considered a security automation trigger?</h1>
+      <label for="optionA">A. Unsafe configurations from AWS Config or Amazon Inspector</label>
+      <label for="optionB">B. AWS Security Hub findings</label>
+      <label for="optionC" class="correct-answer">C. Systems Manager Automation documents &#x2713;&#x2713;</label>
+      <label for="optionD">D. Event from Amazon CloudWatch Events</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which of the following options may not be considered a security automation response task?</h1>
+      <label for="optionA">A. An AWS Lambda function can use AWS APIs to change security groups or network ACLs.</label>
+      <label for="optionB">B. A Systems Manager Automation document execution run.</label>
+      <label for="optionC">C. Systems Manager Run Command can be used to execute commands to multiple hosts.</label>
+      <label for="optionD" class="correct-answer">D. Apply a thorough forensic analysis in an isolated instance. &#x2713;&#x2713;</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Which of the following options may not be considered a security troubleshooting tool for security in AWS Cloud environments?</h1>
+      <label for="optionA">A. AWS CloudTrail</label>
+      <label for="optionB">B. Amazon CloudWatch Logs</label>
+      <label for="optionC" class="correct-answer">C. AWS Key Management Service &#x2713;&#x2713;</label>
+      <label for="optionD">D. Amazon EventBridge</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">Right after you correctly deploy VPC peering between two VPCs (A and B), inter-VPC traffic is still not happening. What is the most probable cause?</h1>
+      <label for="optionA">A. The peering must be configured as transitive.</label>
+      <label for="optionB" class="correct-answer">B. The route tables are not configured. &#x2713;&#x2713;</label>
+      <label for="optionC">C. You need a shared VPC.</label>
+      <label for="optionD">D. You need to configure a routing protocol</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A good mental exercise for your future cloud security design can start with the analysis of how AWS native security services and features (as well as third-party security solutions) can replace your traditional security controls. Which of the options is not a valid mapping between traditional security controls and potential AWS security controls?</h1>
+      <label for="optionA">A. Network segregation (such as firewall rules and router access control lists) and security groups and network ACLs, Web Application Firewall (WAF)</label>
+      <label for="optionB">B. Data encryption at rest and Amazon S3 server-side encryption, Amazon EBS encryption, Amazon RDS encryption, and other AWS KMS-enabled encryption features</label>
+      <label for="optionC" class="correct-answer">C. Monitor intrusion and implementing security controls at the operating system level versus Amazon GuardDuty &#x2713;&#x2713;</label>
+      <label for="optionD">D. Role-based access control (RBAC) versus AWS IAM, Active Directory integration through IAM groups, temporary security credentials, AWS Organizations</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A company has two VPCs that are located in the us-west-2 Region within the same AWS account. The company needs to allow network traffic between these VPCs. Approximately 500 GB of data transfer will occur between the VPCs each month.</h1>
+      <h1 class="question">What is the MOST cost-effective solution to connect these VPCs?</h1>
+      <label for="optionA">A. Implement AWS Transit Gateway to connect the VPCs. Update the route tables of each VPC to use the transit gateway for inter-VPC communication.</label>
+      <label for="optionB">B. Implement an AWS Site-to-Site VPN tunnel between the VPCs. Update the route tables of each VPC to use the VPN tunnel for inter-VPC communication.</label>
+      <label for="optionC" class="correct-answer">C. Set up a VPC peering connection between the VPCs. Update the route tables of each VPC to use the VPC peering connection for inter-VPC communication. &#x2713;&#x2713;</label>
+      <label for="optionD">D. Set up a 1 GB AWS Direct Connect connection between the VPCs. Update the route tables of each VPC to use the Direct Connect connection for inter-VPC communication.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A company has a VPC in the us-west-1 Region and another VPC in the ap-southeast-2 Region. Network engineers set up an AWS Direct Connect connection from their data center to the us-east-1 Region. They create a private virtual interface (VIF) that references a Direct Connect gateway, which is then connected to virtual private gateways in both VPCs. When the setup is complete, the engineers cannot access resources in us-west-1 from ap-southeast-2.</h1>
+      <h1 class="question">What should the network engineers do to resolve this issue?</h1>
+      <label for="optionA">A. Add the subnet range for the VPCs in us-west-1 and ap-southeast-2 to the route tables for both VPCs. Add the Direct Connect gateway as a target.</label>
+      <label for="optionB">B. Configure the Direct Connect gateway to route traffic between the VPCs in ap-southeast-2 and us-west-2.</label>
+      <label for="optionC" class="correct-answer">C. Establish a VPC peering connection between the VPCs in ap-southeast-2 and us-west-2. Add the subnet ranges to the routing tables. &#x2713;&#x2713;</label>
+      <label for="optionD">D. Create static routes in each VPC that point to the destination VPC with the virtual private gateway as the route target.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A company needs to architect a hybrid DNS solution. This solution will use an Amazon Route 53 private hosted zone for the domain cloud.example.com for the resources stored within VPCs.</h1>
+      <h1 class="question">The company has the following DNS resolution requirements:</h1>
+      <ul>
+        <li>On-premises systems should be able to resolve and connect to cloud.example.com.</li>
+        <li>All VPCs should be able to resolve cloud.example.com.</li>
+      </ul>
+      <h1 class="question">There is already an AWS Direct Connect connection between the on-premises corporate network and AWS Transit Gateway.</h1>
+      <h1 class="question">Which architecture should the company use to meet these requirements with the HIGHEST performance?</h1>
+      <label for="optionA" class="correct-answer">A. Associate the private hosted zone to all the VPCs. Create a Route 53 inbound resolver in the shared services VPC. Attach all VPCs to the transit gateway and create forwarding rules in the on-premises DNS server for cloud.example.com that point to the inbound resolver. &#x2713;&#x2713;</label>
+      <label for="optionB">B. Associate the private hosted zone to all the VPCs. Deploy an Amazon EC2 conditional forwarder in the shared services VPC. Attach all VPCs to the transit gateway and create forwarding rules in the on-premises DNS server for cloud.example.com that point to the conditional forwarder.</label>
+      <label for="optionC">C. Associate the private hosted zone to the shared services VPC. Create a Route 53 outbound resolver in the shared services VPC. Attach all VPCs to the transit gateway and create forwarding rules in the on-premises DNS server for cloud.example.com that point to the outbound resolver.</label>
+      <label for="optionD">D. Associate the private hosted zone to the shared services VPC. Create a Route 53 inbound resolver in the shared services VPC. Attach the shared services VPC to the transit gateway and create forwarding rules in the on-premises DNS server for cloud.example.com that point to the inbound resolver.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A company is providing weather data over a REST-based API to several customers. The API is hosted by Amazon API Gateway and is integrated with different AWS Lambda functions for each API operation. The company uses Amazon Route 53 for DNS and has created a resource record of weather.example.com. The company stores data for the API in Amazon DynamoDB tables. The company needs a solution that will give the API the ability to fail over to a different AWS Region.</h1>
+      <h1 class="question">Which solution will meet these requirements?</h1>
+      <label for="optionA">A. Deploy a new set of Lambda functions in a new Region. Update the API Gateway API to use an edge-optimized API endpoint with Lambda functions from both Regions as targets. Convert the DynamoDB tables to global tables.</label>
+      <label for="optionB">B. Deploy a new API Gateway API and Lambda functions in another Region. Change the Route 53 DNS record to a multivalue answer. Add both API Gateway APIs to the answer. Enable target health monitoring. Convert the DynamoDB tables to global tables.</label>
+      <label for="optionC" class="correct-answer">C. Deploy a new API Gateway API and Lambda functions in another Region. Change the Route 53 DNS record to a failover record. Enable target health monitoring. Convert the DynamoDB tables to global tables. &#x2713;&#x2713;</label>
+      <label for="optionD">D. Deploy a new API Gateway API in a new Region. Change the Lambda functions to global functions. Change the Route 53 DNS record to a multivalue answer. Add both API Gateway APIs to the answer. Enable target health monitoring. Convert the DynamoDB tables to global tables.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A company uses AWS Organizations with a single OU named Production to manage multiple accounts. All accounts are members of the Production OU. Administrators use deny list SCPs in the root of the organization to manage access to restricted services.</h1>
+      <h1 class="question">The company recently acquired a new business unit and invited the new unit’s existing AWS account to the organization. Once onboarded, the administrators of the new business unit discovered that they are not able to update existing AWS Config rules to meet the company’s policies.</h1>
+      <h1 class="question">Which option will allow administrators to make changes and continue to enforce the current policies without introducing additional long-term maintenance?</h1>
+      <label for="optionA">A. Remove the organization’s root SCPs that limit access to AWS Config. Create AWS Service Catalog products for the company’s standard AWS Config rules and deploy them throughout the organization, including the new account.</label>
+      <label for="optionB">B. Create a temporary OU named Onboarding for the new account. Apply an SCP to the Onboarding OU to allow AWS Config actions. Move the new account to the Production OU when adjustments to AWS Config are complete.</label>
+      <label for="optionC">C. Convert the organization’s root SCPs from deny list SCPs to allow list SCPs to allow the required services only. Temporarily apply an SCP to the organization’s root that allows AWS Config actions for principals only in the new account.</label>
+      <label for="optionD" class="correct-answer">D. Create a temporary OU named Onboarding for the new account. Apply an SCP to the Onboarding OU to allow AWS Config actions. Move the organization’s root SCP to the Production OU. Move the new account to the Production OU when adjustments to AWS Config are complete. &#x2713;&#x2713;</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A company is running a two-tier web-based application in an on-premises data center. The application layer consists of a single server running a stateful application. The application connects to a PostgreSQL database running on a separate server. The application’s user base is expected to grow significantly, so the company is migrating the application and database to AWS. The solution will use Amazon Aurora PostgreSQL, Amazon EC2 Auto Scaling, and Elastic Load Balancing.</h1>
+      <h1 class="question">Which solution will provide a consistent user experience that will allow the application and database tiers to scale?</h1>
+      <label for="optionA">A. Enable Aurora Auto Scaling for Aurora Replicas. Use a Network Load Balancer with the least outstanding requests routing algorithm and sticky sessions enabled.</label>
+      <label for="optionB">B. Enable Aurora Auto Scaling for Aurora writers. Use an Application Load Balancer with the round robin routing algorithm and sticky sessions enabled.</label>
+      <label for="optionC" class="correct-answer">C. Enable Aurora Auto Scaling for Aurora Replicas. Use an Application Load Balancer with the round robin routing and sticky sessions enabled. &#x2713;&#x2713;</label>
+      <label for="optionD">D. Enable Aurora Scaling for Aurora writers. Use a Network Load Balancer with the least outstanding requests routing algorithm and sticky sessions enabled</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A company uses a service to collect metadata from applications that the company hosts on premises. Consumer devices such as TVs and internet radios access the applications. Many older devices do not support certain HTTP headers and exhibit errors when these headers are present in responses. The company has configured an on-premises load balancer to remove the unsupported headers from responses sent to older devices, which the company identified by the User-Agent headers.</h1>
+      <h1 class="question">The company wants to migrate the service to AWS, adopt serverless technologies, and retain the ability to support the older devices. The company has already migrated the applications into a set of AWS Lambda functions.</h1>
+      <h1 class="question">Which solution will meet these requirements?</h1>
+      
+      <label for="optionA">A. Create an Amazon CloudFront distribution for the metadata service. Create an Application Load Balancer (ALB). Configure the CloudFront distribution to forward requests to the ALB. Configure the ALB to invoke the correct Lambda function for each type of request. Create a CloudFront function to remove the problematic headers based on the value of the User-Agent header.</label>
+      
+      <label for="optionB">B. Create an Amazon API Gateway REST API for the metadata service. Configure API Gateway to invoke the correct Lambda function for each type of request. Modify the default gateway responses to remove the problematic headers based on the value of the User-Agent header.</label>
+      
+      <label for="optionC">C. Create an Amazon API Gateway HTTP API for the metadata service. Configure API Gateway to invoke the correct Lambda function for each type of request. Create a response mapping template to remove the problematic headers based on the value of the User-Agent. Associate the response data mapping with the HTTP API.</label>
+      
+      <label for="optionD" class="correct-answer">D. Create an Amazon CloudFront distribution for the metadata service. Create an Application Load Balancer (ALB). Configure the CloudFront distribution to forward requests to the ALB. Configure the ALB to invoke the correct Lambda function for each type of request. Create a Lambda@Edge function that will remove the problematic headers in response to viewer requests based on the value of the User-Agent header. &#x2713;&#x2713;</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A retail company needs to provide a series of data files to another company, which is its business partner. These files are saved in an Amazon S3 bucket under Account A, which belongs to the retail company. The business partner company wants one of its IAM users, User_DataProcessor, to access the files from its own AWS account (Account B).</h1>
+      <h1 class="question">Which combination of steps must the companies take so that User_DataProcessor can access the S3 bucket successfully? (Choose two.)</h1>
+    
+      <label for="optionA">A. Turn on the cross-origin resource sharing (CORS) feature for the S3 bucket in Account A.</label>
+    
+      <label for="optionB">B. In Account A, set the S3 bucket policy to the following:
+        <pre>
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "AWS": "arn:aws:iam::AccountB-ID:root"
+          },
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::bucket-name/*"
+        }
+      ]
+    }
+        </pre>
+      </label>
+    
+      <label for="optionC" class="correct-answer">C. In Account A, set the S3 bucket policy to the following:
+        <pre>
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "AWS": "arn:aws:iam::AccountB-ID:user/User_DataProcessor"
+          },
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::bucket-name/*"
+        }
+      ]
+    }
+        </pre>
+        &#x2713;&#x2713;
+      </label>
+    
+      <label for="optionD">D. In Account B, set the permissions of User_DataProcessor to the following:
+        <pre>
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::bucket-name/*"
+        }
+      ]
+    }
+        </pre>
+      </label>
+    
+      <label for="optionE" class="correct-answer">E. In Account B, set the permissions of User_DataProcessor to the following:
+        <pre>
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::AccountA-ID:bucket-name/*"
+        }
+      ]
+    }
+        </pre>
+        &#x2713;&#x2713;
+      </label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A company is running a traditional web application on Amazon EC2 instances. The company needs to refactor the application as microservices that run on containers. Separate versions of the application exist in two distinct environments: production and testing. Load for the application is variable, but the minimum load and the maximum load are known. A solutions architect needs to design the updated application with a serverless architecture that minimizes operational complexity.</h1>
+      <h1 class="question">Which solution will meet these requirements MOST cost-effectively?</h1>
+    
+      <label for="optionA">A. Upload the container images to AWS Lambda as functions. Configure a concurrency limit for the associated Lambda functions to handle the expected peak load. Configure two separate Lambda integrations within Amazon API Gateway: one for production and one for testing.</label>
+    
+      <label for="optionB" class="correct-answer">B. Upload the container images to Amazon Elastic Container Registry (Amazon ECR). Configure two auto scaled Amazon Elastic Container Service (Amazon ECS) clusters with the Fargate launch type to handle the expected load. Deploy tasks from the ECR images. Configure two separate Application Load Balancers to direct traffic to the ECS clusters. &#x2713;&#x2713;</label>
+    
+      <label for="optionC">C. Upload the container images to Amazon Elastic Container Registry (Amazon ECR). Configure two auto scaled Amazon Kubernetes Service (Amazon EKS) clusters with the Fargate launch type to handle the expected load. Deploy tasks from the ECR images. Configure two separate Application Load Balancers to direct traffic to the EKS clusters.</label>
+    
+      <label for="optionD">D. Upload the container images to AWS Elastic Beanstalk. In Elastic Beanstalk, create separate environments and deployments for production and testing. Configure two separate Application Load Balancers to direct traffic to the Elastic Beanstalk deployments.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A company has a multi-tier web application that runs on a fleet of Amazon EC2 instances behind an Application Load Balancer (ALB). The instances are in an Auto Scaling group. The ALB and the Auto Scaling group are replicated in a backup AWS Region. The minimum value and the maximum value for the Auto Scaling group are set to zero. An Amazon RDS Multi-AZ DB instance stores the application’s data. The DB instance has a read replica in the backup Region. The application presents an endpoint to end users by using an Amazon Route 53 record.</h1>
+      <h1 class="question">The company needs to reduce its RTO to less than 15 minutes by giving the application the ability to automatically fail over to the backup Region. The company does not have a large enough budget for an active-active strategy.</h1>
+      <h1 class="question">What should a solutions architect recommend to meet these requirements?</h1>
+    
+      <label for="optionA">A. Reconfigure the application’s Route 53 record with a latency-based routing policy that load balances traffic between the two ALBs. Create an AWS Lambda function in the backup Region to promote the read replica and modify the Auto Scaling group values. Create an Amazon CloudWatch alarm that is based on the HTTPCode_Target_5XX_Count metric for the ALB in the primary Region. Configure the CloudWatch alarm to invoke the Lambda function.</label>
+    
+      <label for="optionB" class="correct-answer">B. Create an AWS Lambda function in the backup Region to promote the read replica and modify the Auto Scaling group values. Configure Route 53 with a health check that monitors the web application and sends an Amazon Simple Notification Service (Amazon SNS) notification to the Lambda function when the health check status is unhealthy. Update the application’s Route 53 record with a failover policy that routes traffic to the ALB in the backup Region when a health check failure occurs. &#x2713;&#x2713;</label>
+    
+      <label for="optionC">C. Configure the Auto Scaling group in the backup Region to have the same values as the Auto Scaling group in the primary Region. Reconfigure the application’s Route 53 record with a latency-based routing policy that load balances traffic between the two ALBs. Remove the read replica. Replace the read replica with a standalone RDS DB instance. Configure Cross-Region Replication between the RDS DB instances by using snapshots and Amazon S3.</label>
+    
+      <label for="optionD">D. Configure an endpoint in AWS Global Accelerator with the two ALBs as equal weighted targets. Create an AWS Lambda function in the backup Region to promote the read replica and modify the Auto Scaling group values. Create an Amazon CloudWatch alarm that is based on the HTTPCode_Target_5XX_Count metric for the ALB in the primary Region. Configure the CloudWatch alarm to invoke the Lambda function.</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A company is hosting a critical application on a single Amazon EC2 instance. The application uses an Amazon ElastiCache for Redis single-node cluster for an in-memory data store. The application uses an Amazon RDS for MariaDB DB instance for a relational database. For the application to function, each piece of the infrastructure must be healthy and must be in an active state.</h1>
+      <h1 class="question">A solutions architect needs to improve the application's architecture so that the infrastructure can automatically recover from failure with the least possible downtime.</h1>
+      <h1 class="question">Which combination of steps will meet these requirements? (Choose three.)</h1>
+      <label for="optionA" class="correct-answer">A. Use an Elastic Load Balancer to distribute traffic across multiple EC2 instances. Ensure that the EC2 instances are part of an Auto Scaling group that has a minimum capacity of two instances. &#x2713;&#x2713;</label>
+      <label for="optionB">B. Use an Elastic Load Balancer to distribute traffic across multiple EC2 instances. Ensure that the EC2 instances are configured in unlimited mode.</label>
+      <label for="optionC">C. Modify the DB instance to create a read replica in the same Availability Zone. Promote the read replica to be the primary DB instance in failure scenarios.</label>
+      <label for="optionD" class="correct-answer">D. Modify the DB instance to create a Multi-AZ deployment that extends across two Availability Zones. &#x2713;&#x2713;</label>
+      <label for="optionE">E. Create a replication group for the ElastiCache for Redis cluster. Configure the cluster to use an Auto Scaling group that has a minimum capacity of two instances.</label>
+      <label for="optionF" class="correct-answer">F. Create a replication group for the ElastiCache for Redis cluster. Enable Multi-AZ on the cluster. &#x2713;&#x2713;</label>
+    </form>
+    <form class="question-form">
+      <h1 class="question">A retail company is operating its ecommerce application on AWS. The application runs on Amazon EC2 instances behind an Application Load Balancer (ALB). The company uses an Amazon RDS DB instance as the database backend. Amazon CloudFront is configured with one origin that points to the ALB. Static content is cached. Amazon Route 53 is used to host all public zones.</h1>
+      <h1 class="question">After an update of the application, the ALB occasionally returns a 502 status code (Bad Gateway) error. The root cause is malformed HTTP headers that are returned to the ALB. The webpage returns successfully when a solutions architect reloads the webpage immediately after the error occurs.</h1>
+      <h1 class="question">While the company is working on the problem, the solutions architect needs to provide a custom error page instead of the standard ALB error page to visitors.</h1>
+      <h1 class="question">Which combination of steps will meet this requirement with the LEAST amount of operational overhead? (Choose two.)</h1>
+    
+      <label for="optionA" class="correct-answer">A. Create an Amazon S3 bucket. Configure the S3 bucket to host a static webpage. Upload the custom error pages to Amazon S3. &#x2713;&#x2713;</label>
+    
+      <label for="optionB">B. Create an Amazon CloudWatch alarm to invoke an AWS Lambda function if the ALB health check response Target.FailedHealthChecks is greater than 0. Configure the Lambda function to modify the forwarding rule at the ALB to point to a publicly accessible web server.</label>
+    
+      <label for="optionC">C. Modify the existing Amazon Route 53 records by adding health checks. Configure a fallback target if the health check fails. Modify DNS records to point to a publicly accessible webpage.</label>
+    
+      <label for="optionD">D. Create an Amazon CloudWatch alarm to invoke an AWS Lambda function if the ALB health check response Elb.InternalError is greater than 0. Configure the Lambda function to modify the forwarding rule at the ALB to point to a public accessible web server.</label>
+    
+      <label for="optionE" class="correct-answer">E. Add a custom error response by configuring a CloudFront custom error page. Modify DNS records to point to a publicly accessible web page. &#x2713;&#x2713;</label>
+    </form>
+   
+
+
+
+
+
+
+  </div>
+  <button class="scroll-top" id="scrollTop">↑</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Remove duplicate questions
+      const seenQuestions = new Map(); // Using Map to store both text and element
+      const questionBlocks = document.querySelectorAll(".question-block");
+      const contentDiv = document.getElementById('content');
+
+      // First pass: identify duplicates
+      questionBlocks.forEach(block => {
+        const questionElement = block.querySelector(".question");
+        const questionText = questionElement.textContent.trim();
+
+        if (seenQuestions.has(questionText)) {
+          // If we've seen this question before, remove the entire block
+          block.remove();
+        } else {
+          // Store the first occurrence of this question
+          seenQuestions.set(questionText, block);
+        }
+      });
+
+      // Initialize scroll to top button
+      const scrollTopBtn = document.getElementById('scrollTop');
+
+      window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.style.display = 'block';
+        } else {
+          scrollTopBtn.style.display = 'none';
+        }
+      });
+
+      scrollTopBtn.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Search functionality
+      const searchInput = document.getElementById('search');
+      const clearSearchBtn = document.getElementById('clear-search');
+      const remainingQuestionBlocks = document.querySelectorAll(".question-block"); // Get updated list after deduplication
+
+      searchInput.addEventListener('input', function () {
+        const query = searchInput.value.toLowerCase();
+        remainingQuestionBlocks.forEach(block => {
+          const question = block.querySelector('.question');
+          if (question.textContent.toLowerCase().includes(query)) {
+            block.classList.remove('hidden');
+          } else {
+            block.classList.add('hidden');
+          }
+        });
+      });
+
+      // Clear search functionality
+      clearSearchBtn.addEventListener('click', function () {
+        searchInput.value = '';
+        remainingQuestionBlocks.forEach(block => {
+          block.classList.remove('hidden');
+        });
+        searchInput.focus();
+      });
+    });
+  </script>
+</body>
+
+</html>
