@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <title>Search in Questions</title>
@@ -1304,7 +1304,360 @@
         D. Use AWS OpsWorks to deploy API Gateway in the service layer and Lambda functions in a custom layer. When code needs to be changed, use OpsWorks to perform a blue/green deployment and shift traffic gradually.
       </label><br>
     </form>
-    
+    <form class="question-form">
+  <h1 class="question">
+    A company needs to architect a hybrid DNS solution. This solution will use an Amazon Route 53 private hosted zone for the domain <code>cloud.example.com</code> for the resources stored within VPCs.
+  </h1>
+  <h1 class="question">
+    The company has the following DNS resolution requirements:
+    <ul>
+      <li>On-premises systems should be able to resolve and connect to <code>cloud.example.com</code>.</li>
+      <li>All VPCs should be able to resolve <code>cloud.example.com</code>.</li>
+      <li>There is already an AWS Direct Connect connection between the on-premises corporate network and AWS Transit Gateway.</li>
+    </ul>
+  </h1>
+  <h1 class="question">
+    Which architecture should the company use to meet these requirements with the <strong>HIGHEST performance</strong>?
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. Associate the private hosted zone to all the VPCs. Create a Route 53 inbound resolver in the shared services VPC. Attach all VPCs to the transit gateway and create forwarding rules in the on-premises DNS server for <code>cloud.example.com</code> that point to the inbound resolver. &#x2713;
+  </label><br>
+
+  <label for="optionB">
+    B. Associate the private hosted zone to all the VPCs. Deploy an Amazon EC2 conditional forwarder in the shared services VPC. Attach all VPCs to the transit gateway and create forwarding rules in the on-premises DNS server for <code>cloud.example.com</code> that point to the conditional forwarder.
+  </label><br>
+
+  <label for="optionC">
+    C. Associate the private hosted zone to the shared services VPC. Create a Route 53 outbound resolver in the shared services VPC. Attach all VPCs to the transit gateway and create forwarding rules in the on-premises DNS server for <code>cloud.example.com</code> that point to the outbound resolver.
+  </label><br>
+
+  <label for="optionD">
+    D. Associate the private hosted zone to the shared services VPC. Create a Route 53 inbound resolver in the shared services VPC. Attach the shared services VPC to the transit gateway and create forwarding rules in the on-premises DNS server for <code>cloud.example.com</code> that point to the inbound resolver.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is providing weather data over a REST-based API to several customers. The API is hosted by Amazon API Gateway and is integrated with different AWS Lambda functions for each API operation.
+  </h1>
+  <h1 class="question">
+    The company uses Amazon Route 53 for DNS and has created a resource record of <code>weather.example.com</code>. The company stores data for the API in Amazon DynamoDB tables.
+  </h1>
+  <h1 class="question">
+    The company needs a solution that will give the API the ability to fail over to a different AWS Region.
+  </h1>
+  <h1 class="question">
+    Which solution will meet these requirements?
+  </h1>
+
+  <label for="optionA">
+    A. Deploy a new set of Lambda functions in a new Region. Update the API Gateway API to use an edge-optimized API endpoint with Lambda functions from both Regions as targets. Convert the DynamoDB tables to global tables.
+  </label><br>
+
+  <label for="optionB">
+    B. Deploy a new API Gateway API and Lambda functions in another Region. Change the Route 53 DNS record to a multivalue answer. Add both API Gateway APIs to the answer. Enable target health monitoring. Convert the DynamoDB tables to global tables.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Deploy a new API Gateway API and Lambda functions in another Region. Change the Route 53 DNS record to a failover record. Enable target health monitoring. Convert the DynamoDB tables to global tables. &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Deploy a new API Gateway API in a new Region. Change the Lambda functions to global functions. Change the Route 53 DNS record to a multivalue answer. Add both API Gateway APIs to the answer. Enable target health monitoring. Convert the DynamoDB tables to global tables.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company uses AWS Organizations with a single OU named <strong>Production</strong> to manage multiple accounts. All accounts are members of the Production OU. Administrators use deny list SCPs in the root of the organization to manage access to restricted services.
+  </h1>
+  <h1 class="question">
+    The company recently acquired a new business unit and invited the new unit’s existing AWS account to the organization. Once onboarded, the administrators of the new business unit discovered that they are not able to update existing AWS Config rules to meet the company’s policies.
+  </h1>
+  <h1 class="question">
+    Which option will allow administrators to make changes and continue to enforce the current policies without introducing additional long-term maintenance?
+  </h1>
+
+  <label for="optionA">
+    A. Remove the organization’s root SCPs that limit access to AWS Config. Create AWS Service Catalog products for the company’s standard AWS Config rules and deploy them throughout the organization, including the new account.
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Create a temporary OU named Onboarding for the new account. Apply an SCP to the Onboarding OU to allow AWS Config actions. Move the organization’s root SCP to the Production OU. Move the new account to the Production OU when adjustments to AWS Config are complete.;
+  </label><br>
+
+  <label for="optionC">
+    C. Convert the organization’s root SCPs from deny list SCPs to allow list SCPs to allow the required services only. Temporarily apply an SCP to the organization’s root that allows AWS Config actions for principals only in the new account.
+  </label><br>
+
+  <label for="optionD">
+    D. Create oot SCPs from deny list SCPs to allow list SCPs to allow the required services only. Temporarily apply an SCP to the organization’s root that allows AWS Config actions for principals only in the new ac complete.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is running a two-tier web-based application in an on-premises data center. The application layer consists of a single server running a stateful application. The application connects to a PostgreSQL database running on a separate server.
+  </h1>
+  <h1 class="question">
+    The application’s user base is expected to grow significantly, so the company is migrating the application and database to AWS. The solution will use Amazon Aurora PostgreSQL, Amazon EC2 Auto Scaling, and Elastic Load Balancing.
+  </h1>
+  <h1 class="question">
+    Which solution will provide a consistent user experience that will allow the application and database tiers to scale?
+  </h1>
+
+  <label for="optionA">
+    A. Enable Aurora Auto Scaling for Aurora Replicas. Use a Network Load Balancer with the least outstanding requests routing algorithm and sticky sessions enabled.
+  </label><br>
+
+  <label for="optionB">
+    B. Enable Aurora Auto Scaling for Aurora writers. Use an Application Load Balancer with the round robin routing algorithm and sticky sessions enabled.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Enable Aurora Auto Scaling for Aurora Replicas. Use an Application Load Balancer with the round robin routing and sticky sessions enabled. &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Enable Aurora Scaling for Aurora writers. Use a Network Load Balancer with the least outstanding requests routing algorithm and sticky sessions enabled.
+  </label><br>
+</form>
+
+
+<form class="question-form">
+  <h1 class="question">
+    A company uses a service to collect metadata from applications that the company hosts on premises. Consumer devices such as TVs and internet radios access the applications. Many older devices do not support certain HTTP headers and exhibit errors when these headers are present in responses.
+  </h1>
+  <h1 class="question">
+    The company has configured an on-premises load balancer to remove the unsupported headers from responses sent to older devices, which the company identified by the <code>User-Agent</code> headers.
+  </h1>
+  <h1 class="question">
+    The company wants to migrate the service to AWS, adopt serverless technologies, and retain the ability to support the older devices. The company has already migrated the applications into a set of AWS Lambda functions.
+  </h1>
+  <h1 class="question">
+    Which solution will meet these requirements?
+  </h1>
+
+  <label for="optionA">
+    A. ateway HTTP API for the metadata service. Configure API Gateway to invoke the correct Lambda function for each type of request. Create a response mapping template to remove the problr.
+  </label><br>
+
+  <label for="optionB">
+    B. Create an Amazon API Gateway REST API for the metadata service. Configure API Gateway to invoke the correct Lambda function for each type of request. Modify the default gateway responses to remove the problematic headers based on the value of the <code>User-Agent</code> header.
+  </label><br>
+
+  <label for="optionC">
+    C. Create an Amazon API Gateway HTTP API for the metadata service. Configure API Gateway to invoke the correct Lambda function for each type of request. Create a response mapping template to remove the problematic headers based on the value of the <code>User-Agent</code>. Associate the response data mapping with the HTTP API.
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Create an Amazon CloudFront distribution for the metadata service. Create an Application Load Balancer (ALB). Configure the CloudFront distribution to forward requests to the ALB. Configure the ALB to invoke the correct Lambda function for each type of request. Create a CloudFront function to remove the problematic headers based on the value of the <code>User-Agent</code> header.;
+  </label><br>
+</form>
+
+<form class="question-form">
+  <h1 class="question">
+    A retail company needs to provide a series of data files to another company, which is its business partner. These files are saved in an Amazon S3 bucket under Account A, which belongs to the retail company.
+  </h1>
+  <h1 class="question">
+    The business partner company wants one of its IAM users, <code>User_DataProcessor</code>, to access the files from its own AWS account (Account B).
+  </h1>
+  <h1 class="question">
+    Which combination of steps must the companies take so that <code>User_DataProcessor</code> can access the S3 bucket successfully? <strong>(Choose two.)</strong>
+  </h1>
+
+  <label for="optionA">
+    A. Turn on the cross-origin resource sharing (CORS) feature for the S3 bucket in Account A.
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. In Account A, set the S3 bucket policy to the following:<br>
+    <pre>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::AccountB-ID:user/User_DataProcessor"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::bucket-name/*"
+    }
+  ]
+}</pre> &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. In Account A, set the S3 bucket policy to the following:<br>
+    <pre>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": "*"
+    }
+  ]
+}</pre>
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. In Account B, set the permissions of <code>User_DataProcessor</code> to the following:<br>
+    <pre>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::bucket-name/*"
+    }
+  ]
+}</pre> &#x2713;
+  </label><br>
+
+  <label for="optionE">
+    E. In Account B, set the permissions of <code>User_DataProcessor</code> to the following:<br>
+    <pre>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "s3:*",
+      "Resource": "*"
+    }
+  ]
+}</pre>
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is running a traditional web application on Amazon EC2 instances. The company needs to refactor the application as microservices that run on containers. Separate versions of the application exist in two distinct environments: <strong>production</strong> and <strong>testing</strong>.
+  </h1>
+  <h1 class="question">
+    Load for the application is variable, but the minimum load and the maximum load are known. A solutions architect needs to design the updated application with a <strong>serverless architecture</strong> that <strong>minimizes operational complexity</strong>.
+  </h1>
+  <h1 class="question">
+    Which solution will meet these requirements <strong>MOST cost-effectively</strong>?
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A.  Upload the container images to Amazon Elastic Container Registry (Amazon ECR). Configure two auto scaled Amazon Elastic Container Service (Amazon ECS) clusters with the Fargate launch type to handle the expected load. Deploy tasks from the ECR images. Configure two separate Application Load Balancers to direct traffic to the ECS clusters.
+  </label><br>
+
+  <label for="optionB">
+    B. Amazon Elastic Container Registry (Amazon ECR). Configure two auto scaled Amazon Elastic Kubernetes Service (Amazon EKS) clusters with the Fargate launch type to handle
+  </label><br>
+
+  <label for="optionC">
+    C. Upload the container images to Amazon Elastic Container Registry (Amazon ECR). Configure two auto scaled Amazon Elastic Kubernetes Service (Amazon EKS) clusters with the Fargate launch type to handle the expected load. Deploy tasks from the ECR images. Configure two separate Application Load Balancers to direct traffic to the EKS clusters.
+  </label><br>
+
+  <label for="optionD">
+    D. Upload the container images to AWS Elastic Beanstalk. In Elastic Beanstalk, create separate environments and deployments for production and testing. Configure two separate Application Load Balancers to direct traffic to the Elastic Beanstalk deployments.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has a multi-tier web application that runs on a fleet of Amazon EC2 instances behind an Application Load Balancer (ALB). The instances are in an Auto Scaling group. The ALB and the Auto Scaling group are replicated in a backup AWS Region. The minimum and maximum values for the Auto Scaling group in the backup Region are set to zero.
+  </h1>
+  <h1 class="question">
+    An Amazon RDS Multi-AZ DB instance stores the application's data. The DB instance has a read replica in the backup Region. The application presents an endpoint to end users by using an Amazon Route 53 record.
+  </h1>
+  <h1 class="question">
+    The company needs to reduce its <strong>RTO to less than 15 minutes</strong> by giving the application the ability to <strong>automatically fail over</strong> to the backup Region. The company does <strong>not</strong> have the budget for an active-active strategy.
+  </h1>
+  <h1 class="question">
+    What should a solutions architect recommend to meet these requirements?
+  </h1>
+
+  <label for="optionA">
+    A. Reconfigure the application’s Route 53 record with a latency-based routing policy that load balances traffic between the two ALBs. Create an AWS Lambda function in the backup Region to promote the read replica and modify the Auto Scaling group values. Create an Amazon CloudWatch alarm that is based on the HTTPCode_Target_5XX_Count metric for the ALB in the primary Region. Configure the CloudWatch alarm to invoke the Lambda function.
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Create an AWS Lambda function in the backup Region to promote the read replica and modify the Auto Scaling group values. Configure Route 53 with a health check that monitors the web application and sends an Amazon Simple Notification Service (Amazon SNS) notification to the Lambda function when the health check status is unhealthy. Update the application’s Route 53 record with a failover policy that routes traffic to the ALB in the backup Region when a health check failure occurs. &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. Configure the Auto Scaling group in the backup Region to have the same values as the Auto Scaling group in the primary Region. Reconfigure the application’s Route 53 record with a latency-based routing policy that load balances traffic between the two ALBs. Remove the read replica. Replace the read replica with a standalone RDS DB instance. Configure Cross-Region Replication between the RDS DB instances by using snapshots and Amazon S3.
+  </label><br>
+
+  <label for="optionD">
+    D. Configure an endpoint in AWS Global Accelerator with the two ALBs as equal weighted targets. Create an AWS Lambda function in the backup Region to promote the read replica and modify the Auto Scaling group values. Create an Amazon CloudWatch alarm that is based on the HTTPCode_Target_5XX_Count metric for the ALB in the primary Region. Configure the CloudWatch alarm to invoke the Lambda function.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is hosting a critical application on a single Amazon EC2 instance. The application uses an Amazon ElastiCache for Redis single-node cluster for an in-memory data store. The application uses an Amazon RDS for MariaDB DB instance for a relational database. For the application to function, each piece of the infrastructure must be healthy and in an active state.
+  </h1>
+  <h1 class="question">
+    A solutions architect needs to improve the application's architecture so that the infrastructure can automatically recover from failure with the least possible downtime.
+  </h1>
+  <h1 class="question">
+    Which combination of steps will meet these requirements? (Choose <strong>three</strong>.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. Use an Elastic Load Balancer to distribute traffic across multiple EC2 instances. Ensure that the EC2 instances are part of an Auto Scaling group that has a minimum capacity of two instances. &#x2713;
+  </label><br>
+
+  <label for="optionB">
+    B. Use an Elastic Load Balancer to distribute traffic across multiple EC2 instances. Ensure that the EC2 instances are configured in unlimited mode.
+  </label><br>
+
+  <label for="optionC">
+    C. Modify the DB instance to create a read replica in the same Availability Zone. Promote the read replica to be the primary DB instance in failure scenarios.
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Modify the DB instance to create a Multi-AZ deployment that extends across two Availability Zones. &#x2713;
+  </label><br>
+
+  <label for="optionE">
+    E. Create a replication group for the ElastiCache for Redis cluster. Configure the cluster to use an Auto Scaling group that has a minimum capacity of two instances.
+  </label><br>
+
+  <label for="optionF" class="correct-answer">
+    F. Create a replication group for the ElastiCache for Redis cluster. Enable Multi-AZ on the cluster. &#x2713;
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A retail company is operating its ecommerce application on AWS. The application runs on Amazon EC2 instances behind an Application Load Balancer (ALB). The company uses an Amazon RDS DB instance as the database backend. Amazon CloudFront is configured with one origin that points to the ALB. Static content is cached. Amazon Route 53 is used to host all public zones.
+  </h1>
+  <h1 class="question">
+    After an update of the application, the ALB occasionally returns a 502 status code (Bad Gateway) error. The root cause is malformed HTTP headers that are returned to the ALB. The webpage returns successfully when a solutions architect reloads the webpage immediately after the error occurs.
+  </h1>
+  <h1 class="question">
+    While the company is working on the problem, the solutions architect needs to provide a custom error page instead of the standard ALB error page to visitors.
+  </h1>
+  <h1 class="question">
+    Which combination of steps will meet this requirement with the <strong>LEAST amount of operational overhead</strong>? (Choose <strong>two</strong>.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. Create an Amazon S3 bucket. Configure the S3 bucket to host a static webpage. Upload the custom error pages to Amazon S3. &#x2713;
+  </label><br>
+
+  <label for="optionB">
+    B. Create an Amazon CloudWatch alarm to invoke an AWS Lambda function if the ALB health check response Target.FailedHealthChecks is greater than 0. Configure the Lambda function to modify the forwarding rule at the ALB to point to a publicly accessible web server.
+  </label><br>
+
+  <label for="optionC">
+    C. Modify the existing Amazon Route 53 records by adding health checks. Configure a fallback target if the health check fails. Modify DNS records to point to a publicly accessible webpage.
+  </label><br>
+
+  <label for="optionD">
+    D. Create an Amazon CloudWatch alarm to invoke an AWS Lambda function if the ALB health check response Elb.InternalError is greater than 0. Configure the Lambda function to modify the forwarding rule at the ALB to point to a public accessible web server.
+  </label><br>
+
+  <label for="optionE" class="correct-answer">
+    E. Add a custom error response by configuring a CloudFront custom error page. Modify DNS records to point to a publicly accessible web page. &#x2713;
+  </label><br>
+</form>
+
+
+
+
     
     
 
