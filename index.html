@@ -15,7 +15,6 @@
       background: #fff;
       padding: 20px;
       border-radius: 10px;
-      /* max-width: 1400px; */
       width: 100%;
       margin: 0 auto;
     }
@@ -60,7 +59,7 @@
       background: #ccc;
     }
 
-    .question-block {
+    .question-block, .question-form {
       margin-bottom: 20px;
       padding: 15px;
       border: 1px solid #eee;
@@ -82,12 +81,15 @@
       margin: 10px;
     }
 
-    .hidden {
-      display: none;
-    }
-
     .question-form {
       margin-top: 10px;
+    }
+    
+    /* Remove redundant styling from form if it's inside a question-block */
+    .question-block .question-form {
+        margin-top: 10px;
+        padding: 0;
+        border: none;
     }
 
     .question-form label {
@@ -125,8 +127,6 @@
     .scroll-top:hover {
       background: #555;
     }
-
-    /* CSS */
   </style>
 </head>
 
@@ -138,127 +138,723 @@
         <button class="search-button" id="clear-search">X</button>
       </div>
     </div>
-    <div class="question-block">
-      <h1 class="question">
-        A company wants to migrate its content sharing web application hosted on Amazon EC2 to a serverless
-        architecture. The company currently deploys changes to its application by creating a new Auto Scaling group of
-        EC2 instances and a new Elastic Load Balancer, and then shifting the traffic away using an Amazon Route 53
-        weighted routing policy.
-        For its new serverless application, the company is planning to use Amazon API Gateway and AWS Lambda. The
-        company will need to update its deployment processes to work with the new application. It will also need to
-        retain the ability to test new features on a small number of users before rolling the features out to the entire
-        user base.
-        Which deployment strategy will meet these requirements?
-      </h1>
-      <form class="question-form">
-        <label for="optionA">A. Use AWS CDK to deploy API Gateway and Lambda functions. When code needs to be changed,
-          update the AWS CloudFormation stack and deploy the new version of the APIs and Lambda functions. Use a Route
-          53 failover routing policy for the canary release strategy.</label>
-        <label for="optionB" class="correct-answer">B. Use AWS CloudFormation to deploy API Gateway and Lambda functions
-          using Lambda function versions. When code needs to be changed, update the CloudFormation stack with the new
-          Lambda code and update the API versions using a canary release strategy. Promote the new version when testing
-          is complete. ✓✓</label>
-        <label for="optionC">C. Use AWS Elastic Beanstalk to deploy API Gateway and Lambda functions. When code needs to
-          be changed, deploy a new version of the API and Lambda functions. Shift traffic gradually using an Elastic
-          Beanstalk blue/green deployment.</label>
-        <label for="optionD">D. Use AWS OpsWorks to deploy API Gateway in the service layer and Lambda functions in a
-          custom layer. When code needs to be changed, use OpsWorks to perform a blue/green deployment and shift traffic
-          gradually.</label>
-      </form>
-    </div>
-    <div class="question-block">
-      <h1 class="question">
-        A company's application is currently deployed to a single AWS Region. Recently, the company opened a new office
-        on a different continent. The users in the new office are experiencing high latency. The company's application
-        runs on Amazon EC2 instances behind an Application Load Balancer (ALB) and uses Amazon
-        DynamoDB as the database layer. The instances run in an EC2 Auto Scaling group across multiple Availability
-        Zones. A DevOps Engineer is tasked with minimizing application response times and improving availability for
-        users in both Regions.
-        Which combination of actions should be taken to address the latency issues? (Choose three.)
-      </h1>
-      <form class="question-form">
-        <label for="optionA">A. Create a new DynamoDB table in the new Region with cross-Region replication
-          enabled.</label>
-        <label for="optionB">B. Create new ALB and Auto Scaling group global resources and configure the new ALB to
-          direct traffic to the new Auto Scaling group.</label>
-        <label for="optionC" class="correct-answer">C. Create new ALB and Auto Scaling group resources in the new Region
-          and configure the new ALB to direct traffic to the new Auto Scaling group. ✓✓</label>
-        <label for="optionD" class="correct-answer">D. Create Amazon Route 53 records, health checks, and latency-based
-          routing policies to route to the ALB. ✓✓</label>
-        <label for="optionE">E. Create Amazon Route 53 aliases, health checks, and failover routing policies to route to
-          the ALB.</label>
-        <label for="optionF" class="correct-answer">F. Convert the DynamoDB table to a global table. ✓✓</label>
-      </form>
-    </div>
-    <div class="question-block">
-      <h1 class="question">
-        A DevOps engineer used an AWS CloudFormation custom resource to set up AD Connector. The AWS Lambda function
-        executed and created AD Connector, but
-        CloudFormation is not transitioning from CREATE_IN_PROGRESS to CREATE_COMPLETE.
-        Which action should the engineer take to resolve this issue?
-      </h1>
-      <form class="question-form">
-        <label for="optionA">A. Ensure the Lambda function code has exited successfully.</label>
-        <label for="optionB" class="correct-answer">B. Ensure the Lambda function code returns a response to the
-          pre-signed URL. ✓✓</label>
-        <label for="optionC">C. Ensure the Lambda function IAM role has cloudformation:UpdateStack permissions for the
-          stack ARN.</label>
-        <label for="optionD">D. Ensure the Lambda function IAM role has ds:ConnectDirectory permissions for the AWS
-          account.</label>
-      </form>
-    </div>
-    <div class="question-block">
-      <h1 class="question">
-        A company plans to stop using Amazon EC2 key pairs for SSH access, and instead plans to use AWS Systems Manager
-        Session Manager. To further enhance security, access to Session Manager must take place over a private network
-        only.
-        Which combinations of actions will accomplish this? (Choose two.)
-      </h1>
-      <form class="question-form">
-        <label for="optionA">A. Allow inbound access to TCP port 22 in all associated EC2 security groups from the VPC
-          CIDR range.</label>
-        <label for="optionB" class="correct-answer">B. Attach an IAM policy with the necessary Systems Manager
-          permissions to the existing IAM instance profile. ✓✓</label>
-        <label for="optionC" class="correct-answer">C. Create a VPC endpoint for Systems Manager in the desired Region.
-          ✓✓</label>
-        <label for="optionD">D. Deploy a new EC2 instance that will act as a bastion host to the rest of the EC2
-          instance fleet.</label>
-        <label for="optionE">E. Remove any default routes in the associated route tables.</label>
-      </form>
-    </div>
-    <div class="question-block">
-      <h1 class="question">
-        A company runs an application with an Amazon EC2 and on-premises configuration. A DevOps Engineer needs to
-        standardize patching across both environments. Company policy dictates that patching only happens during
-        non-business hours.
-        Which combination of actions will meet these requirements? (Choose three.)
-      </h1>
-      <form class="question-form">
-        <label for="optionA" class="correct-answer">A. Add the physical machines into AWS Systems Manager using Systems
-          Manager Hybrid Activations. ✓✓</label>
-        <label for="optionB" class="correct-answer">B. Attach an IAM role to the EC2 instances, allowing them to be
-          managed by AWS Systems Manager. ✓✓</label>
-        <label for="optionC">C. Create IAM access keys for the on-premises machines to interact with AWS Systems
-          Manager.</label>
-        <label for="optionD">D. Execute an AWS Systems Manager Automation document to patch the systems every
-          hour.</label>
-        <label for="optionE">E. Use Amazon CloudWatch Events scheduled events to schedule a patch window.</label>
-        <label for="optionF" class="correct-answer">F. Use AWS Systems Manager Maintenance Windows to schedule a patch
-          window. ✓✓</label>
-      </form>
-    </div>
-    <div class="question-block">
-      <h1 class="question">
-        Which one of the following components should not influence an organization’s security policy?
-      </h1>
-      <form class="question-form">
-        <label for="optionA">A. Business objectives</label>
-        <label for="optionB">B. Regulatory requirements</label>
-        <label for="optionC">C. Risk</label>
-        <label for="optionD">D. Cost–benefit analysis</label>
-        <label for="optionE" class="correct-answer">E. Current firewall limitations &#x2713;&#x2713;</label>
-      </form>
-    </div>
+<form class="question-form">
+  <h1 class="question">
+    Someone is creating a VPC for their application hosting. He has created two private subnets in the same availability zone and created one subnet in a separate availability zone. He wants to make a High Availability system with an internal Elastic Load Balancer.
+  </h1>
+  <p>Which choice is true regarding internal ELBs in this scenario? (Choose 2 answers)</p>
+
+  <label for="optionA" class="correct-answer">A. Internal ELBs should only be launched within private subnets. ✓✓</label>
+  <label for="optionB">B. Amazon ELB service does not allow subnet selection; instead it will automatically select all the available subnets of the VPC.</label>
+  <label for="optionC" class="correct-answer">C. Internal ELBs can support only one subnet in each availability zone. ✓✓</label>
+  <label for="optionD">D. An internal ELB can support all the subnets irrespective of their zones.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Your customer is willing to consolidate their log streams (access logs, application logs, security logs, etc.) in one single system. Once consolidated, the customer wants to analyze these logs in real time based on heuristics. From time to time, the customer needs to validate heuristics, which requires going back to data samples extracted from the last 12 hours.
+  </h1>
+  <p>What is the best approach to meet your customer's requirements?</p>
+
+  <label for="optionA">A. Configure Amazon CloudTrail to receive custom logs, use EMR to apply heuristics the logs</label>
+  <label for="optionB">B. Send all the log events to Amazon SQS, setup an Auto Scaling group of EC2 servers to consume the logs and apply the heuristics</label>
+  <label for="optionC">C. Setup an Auto Scaling group of EC2 syslogd servers, store the logs on S3, use EMR to apply heuristics on the logs</label>
+  <label for="optionD" class="correct-answer">D. Send all the log events to Amazon Kinesis, develop a client process to apply heuristics on the logs. ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is running a batch analysis every hour on their main transactional DB, running on an RDS MySQL instance, to populate their central Data Warehouse running on Redshift. During the execution of the batch, their transactional applications are very slow. When the batch completes, they need to update the top management dashboard with the new data. The dashboard is produced by another system running on-premises that is currently started when a manually-sent email notifies that an update is required. The on-premises system cannot be modified because it is managed by another team.
+  </h1>
+  <p>How would you optimize this scenario to solve performance issues and automate the process as much as possible?</p>
+
+  <label for="optionA">A. Replace RDS with Redshift for the batch analysis and SNS to notify the on-premises system to update the dashboard</label>
+  <label for="optionB">B. Replace RDS with Redshift for the batch analysis and SQS to send a message to the on-premises system to update the dashboard</label>
+  <label for="optionC" class="correct-answer">C. Create an RDS Read Replica for the batch analysis and SNS to notify the on-premises system to update the dashboard. ✓✓</label>
+  <label for="optionD">D. Create an RDS Read Replica for the batch analysis and SQS to send a message to the on-premises system to update the dashboard.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A bucket owner has allowed another account's IAM users to upload or access objects in his bucket. The IAM user of Account A is trying to access an object created by the IAM user of Account B.
+  </h1>
+  <p>What will happen in this scenario?</p>
+
+  <label for="optionA">A. It is not possible to give permission to multiple IAM users</label>
+  <label for="optionB" class="correct-answer">B. AWS S3 will verify proper rights given by the owner of Account A, the bucket owner as well as by the IAM user B to the object ✓✓</label>
+  <label for="optionC">C. The bucket policy may not be created as S3 will give error due to conflict of Access Rights</label>
+  <label for="optionD">D. It is not possible that the IAM user of one account accesses objects of the other IAM user</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Which of the following IAM policy elements lets you specify an exception to a list of actions?
+  </h1>
+
+  <label for="optionA">A. NotException</label>
+  <label for="optionB">B. ExceptionAction</label>
+  <label for="optionC">C. Exception</label>
+  <label for="optionD" class="correct-answer">D. NotAction ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company wants to replace its call system with a solution built using AWS managed services.
+    The company call center would like the solution to receive calls, create contact flows, and scale to handle growth projections. The call center would also like the solution to use deep learning capabilities to recognize the intent of the callers and handle basic tasks, reducing the need to speak an agent. The solution should also be able to query business applications and provide relevant information back to calls as requested.
+    Which services should the Solution Architect use to build this solution? (Choose three.)
+  </h1>
+
+  <label for="optionA">A. Amazon Rekognition to identify who is calling.</label>
+  <label for="optionB" class="correct-answer">B. Amazon Connect to create a cloud-based contact center. ✓✓</label>
+  <label for="optionC">C. Amazon Alexa for Business to build conversational interface.</label>
+  <label for="optionD" class="correct-answer">D. AWS Lambda to integrate with internal systems. ✓✓</label>
+  <label for="optionE" class="correct-answer">E. Amazon Lex to recognize the intent of the caller. ✓✓</label>
+  <label for="optionF">F. Amazon SQS to add incoming callers to a queue.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You are setting up some EBS volumes for a customer who has requested a setup which includes a RAID (redundant array of inexpensive disks). AWS has some recommendations for RAID setups. Which RAID setup is not recommended for Amazon EBS?
+  </h1>
+
+  <label for="optionA">A. RAID 1 only</label>
+  <label for="optionB">B. RAID 5 only</label>
+  <label for="optionC" class="correct-answer">C. RAID 5 and RAID 6 ✓✓</label>
+  <label for="optionD">D. RAID 0 only</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You have been given the task to define multiple AWS Data Pipeline schedules for different activities in the same pipeline. Which of the following would successfully accomplish this task?
+  </h1>
+
+  <label for="optionA">A. Creating multiple pipeline definition files</label>
+  <label for="optionB">B. Defining multiple pipeline definitions in your schedule objects file and associating the desired schedule to the correct activity via its schedule field</label>
+  <label for="optionC" class="correct-answer">C. Defining multiple schedule objects in your pipeline definition file and associating the desired schedule to the correct activity via its schedule field ✓✓</label>
+  <label for="optionD">D. Defining multiple schedule objects in the schedule field</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A Solutions Architect is designing the storage layer for a recently purchased application. The application will be running on Amazon EC2 instances and has the following layers and requirements:
+  </h1>
+  <p>- Data layer: A POSIX file system shared across many systems.<br>
+     - Service layer: Static file content that requires block storage with more than 100k IOPS.</p>
+
+  <label for="optionA">A. Data layer - Amazon S3</label>
+  <label for="optionB">B. Data layer - Amazon EC2 Ephemeral Storage</label>
+  <label for="optionC" class="correct-answer">C. Data layer - Amazon EFS ✓✓</label>
+  <label for="optionD" class="correct-answer">D. Service layer - Amazon EBS volumes with Provisioned IOPS ✓✓</label>
+  <label for="optionE">E. Service layer - Amazon EC2 Ephemeral Storage</label>
+</form>
+
+
+<form class="question-form">
+  <h1 class="question">
+    If a single condition within an IAM policy includes multiple values for one key, it will be evaluated using a logical ______.
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. OR ✓✓</label>
+  <label for="optionB">B. NAND</label>
+  <label for="optionC">C. NOR</label>
+  <label for="optionD">D. AND</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A large global financial services company has multiple business units. The company wants to allow Developers to try new services, but there are multiple compliance requirements for different workloads. The Security team is concerned about the access strategy for on-premises and AWS implementations. They would like to enforce governance for AWS services used by business team for regulatory workloads, including Payment Card Industry (PCI) requirements.<br><br>
+    Which solution will address the Security team's concerns and allow the Developers to try new services?
+  </h1>
+
+  <label for="optionA">A. Implement a strong identity and access management model that includes users, groups, and roles in various AWS accounts. Ensure that centralized AWS CloudTrail logging is enabled to detect anomalies. Build automation with AWS Lambda to tear down unapproved AWS resources for governance.</label>
+
+  <label for="optionB" class="correct-answer">B. Build a multi-account strategy based on business units, environments, and specific regulatory requirements. Implement SAML-based federation across all AWS accounts with an on-premises identity store. Use AWS Organizations and build organizational units (OUs) structure based on regulations and service governance. Implement service control policies across OUs. ✓✓</label>
+
+  <label for="optionC">C. Implement a multi-account strategy based on business units, environments, and specific regulatory requirements. Ensure that only PCI-compliant services are approved for use in the accounts. Build IAM policies to give access to only PCI-compliant services for governance.</label>
+
+  <label for="optionD">D. Build one AWS account for the company for the strong security controls. Ensure that all the service limits are raised to meet company scalability requirements. Implement SAML federation with an on- premises identity store, and ensure that only approved services are used in the account.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    The Solutions Architect manages a serverless application that consists of multiple API gateways, AWS Lambda functions, Amazon S3 buckets, and Amazon DynamoDB tables. Customers say that a few application components slow while loading dynamic images, and some are timing out with the "504 Gateway Timeout" error. While troubleshooting the scenario, the Solutions Architect confirms that DynamoDB monitoring metrics are at acceptable levels.<br><br>
+    Which of the following steps would be optimal for debugging these application issues? (Choose two.)
+  </h1>
+
+  <label for="optionA">A. Parse HTTP logs in Amazon API Gateway for HTTP errors to determine the root cause of the errors.</label>
+
+  <label for="optionB" class="correct-answer">B. Parse Amazon CloudWatch Logs to determine processing times for requested images at specified intervals. ✓</label>
+
+  <label for="optionC">C. Parse VPC Flow Logs to determine if there is packet loss between the Lambda function and S3.</label>
+
+  <label for="optionD" class="correct-answer">D. Parse AWS X-Ray traces and analyze HTTP methods to determine the root cause of the HTTP errors. ✓</label>
+
+  <label for="optionE">E. Parse S3 access logs to determine if objects being accessed are from specific IP addresses to narrow the scope to geographic latency issues.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Can a user configure a custom health check with Auto Scaling?
+  </h1>
+
+  <label for="optionA">A. Yes, but the configured data will not be saved to Auto Scaling.</label>
+
+  <label for="optionB">B. No, only an ELB health check can be configured with Auto Scaling.</label>
+
+  <label for="optionC" class="correct-answer">C. Yes ✓</label>
+
+  <label for="optionD">D. No</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A Solutions Architect has created an AWS CloudFormation template for a three-tier application that contains an Auto Scaling group of Amazon EC2 instances running a custom AMI.<br><br>
+    The Solutions Architect wants to ensure that future updates to the custom AMI can be deployed to a running stack by first updating the template to refer to the new AMI, and then invoking UpdateStack to replace the EC2 instances with instances launched from the new AMI.<br><br>
+    How can updates to the AMI be deployed to meet these requirements?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Create a change set for a new version of the template, view the changes to the running EC2 instances to ensure that the AMI is correctly updated, and then execute the change set. ✓</label>
+
+  <label for="optionB">B. Edit the AWS::AutoScaling::LaunchConfiguration resource in the template, changing its DeletionPolicy to Replace.</label>
+
+  <label for="optionC">C. Edit the AWS::AutoScaling::LaunchConfiguration resource in the template, inserting an UpdatePolicy attribute.</label>
+
+  <label for="optionD">D. Create a new stack from the updated template. Once it is successfully deployed, modify the DNS records to point to the new stack and delete the old stack.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A web company is looking to implement an intrusion detection and prevention system into their deployed VPC. This platform should have the ability to scale to thousands of instances running inside of the VPC.<br><br>
+    How should they architect their solution to achieve these goals?
+  </h1>
+
+  <label for="optionA">A. Configure servers running in the VPC using the host-based "route" commands to send all traffic through the platform to a scalable virtualized IDS/IPS.</label>
+
+  <label for="optionB">B. Create a second VPC and route all traffic from the primary application VPC through the second VPC where the scalable virtualized IDS/IPS platform resides.</label>
+
+  <label for="optionC">C. Configure an instance with monitoring software and the elastic network interface (ENI) set to promiscuous mode packet sniffing to see all traffic across the VPC.</label>
+
+  <label for="optionD" class="correct-answer">✔ D. Configure each host with an agent that collects all network traffic and sends that traffic to the IDS/IPS platform for inspection.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Out of the striping options available for the EBS volumes, which one has the following disadvantage:<br><br>
+    "Doubles the amount of I/O required from the instance to EBS compared to RAID 0, because you're mirroring all writes to a pair of volumes, limiting how much you can stripe."
+  </h1>
+
+  <label for="optionA" class="correct-answer">✔ A. RAID 1</label>
+
+  <label for="optionB">B. RAID 0</label>
+
+  <label for="optionC">C. RAID 1+0 (RAID 10)</label>
+
+  <label for="optionD">D. RAID 2</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You want to mount an Amazon EFS file system on an Amazon EC2 instance using DNS names.<br><br>
+    Which of the following generic form of a mount target's DNS name must you use to mount the file system?
+  </h1>
+
+  <label for="optionA" class="correct-answer">✔ A. availability-zone.file-system-id.efs.aws-region.amazonaws.com</label>
+
+  <label for="optionB">B. efs-system-id.availability-zone.file-aws-region.amazonaws.com</label>
+
+  <label for="optionC">C. $file-system-id.$availability-zone.$efs.aws-region.$amazonaws.com</label>
+
+  <label for="optionD">D. #aws-region.#availability-zone.#file-system-id.#efs.#amazonaws.com</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    The AWS IT infrastructure that AWS provides, complies with the following IT security standards, including:
+  </h1>
+
+  <label for="optionA" class="correct-answer">✔ A. All of the above</label>
+
+  <label for="optionB">B. FISMA, DIACAP, and FedRAMP</label>
+
+  <label for="optionC">C. HIPAA, Cloud Security Alliance (CSA) and Motion Picture Association of America (MPAA)</label>
+
+  <label for="optionD">D. PCI DSS Level 1, ISO 27001, ITAR and FIPS 140-2</label>
+
+  <label for="optionE">E. SOC 1/SSAE 16/ISAE 3402 (formerly SAS 70 Type II), SOC 2 and SOC 3</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You are designing a social media site and are considering how to mitigate distributed denial-of-service (DDoS) attacks.<br>
+    Which of the below are viable mitigation techniques? <strong>Choose 3 answers</strong>
+  </h1>
+
+  <label for="optionA">A. Add multiple elastic network Interfaces (ENIs) to each EC2 instance to increase the network bandwidth.</label>
+
+  <label for="optionB" class="correct-answer">✔ B. Create processes and capabilities to quickly add and remove rules to the instance OS firewall.</label>
+
+  <label for="optionC">C. Use Dedicated Instances to ensure that each instance has the maximum performance possible.</label>
+
+  <label for="optionD" class="correct-answer">✔ D. Use an Amazon CloudFront distribution for both static and dynamic content.</label>
+
+  <label for="optionE">E. Add alerts to Amazon CloudWatch to look for high Network In and CPU utilization.</label>
+
+  <label for="optionF" class="correct-answer">✔ F. Use an Elastic Load Balancer with auto scaling groups at the web, app, and Amazon Relational Database Service (RDS) tiers.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    What is the maximum length for an instance profile name in AWS IAM?
+  </h1>
+
+  <label for="optionA">A. 512 characters</label>
+  <label for="optionB" class="correct-answer">B. 128 characters ✓✓</label>
+  <label for="optionC">C. 1024 characters</label>
+  <label for="optionD">D. 64 characters</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    In Amazon RDS for PostgreSQL, you can provision up to 3TB storage and 30,000 IOPS per database instance. For a workload with 50% writes and 50% reads running on a cr1.8xlarge instance, you can realize over 25,000 IOPS for PostgreSQL. However, by provisioning more than this limit, you may be able to achieve:
+  </h1>
+
+  <label for="optionA">A. higher latency and lower throughput.</label>
+  <label for="optionB" class="correct-answer">B. lower latency and higher throughput ✓✓</label>
+  <label for="optionC">C. higher throughput only.</label>
+  <label for="optionD">D. higher latency only.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A user is accessing an EC2 instance on the SSH port for IP 10.20.30.40/32. Which one is a secure way to configure that the instance can be accessed only from this IP?
+  </h1>
+
+  <label for="optionA">A. In the security group, open port 22 for IP 10.20.30.40</label>
+  <label for="optionB">B. In the security group, open port 22 for IP 10.20.30.0</label>
+  <label for="optionC" class="correct-answer">C. In the security group, open port 22 for IP 10.20.30.40/32 ✓✓</label>
+  <label for="optionD">D. In the security group, open port 22 for IP 10.20.30.40/0</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    How is AWS readily distinguished from other vendors in the traditional IT computing landscape?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Secure. Flexible. Cost-effective. Scalable and elastic. Experienced ✓✓</label>
+  <label for="optionB">B. Secure.elastic. Experienced</label>
+  <label for="optionC">C. Experienced. Scalable and elastic. Secure. Cost-effective. Reliable</label>
+  <label for="optionD">D. Flexible. Cost-effective. Dynamic. Secure. Experienced.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Regarding Amazon SNS, you can send notification messages to mobile devices through any of the following supported push notification services, EXCEPT:
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Microsoft Windows Mobile Messaging (MWMM) ✓✓</label>
+  <label for="optionB">B. Google Cloud Messaging for Android (GCM)</label>
+  <label for="optionC">C. Amazon Device Messaging (ADM)</label>
+  <label for="optionD">D. Apple Push Notification Service (APNS)</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Identify a true statement about using an IAM role to grant permissions to applications running on Amazon EC2 instances.
+  </h1>
+
+  <label for="optionA">A. When AWS credentials are rotated, developers have to update only the root Amazon EC2 instance that uses their credentials.</label>
+  <label for="optionB">B. When AWS credentials are rotated, developers have to update only the Amazon EC2 instance on which the password policy was applied and which uses their credentials.</label>
+  <label for="optionC" class="correct-answer">C. When AWS credentials are rotated, you don't have to manage credentials and you don't have to worry about long-term security risks. ✓✓</label>
+  <label for="optionD">D. When AWS credentials are rotated, you must manage credentials and you should consider precautions for long-term security risks.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    In the context of AWS Cloud Hardware Security Module (HSM), does your application need to reside in the same VPC as the CloudHSM instance?
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. No, but the server or instance on which your application and the HSM client is running must have network (IP) reachability to the HSM. ✓✓
+  </label>
+  <label for="optionB">B. Yes, always</label>
+  <label for="optionC">C. No, but they must reside in the same Availability Zone.</label>
+  <label for="optionD">D. No, but it should reside in same Availability Zone as the DB instance.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You are the new IT architect in a company that operates a mobile sleep tracking application. <br><br>
+    When activated at night, the mobile app is sending collected data points of 1 kilobyte every 5 minutes to your backend. <br><br>
+    The backend takes care of authenticating the user and writing the data points into an Amazon DynamoDB table. <br><br>
+    Every morning, you scan the table to extract and aggregate last night's data on a per user basis, and store the results in Amazon S3. Users are notified via Amazon SNS mobile push notifications that new data is available, which is parsed and visualized by the mobile app. Currently you have around 100k users who are mostly based out of North America. <br><br>
+    You have been tasked to optimize the architecture of the backend system to lower cost. <br><br>
+    What would you recommend? <strong>Choose 2 answers</strong>
+  </h1>
+
+  <label for="optionA">A. Have the mobile app access Amazon DynamoDB directly Instead of JSON files stored on Amazon S3.</label>
+  <label for="optionB">B. Write data directly into an Amazon Redshift cluster replacing both Amazon DynamoDB and Amazon S3.</label>
+  <label for="optionC" class="correct-answer">
+    C. Introduce an Amazon SQS queue to buffer writes to the Amazon DynamoDB table and reduce provisioned write throughput. ✓✓
+  </label>
+  <label for="optionD" class="correct-answer">
+    D. Introduce Amazon ElastiCache to cache reads from the Amazon DynamoDB table and reduce provisioned read throughput. ✓✓
+  </label>
+  <label for="optionE">E. Create a new Amazon DynamoDB table each day and drop the one for the previous day after its data is on Amazon S3.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is migrating an application to AWS. It wants to use fully managed services as much as possible during the migration. The company needs to store large, important documents within the application with the following requirements: <br><br>
+    - The data must be highly durable and available.<br>
+    - The data must always be encrypted at rest and in transit.<br>
+    - The encryption key must be managed by the company and rotated periodically.<br><br>
+    Which of the following solutions should the Solutions Architect recommend?
+  </h1>
+
+  <label for="optionA">A. Deploy the storage gateway to AWS in file gateway mode. Use Amazon EBS volume encryption using an AWS KMS key to encrypt the storage gateway volumes.</label>
+
+  <label for="optionB" class="correct-answer">
+    B. Use Amazon S3 with a bucket policy to enforce HTTPS for connections to the bucket and to enforce server-side encryption and AWS KMS for object encryption. ✓✓
+  </label>
+
+  <label for="optionC">C. Use Amazon DynamoDB with SSL to connect to DynamoDB. Use an AWS KMS key to encrypt DynamoDB objects at rest.</label>
+
+  <label for="optionD">D. Deploy instances with Amazon EBS volumes attached to store this data. Use EBS volume encryption using an AWS KMS key to encrypt the data.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    When using Numeric Conditions within IAM, short versions of the available comparators can be used instead of the more verbose versions. Which of the following is the short version of the Numeric Condition "<strong>NumericLessThanEquals</strong>"?
+  </h1>
+
+  <label for="optionA">A. nvvumlteq</label>
+
+  <label for="optionB">B. xxnumlteql</label>
+
+  <label for="optionC" class="correct-answer">
+    C. numlteq ✓✓
+  </label>
+  <form class="question-form">
+  <h1 class="question">
+    Your company is storing millions of sensitive transactions across thousands of 100-GB files that must be encrypted in transit and at rest. Analysts concurrently depend on subsets of files, which can consume up to 5 TB of space, to generate simulations that can be used to steer business decisions. You are required to design an AWS solution that can cost effectively accommodate the long-term storage and in-flight subsets of data.
+  </h1>
+
+  <label for="optionA">A. Use HDFS on Amazon EMR, and run simulations on subsets in ephemeral drives on Amazon EC2.</label>
+
+  <label for="optionB">B. Use HDFS on Amazon Elastic MapReduce (EMR), and run simulations on subsets in-memory on Amazon Elastic Compute Cloud (EC2).</label>
+
+  <label for="optionC" class="correct-answer">
+    C.Use Amazon Simple Storage Service (S3) with server-side encryption, and run simulations on subsets in ephemeral drives on Amazon EC2. ✓✓
+  </label>
+
+  <label for="optionD">D. Use Amazon DynamoDB on Amazon EC2.</label>
+
+  <label for="optionE">E. Store the full data set in encrypted Amazon Elastic Block Store (EBS) volumes, and regularly capture snapshots that can be cloned to EC2 workstations.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You are designing the network infrastructure for an application server in Amazon VPC. Users will access all the application instances from the Internet, as well as from an on-premises network.
+    The on-premises network is connected to your VPC over an AWS Direct Connect link.
+    How would you design routing to meet the above requirements?
+  </h1>
+
+  <label for="optionA">A. Configure a single routing table with two default routes: one to the Internet via an Internet gateway, the other to the on-premises network via the VPN gateway. Use this routing table across all subnets in your VPC.</label>
+
+  <label for="optionB" class="correct-answer">
+    B. Configure a single routing table with a default route via the Internet gateway.
+    Propagate specific routes for the on-premises networks via BGP on the AWS Direct Connect customer router.
+    Associate the routing table with all VPC subnets. ✓✓
+  </label>
+
+  <label for="optionC">C. Configure two routing tables: one that has a default route via the Internet gateway, and another that has a default route via the VPN gateway. Associate both routing tables with each VPC subnet.</label>
+
+  <label for="optionD">D. Configure a single routing table with a default route via the Internet gateway. Propagate a default route via BGP on the AWS Direct Connect customer router. Associate the routing table with all VPC subnets.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    True or False: In Amazon ElastiCache replication groups of Redis, for performance tuning reasons, you can change the roles of the cache nodes within the replication group, with the primary and one of the replicas exchanging roles.
+  </h1>
+
+  <label for="optionA">A. True, however, you get lower performance.</label>
+
+  <label for="optionB">B. FALSE</label>
+
+  <label for="optionC" class="correct-answer">
+    C. TRUE ✓✓
+  </label>
+
+  <label for="optionD">D. False, you must recreate the replication group to improve performance tuning.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Which of the following is not included in the metrics sent from Billing to Amazon CloudWatch?
+  </h1>
+
+  <label for="optionA">A. Recurring fees for AWS products and services</label>
+
+  <label for="optionB">B. Total AWS charges</label>
+
+  <label for="optionC" class="correct-answer">
+    C. One-time charges and refunds ✓✓
+  </label>
+
+  <label for="optionD">D. Usage charges for AWS products and services</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Once the user has set ElastiCache for an application and it is up and running, which services does Amazon <u>not</u> provide for the user:
+  </h1>
+
+  <label for="optionA">A. The ability for client programs to automatically identify all of the nodes in a cache cluster, and to initiate and maintain connections to all of these nodes</label>
+
+  <label for="optionB">B. Automating common administrative tasks such as failure detection and recovery, and software patching</label>
+
+  <label for="optionC" class="correct-answer">
+    C. Providing default Time To Live (TTL) in the AWS ElastiCache Redis implementation for different types of data ✓✓
+  </label>
+
+  <label for="optionD">D. Providing detailed monitoring metrics associated with your Cache Nodes, enabling you to diagnose and react to issues very quickly</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has released a new version of a website to target an audience in Asia and South America. The website's media assets are hosted on Amazon S3 and have an Amazon CloudFront distribution to improve end-user performance. However, users are having a poor login experience because the authentication service is only available in the us-east-1 AWS Region.<br><br>
+    <strong>How can the Solutions Architect improve the login experience and maintain high security and performance with minimal management overhead?</strong>
+  </h1>
+
+  <label for="optionA">
+    A. Replicate the setup in each new geography and use Amazon Route 53 geo-based routing to route traffic to the AWS Region closest to the users.
+  </label>
+
+  <label for="optionB">
+    B. Use an Amazon Route 53 weighted routing policy to route traffic to the CloudFront distribution. Use CloudFront cached HTTP methods to improve the user login experience.
+  </label>
+
+  <label for="optionC" class="correct-answer">
+    C. Use Amazon Lambda@Edge attached to the CloudFront viewer request trigger to authenticate and authorize users by maintaining a secure cookie token with a session expiry to improve the user experience in multiple geographies. ✓✓
+  </label>
+
+  <label for="optionD">
+    D. Replicate the setup in each geography and use Network Load Balancers to route traffic to the authentication service running in the closest region to users.
+  </label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A Solutions Architect is responsible for redesigning a legacy Java application to improve its availability, data durability, and scalability. Currently, the application runs on a single high-memory Amazon EC2 instance. It accepts HTTP requests from upstream clients, adds them to an in-memory queue, and responds with a 200 status. A separate application thread reads items from the queue, processes them, and persists the results to an Amazon RDS MySQL instance.<br><br>
+
+    The processing time for each item takes 90 seconds on average, most of which is spent waiting on external service calls, but the application is written to process multiple items in parallel.<br><br>
+
+    Traffic to this service is unpredictable. During periods of high load, items may sit in the internal queue for over an hour while the application processes the backlog. In addition, the current system has issues with availability and data loss if the single application node fails.<br><br>
+
+    Clients that access this service cannot be modified. They expect to receive a response to each HTTP request they send within 10 seconds before they will time out and retry the request.<br><br>
+
+    <strong>Which approach would improve the availability and durability of the system while decreasing the processing latency and minimizing costs?</strong>
+  </h1>
+
+  <label for="optionA">
+    A. Update the application to use a Redis task queue instead of the in-memory queue. Build a Docker container image for the application. Create an Amazon ECS task definition that includes the application container and a separate container to host Redis. Deploy the new task definition as an ECS service using AWS Fargate and enable Auto Scaling.
+  </label>
+
+  <label for="optionB">
+    B. Modify the application to use Amazon DynamoDB instead of Amazon RDS. Configure Auto Scaling for the DynamoDB table. Deploy the application within an Auto Scaling group with a scaling policy based on CPU utilization. Back the in-memory queue with a memory-mapped file to an instance store volume and periodically write that file to Amazon S3.
+  </label>
+
+  <label for="optionC" class="correct-answer">
+    C. Create an Amazon API Gateway REST API that uses a service proxy to put items in an Amazon SQS queue. Extract the core processing code from the existing application and update it to pull items from Amazon SQS instead of an in-memory queue. Deploy the new processing application to smaller EC2 instances within an Auto Scaling group that scales dynamically based on the approximate number of messages in the Amazon SQS queue. ✓✓
+  </label>
+
+  <label for="optionD">
+    D. Create an Amazon API Gateway REST API that uses Lambda proxy integration to pass requests to an AWS Lambda function. Migrate the core processing code to a Lambda function and write a wrapper class that provides a handler method that converts the proxy events to the internal application data model and invokes the processing module.
+  </label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    When using string conditions within IAM, short versions of the available comparators can be used instead of the more verbose ones.<br><br>
+
+    <strong>streqi is the short version of the _____ string condition.</strong>
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. StringEqualsIgnoreCase ✓✓
+  </label>
+
+  <label for="optionB">
+    B. StringNotEqualsIgnoreCase
+  </label>
+
+  <label for="optionC">
+    C. StringLikeStringEquals
+  </label>
+
+  <label for="optionD">
+    D. StringNotEquals
+  </label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A large company experienced a drastic increase in its monthly AWS spend. This is after Developers accidentally launched Amazon EC2 instances in unexpected regions. The company has established practices around least privileges for Developers and controls access to on-premises resources using Active Directory groups. The company now wants to control costs by restricting the level of access that Developers have to the AWS Management Console without impacting their productivity. The company would also like to allow Developers to launch Amazon EC2 in only one region, without limiting access to other services in any region.<br><br>
+    
+    <strong>How can this company achieve these new security requirements while minimizing the administrative burden on the Operations team?</strong>
+  </h1>
+
+  <label for="optionA">
+    A. Set up SAML-based authentication tied to an IAM role that has an AdministrativeAccess managed policy attached to it. Attach a customer managed policy that denies access to Amazon EC2 in each region except for the one required.
+  </label>
+
+  <label for="optionB">
+    B. Create an IAM user for each Developer and add them to the developer IAM group that has the PowerUserAccess managed policy attached to it. Attach a customer managed policy that allows the Developers access to Amazon EC2 only in the required region.
+  </label>
+
+  <label for="optionC">
+    C. Set up SAML-based authentication tied to an IAM role that has a PowerUserAccess managed policy and a customer managed policy that deny all the Developers access to any AWS services except AWS Service Catalog. Within AWS Service Catalog, create a product containing only the EC2 resources in the approved region.
+  </label>
+
+  <label for="optionD" class="correct-answer">
+    D. Set up SAML-based authentication tied to an IAM role that has the PowerUserAccess managed policy attached to it. Attach a customer managed policy that denies access to Amazon EC2 in each region except for the one required. ✓✓
+  </label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Dave is the main administrator in Example Corp., and he decides to use paths to help delineate the users in the company and set up a separate administrator group for each path-based division. Following is a subset of the full list of paths he plans to use:<br><br>
+    • /marketing<br>
+    • /sales<br>
+    • /legal<br><br>
+    
+    Dave creates an administrator group for the marketing part of the company and calls it <strong>Marketing_Admin</strong>. He assigns it the <code>/marketing</code> path. The group's ARN is <code>arn:aws:iam::123456789012:group/marketing/Marketing_Admin</code>.<br><br>
+    
+    Dave assigns the following policy to the <strong>Marketing_Admin</strong> group that gives the group permission to use all IAM actions with all groups and users in the <code>/marketing</code> path. The policy also gives the <strong>Marketing_Admin</strong> group permission to perform any AWS S3 actions on the objects in the portion of the corporate bucket.<br><br>
+    
+    <pre>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "iam:*",
+      "Resource": [
+        "arn:aws:iam::123456789012:group/marketing/*",
+        "arn:aws:iam::123456789012:user/marketing/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::example_bucket/marketing/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "s3:ListBucket*",
+      "Resource": "arn:aws:s3:::example_bucket",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": "marketing/*"
+        }
+      }
+    }
+  ]
+}</pre>
+    
+    <strong>Does this policy allow the Marketing_Admin group to manage IAM users and groups in the /marketing path?</strong>
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. False ✓✓
+  </label>
+
+  <label for="optionB">
+    B. True
+  </label>
+</form>
+
+
+  <label for="optionD">D. numeql</label>
+</form>
+
+
+
+
+ <form class="question-form">
+  <h1 class="question">
+    A company wants to migrate its content sharing web application hosted on Amazon EC2 to a serverless architecture.
+  </h1>
+  <p>Which solution will meet these requirements?</p>
+
+  <label for="optionA">A. Use AWS CDK to define infrastructure. Use EC2 Image Builder to create AMIs for deployment.</label>
+  <label for="optionB" class="correct-answer">B. Use AWS CloudFormation to deploy Amazon S3, Amazon API Gateway, AWS Lambda, and Amazon DynamoDB. ✓✓</label>
+  <label for="optionC">C. Use AWS Elastic Beanstalk to deploy a Docker-based application.</label>
+  <label for="optionD">D. Use AWS OpsWorks with custom Chef recipes to deploy the application and supporting resources.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">
+    A company's application is currently deployed to a single AWS Region. The company wants to improve the application's availability by using multiple Regions.
+  </h1>
+  <p>Which combination of steps should a solutions architect take to migrate to a multi-Region architecture? (Choose three.)</p>
+
+  <label for="optionA">A. Create a new DynamoDB table and configure synchronous replication between the tables.</label>
+  <label for="optionB">B. Create new ALB and Auto Scaling group global resources in a backup Region.</label>
+  <label for="optionC" class="correct-answer">C. Create new ALB and Auto Scaling group resources in the second Region. ✓✓</label>
+  <label for="optionD" class="correct-answer">D. Create Amazon Route 53 records with a failover routing policy. ✓✓</label>
+  <label for="optionE">E. Create Amazon Route 53 aliases for both Regions using a latency-based routing policy.</label>
+  <label for="optionF" class="correct-answer">F. Convert the DynamoDB table to a global table. ✓✓</label>
+</form>
+
+
+
+
+   <form class="question-form">
+  <h1 class="question">
+    A DevOps engineer used an AWS CloudFormation custom resource...
+  </h1>
+  <p>Which action should the engineer take to ensure CloudFormation receives a successful response?</p>
+
+  <label for="optionA">A. Ensure the Lambda function code has exited successfully.</label>
+  <label for="optionB" class="correct-answer">B. Ensure the Lambda function code returns a response to the pre-signed URL. ✓✓</label>
+  <label for="optionC">C. Ensure the Lambda function IAM role has cloudformation:UpdateStack...</label>
+  <label for="optionD">D. Ensure the Lambda function IAM role has ds:ConnectDirectory...</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">
+    A company plans to stop using Amazon EC2 key pairs for SSH access...
+  </h1>
+  <p>Which combination of steps will allow secure and auditable access to the instances? (Choose two.)</p>
+
+  <label for="optionA">A. Allow inbound access to TCP port 22...</label>
+  <label for="optionB" class="correct-answer">B. Attach an IAM policy... ✓✓</label>
+  <label for="optionC" class="correct-answer">C. Create a VPC endpoint for Systems Manager... ✓✓</label>
+  <label for="optionD">D. Deploy a new EC2 instance...</label>
+  <label for="optionE">E. Remove any default routes...</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">
+    A company runs an application with an Amazon EC2 and on-premises configuration...
+  </h1>
+  <p>Which combination of actions should the company take to enable patching of all servers? (Choose three.)</p>
+
+  <label for="optionA" class="correct-answer">A. Add the physical machines... ✓✓</label>
+  <label for="optionB" class="correct-answer">B. Attach an IAM role to the EC2 instances... ✓✓</label>
+  <label for="optionC">C. Create IAM access keys...</label>
+  <label for="optionD">D. Execute an AWS Systems Manager Automation document...</label>
+  <label for="optionE">E. Use Amazon CloudWatch Events scheduled events...</label>
+  <label for="optionF" class="correct-answer">F. Use AWS Systems Manager Maintenance Windows... ✓✓</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">
+    Which one of the following components should not influence an organization’s security policy?
+  </h1>
+  <p>Select the option that is least likely to shape a security policy.</p>
+
+  <label for="optionA">A. Business objectives</label>
+  <label for="optionB">B. Regulatory requirements</label>
+  <label for="optionC">C. Risk</label>
+  <label for="optionD">D. Cost–benefit analysis</label>
+  <label for="optionE" class="correct-answer">E. Current firewall limitations ✓✓</label>
+</form>
+
+
+    <form class="question-form">
+  <h1 class="question">
+    A Solutions Architect is working with a company that is extremely sensitive to its IT costs and wishes to implement controls that will result in a predictable AWS spend each month.
+  </h1>
+  <p>Which combination of steps can help the company control and monitor its monthly AWS usage to achieve a cost that is as close as possible to the target amount? (Choose three.)</p>
+  
+  <label for="optionA">A. Implement an IAM policy that requires users to specify a 'workload' tag for cost allocation when launching Amazon EC2 instances.</label>
+  <label for="optionB">B. Contact AWS Support and ask that they apply limits to the account so that users are not able to launch more than a certain number of instance types.</label>
+  <label for="optionC" class="correct-answer">C. Purchase all upfront Reserved Instances that cover 100% of the account's expected Amazon EC2 usage. ✓✓</label>
+  <label for="optionD">D. Place conditions in the users' IAM policies that limit the number of instances they are able to launch.</label>
+  <label for="optionE" class="correct-answer">E. Define 'workload' as a cost allocation tag in the AWS Billing and Cost Management console. ✓✓</label>
+  <label for="optionF" class="correct-answer">F. Set up AWS Budgets to alert and notify when a given workload is expected to exceed a defined cost. ✓✓</label>
+</form>
+
+    <!-- THIS IS A QUESTION WITHOUT THE WRAPPER, WHICH WILL NOW BE HANDLED -->
+    <form class="question-form">
+      <h1 class="question">Consider the following statements about the AAA architecture:</h1>
+      <p>I. Authentication deals with the question “Who is the user?”</p>
+      <p>II. Authorization addresses the question “What is the user allowed to do?”</p>
+      <p>III. Accountability answers the question “What did the user do?”</p>
+      <h1 class="question">Which of the following is correct?</h1>
+      <label for="optionA">A. Only I is correct.</label>
+      <label for="optionB">B. Only II is correct.</label>
+      <label for="optionC">C. I, II, and III are correct.</label>
+      <label for="optionD" class="correct-answer">D. I and II are correct. ✓✓</label>
+      <label for="optionE">E. II and III are correct.</label>
+    </form>
+
+
     <form class="question-form">
       <h1 class="question">Consider the following statements about the AAA architecture:</h1>
       <p>I. Authentication deals with the question “Who is the user?”</p>
@@ -289,6 +885,9 @@
       <label for="optionC" class="correct-answer">C. Whereas intrusion prevention system (IPS) devices handle only copies of the packets and are mainly concerned with monitoring and alerting tasks, intrusion detection system (IDS) solutions are deployed inline in the traffic flow and have the inherent design goal of avoiding actual damage to systems. &#x2713;&#x2713;</label>
       <label for="optionD">D. Security information and event management (SIEM) solutions are designed to collect security-related logs as well as flow information generated by systems (at the host or the application level), networking devices, and dedicated defense elements such as firewalls, IPSs, IDSs, and antivirus software.</label>
     </form>
+
+
+
     <form class="question-form">
       <h1 class="question">In the standard shared responsibility model, AWS is responsible for which of the following options?</h1>
       <label for="optionA">A. Regions, availability zones, and data encryption</label>
@@ -452,6 +1051,7 @@
       <label for="optionC" class="correct-answer">C. Establish a VPC peering connection between the VPCs in ap-southeast-2 and us-west-2. Add the subnet ranges to the routing tables. &#x2713;&#x2713;</label>
       <label for="optionD">D. Create static routes in each VPC that point to the destination VPC with the virtual private gateway as the route target.</label>
     </form>
+
     <form class="question-form">
       <h1 class="question">A company needs to architect a hybrid DNS solution. This solution will use an Amazon Route 53 private hosted zone for the domain cloud.example.com for the resources stored within VPCs.</h1>
       <h1 class="question">The company has the following DNS resolution requirements:</h1>
@@ -1211,6 +1811,7 @@
       </label><br>
     </form>
 
+    
     <form class="question-form">
       <h1 class="question">
         A DevOps engineer has created an AWS CloudFormation template that deploys an application on Amazon EC2 instances. The EC2 instances run Amazon Linux. The application is deployed to the EC2 instances by using shell scripts that contain user data. The EC2 instances have an IAM instance profile that has an IAM role with the AmazonSSMManagedInstanceCore managed policy attached.
@@ -1654,122 +2255,974 @@
     E. Add a custom error response by configuring a CloudFront custom error page. Modify DNS records to point to a publicly accessible web page. &#x2713;
   </label><br>
 </form>
+<form class="question-form">
+  <h1 class="question">
+    A retail company is operating its ecommerce application on AWS. The application runs on Amazon EC2 instances behind an Application Load Balancer (ALB). The company uses an Amazon RDS DB instance as the database backend. Amazon CloudFront is configured with one origin that points to the ALB. Static content is cached. Amazon Route 53 is used to host all public zones.
+  </h1>
+  <h1 class="question">
+    After an update of the application, the ALB occasionally returns a 502 status code (Bad Gateway) error. The root cause is malformed HTTP headers that are returned to the ALB. The webpage returns successfully when a solutions architect reloads the webpage immediately after the error occurs.
+  </h1>
+  <h1 class="question">
+    While the company is working on the problem, the solutions architect needs to provide a custom error page instead of the standard ALB error page to visitors.
+  </h1>
+  <h1 class="question">
+    Which combination of steps will meet this requirement with the <strong>LEAST amount of operational overhead</strong>? (Choose <strong>two</strong>.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. Create an Amazon S3 bucket. Configure the S3 bucket to host a static webpage. Upload the custom error pages to Amazon S3. &#x2713;
+  </label><br>
+
+  <label for="optionB">
+    B. Create an Amazon CloudWatch alarm to invoke an AWS Lambda function if the ALB health check response Target.FailedHealthChecks is greater than 0. Configure the Lambda function to modify the forwarding rule at the ALB to point to a publicly accessible web server.
+  </label><br>
+
+  <label for="optionC">
+    C. Modify the existing Amazon Route 53 records by adding health checks. Configure a fallback target if the health check fails. Modify DNS records to point to a publicly accessible webpage.
+  </label><br>
+
+  <label for="optionD">
+    D. Create an Amazon CloudWatch alarm to invoke an AWS Lambda function if the ALB health check response Elb.InternalError is greater than 0. Configure the Lambda function to modify the forwarding rule at the ALB to point to a publicly accessible web server.
+  </label><br>
+
+  <label for="optionE" class="correct-answer">
+    E. Add a custom error response by configuring a CloudFront custom error page. Modify DNS records to point to a publicly accessible web page. &#x2713;
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company hosts a three-tier ecommerce application on a fleet of Amazon EC2 instances. The instances run in an Auto Scaling group behind an Application Load Balancer (ALB). All ecommerce data is stored in an Amazon RDS for MariaDB Multi-AZ DB instance.
+  </h1>
+  <h1 class="question">
+    The company wants to optimize customer session management during transactions. The application must store session data durably.
+  </h1>
+  <h1 class="question">
+    Which solutions will meet these requirements? (Choose <strong>two</strong>.)
+  </h1>
+
+  <label for="optionA">
+    A. Turn on the sticky sessions feature (session affinity) on the ALB.
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Use an Amazon DynamoDB table to store customer session information. &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. Deploy an Amazon Cognito user pool to manage user session information.
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Deploy an Amazon ElastiCache for Redis cluster to store customer session information. &#x2713;
+  </label><br>
+
+  <label for="optionE">
+    E. Use AWS Systems Manager Application Manager in the application to manage user session information.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has a few AWS accounts for development and wants to move its production application to AWS.
+  </h1>
+  <h1 class="question">
+    The company needs to enforce Amazon Elastic Block Store (Amazon EBS) encryption at rest in current production accounts and future production accounts only. The company needs a solution that includes built-in blueprints and guardrails.
+  </h1>
+  <h1 class="question">
+    Which combination of steps will meet these requirements? (Choose <strong>three</strong>.)
+  </h1>
+
+  <label for="optionA">
+    A. Use AWS CloudFormation StackSets to deploy AWS Config rules on production accounts.
+  </label><br>
+
+  <label for="optionB">
+    B. Create a new AWS Control Tower landing zone in an existing developer account. Create OUs for accounts. Add production and development accounts to production and development OUs, respectively.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Create a new AWS Control Tower landing zone in the company's management account. Add production and development accounts to production and development OUs, respectively. &#x2713;
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Invite existing accounts to join the organization in AWS Organizations. Create SCPs to ensure compliance. &#x2713;
+  </label><br>
+
+  <label for="optionE">
+    E. Create a guardrail from the management account to detect EBS encryption.
+  </label><br>
+
+  <label for="optionF" class="correct-answer">
+    F. Create a guardrail for the production OU to detect EBS encryption. &#x2713;
+  </label><br>
+</form>
 
 
+<form class="question-form">
+  <h1 class="question">
+    A company has developed a web application. The company is hosting the application on a group of Amazon EC2 instances behind an Application Load Balancer.
+  </h1>
+  <h1 class="question">
+    The company wants to improve the security posture of the application and plans to use AWS WAF web ACLs. The solution must not adversely affect legitimate traffic to the application.
+  </h1>
+  <h1 class="question">
+    How should a solutions architect configure the web ACLs to meet these requirements?
+  </h1>
 
+  <label for="optionA" class="correct-answer">
+    A. Set the action of the web ACL rules to Count. Enable AWS WAF logging. Analyze the requests for false positives. Modify the rules to avoid any false positives. Over time, change the action of the web ACL rules from Count to Block. &#x2713;
+  </label><br>
 
-    
-    
+  <label for="optionB">
+    B. Use only rate-based rules in the web ACLs, and set the throttle limit as high as possible. Temporarily block all requests that exceed the limit. Define nested rules to narrow the scope of the rate tracking.
+  </label><br>
 
+  <label for="optionC">
+    C. Set the action of the web ACL rules to Block. Use only AWS managed rule groups in the web ACLs. Evaluate the rule groups by using Amazon CloudWatch metrics with AWS WAF sampled requests or AWS WAF logs.
+  </label><br>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
+  <label for="optionD">
+    D. Use only custom rule groups in the web ACLs, and set the action to Allow. Enable AWS WAF logging. Analyze the requests for false positives. Modify the rules to avoid any false positives. Over time, change the action of the web ACL rules from Allow to Block.
+  </label><br>
+</form>
 
-    <!-- git commit -am "More Questions"; git push origin main  -->
+<form class="question-form">
+  <h1 class="question">
+    Your company policies require encryption of sensitive data at rest.
+  </h1>
+  <h1 class="question">
+    You are considering the possible options for protecting data while storing it at rest on an EBS data volume, attached to an EC2 instance.
+  </h1>
+  <h1 class="question">
+    Which of these options would allow you to encrypt your data at rest? (Choose three.)
+  </h1>
 
-    
-    
-    
-    
-    
-   
+  <label for="optionA" class="correct-answer">
+    A. Implement third party volume encryption tools &#x2713;
+  </label><br>
 
+  <label for="optionB">
+    B. Implement SSL/TLS for all services running on the server
+  </label><br>
 
+  <label for="optionC" class="correct-answer">
+    C. Encrypt data inside your applications before storing it on EBS &#x2713;
+  </label><br>
 
+  <label for="optionD" class="correct-answer">
+    D. Encrypt data using native data encryption drivers at the file system level &#x2713;
+  </label><br>
 
+  <label for="optionE">
+    E. Do nothing as EBS volumes are encrypted by default
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A customer is deploying an SSL-enabled web application to AWS and would like to implement a separation of roles between the EC2 service administrators that are entitled to log in to instances and make API calls, and the security officers who will maintain and have exclusive access to the application's X.509 certificate that contains the private key.
+  </h1>
+
+  <label for="optionA">
+    A. Upload the certificate on an S3 bucket owned by the security officers and accessible only by EC2 Role of the web servers.
+  </label><br>
+
+  <label for="optionB">
+    B. Configure the web servers to retrieve the certificate upon boot from a CloudHSM managed by the security officers.
+  </label><br>
+
+  <label for="optionC">
+    C. Configure system permissions on the web servers to restrict access to the certificate only to the authority security officers.
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Configure IAM policies authorizing access to the certificate store only to the security officers and terminate SSL on an ELB. &#x2713;
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You have recently joined a startup company building sensors to measure street noise and air quality in urban areas.
+  </h1>
+  <h1 class="question">
+    The company has been running a pilot deployment of around 100 sensors for 3 months. Each sensor uploads 1KB of sensor data every minute to a backend hosted on AWS.
+  </h1>
+  <h1 class="question">
+    During the pilot, you measured a peak of 10 IOPS on the database, and you stored an average of 3GB of sensor data per month in the database.
+  </h1>
+  <h1 class="question">
+    The current deployment consists of a load-balanced auto-scaled ingestion layer using EC2 instances and a PostgreSQL RDS database with 500GB standard storage.
+  </h1>
+  <h1 class="question">
+    The pilot is considered a success and your CEO has managed to get the attention of some potential investors. The business plan requires a deployment of at least 100K sensors, which needs to be supported by the backend. You also need to store sensor data for at least two years to be able to compare year-over-year improvements.
+  </h1>
+  <h1 class="question">
+    To secure funding, you have to make sure that the platform meets these requirements and leaves room for further scaling.
+    <br><br>
+    Which setup will meet the requirements?
+  </h1>
+
+  <label for="optionA">
+    A. Add an SQS queue to the ingestion layer to buffer writes to the RDS instance.
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Ingest data into a DynamoDB table and move old data to a Redshift cluster. &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. Replace the RDS instance with a 6-node Redshift cluster with 96TB of storage.
+  </label><br>
+
+  <label for="optionD">
+    D. Keep the current architecture but upgrade RDS storage to 3TB and 10K provisioned IOPS.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A web company is looking to implement an intrusion detection and prevention system into their deployed VPC.
+  </h1>
+  <h1 class="question">
+    This platform should have the ability to scale to thousands of instances running inside of the VPC.
+  </h1>
+  <h1 class="question">
+    How should they architect their solution to achieve these goals?
+  </h1>
+
+  <label for="optionA">
+    A. Configure an instance with monitoring software and the elastic network interface (ENI) set to promiscuous mode packet sniffing to see all traffic across the VPC.
+  </label><br>
+
+  <label for="optionB">
+    B. Create a second VPC and route all traffic from the primary application VPC through the second VPC where the scalable virtualized IDS/IPS platform resides.
+  </label><br>
+
+  <label for="optionC">
+    C. Configure servers running in the VPC using the host-based 'route' commands to send all traffic through the platform to a scalable virtualized IDS/IPS.
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Configure each host with an agent that collects all network traffic and sends that traffic to the IDS/IPS platform for inspection. &#x2713;
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is storing data on Amazon Simple Storage Service (S3). The company's security policy mandates that data is encrypted at rest.
+  </h1>
+  <h1 class="question">
+    Which of the following methods can achieve this? (Choose three.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. Use Amazon S3 server-side encryption with AWS Key Management Service managed keys. &#x2713;
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Use Amazon S3 server-side encryption with customer-provided keys. &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. Use Amazon S3 server-side encryption with EC2 key pair.
+  </label><br>
+
+  <label for="optionD">
+    D. Use Amazon S3 bucket policies to restrict access to the data at rest.
+  </label><br>
+
+  <label for="optionE" class="correct-answer">
+    E. Encrypt the data on the client-side before ingesting to Amazon S3 using their own master key. &#x2713;
+  </label><br>
+
+  <label for="optionF">
+    F. Use SSL to encrypt the data while in transit to Amazon S3.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Your firm has uploaded a large amount of aerial image data to S3. In the past, in your on-premises environment, you used a dedicated group of servers to often process this data and used Rabbit MQ — an open-source messaging system — to get job information to the servers.
+  </h1>
+  <h1 class="question">
+    Once processed, the data would go to tape and be shipped offsite. Your manager told you to stay with the current design, and leverage AWS archival storage and messaging services to minimize cost.
+  </h1>
+  <h1 class="question">
+    Which is correct?
+  </h1>
+
+  <label for="optionA">
+    A. Use SQS for passing job messages, use CloudWatch alarms to terminate EC2 worker instances when they become idle. Once data is processed, change the storage class of the S3 objects to Reduced Redundancy Storage.
+  </label><br>
+
+  <label for="optionB">
+    B. Setup Auto-Scaled workers triggered by queue depth that use spot instances to process messages in SOS. Once data is processed, change the storage class of the S3 objects to Reduced Redundancy Storage.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Setup Auto-Scaled workers triggered by queue depth that use spot instances to process messages in SQS. Once data is processed, change the storage class of the S3 objects to Glacier. &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Use SNS to pass job messages, use CloudWatch alarms to terminate spot worker instances when they become idle. Once data is processed, change the storage class of the S3 object to Glacier.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You've been hired to enhance the overall security posture for a very large e-commerce site.
+  </h1>
+  <h1 class="question">
+    They have a well-architected multi-tier application running in a VPC that uses ELBs in front of both the web and the app tier, with static assets served directly from S3.
+  </h1>
+  <h1 class="question">
+    They are using a combination of RDS and DynamoDB for their dynamic data and then archiving nightly into S3 for further processing with EMR.
+  </h1>
+  <h1 class="question">
+    They are concerned because they found questionable log entries and suspect someone is attempting to gain unauthorized access.
+  </h1>
+  <h1 class="question">
+    Which approach provides a cost-effective, scalable mitigation to this kind of attack?
+  </h1>
+
+  <label for="optionA">
+    A. Recommend that they lease space at a DirectConnect partner location and establish a 1G DirectConnect connection to their VPC. They would then establish Internet connectivity into their space, filter the traffic in a hardware Web Application Firewall (WAF), and then pass the traffic through the DirectConnect connection into their application running in their VPC.
+  </label><br>
+
+  <label for="optionB">
+    B. Add previously identified hostile source IPs as an explicit INBOUND DENY NACL to the web tier subnet.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Add a WAF tier by creating a new ELB and an Auto Scaling group of EC2 instances running a host-based WAF. They would redirect Route 53 to resolve to the new WAF tier ELB. The WAF tier would then pass the traffic to the current web tier. The web tier Security Groups would be updated to only allow traffic from the WAF tier Security Group. &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Remove all but TLS 1.2 from the web tier ELB and enable Advanced Protocol Filtering. This will enable the ELB itself to perform WAF functionality.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Your company is in the process of developing a next-generation pet collar that collects biometric information to assist families with promoting healthy lifestyles for their pets.
+  </h1>
+  <h1 class="question">
+    Each collar will push 30KB of biometric data in JSON format every 2 seconds to a collection platform that will process and analyze the data, providing health trending information back to the pet owners and veterinarians via a web portal.
+  </h1>
+  <h1 class="question">
+    Management has tasked you to architect the collection platform ensuring the following requirements are met:
+    <ul>
+      <li>Provide the ability for real-time analytics of the inbound biometric data</li>
+      <li>Ensure processing of the biometric data is highly durable, elastic, and parallel</li>
+      <li>The results of the analytic processing should be persisted for data mining</li>
+    </ul>
+    Which architecture outlined below will meet the initial requirements for the collection platform?
+  </h1>
+
+  <label for="optionA">
+    A. Utilize S3 to collect the inbound sensor data, analyze the data from S3 with a daily scheduled Data Pipeline, and save the results to a Redshift cluster.
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Utilize Amazon Kinesis to collect the inbound sensor data, analyze the data with Kinesis clients, and save the results to a Redshift cluster using EMR. &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. Utilize SQS to collect the inbound sensor data, analyze the data from SQS with Amazon Kinesis, and save the results to a Microsoft SQL Server RDS instance.
+  </label><br>
+
+  <label for="optionD">
+    D. Utilize EMR to collect the inbound sensor data, analyze the data from EMR with Amazon Kinesis, and save the results to DynamoDB.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You are designing Internet connectivity for your VPC. The web servers must be available on the Internet.
+  </h1>
+  <h1 class="question">
+    The application must have a highly available architecture.
+  </h1>
+  <h1 class="question">
+    Which alternatives should you consider? (Choose two.)
+  </h1>
+
+  <label for="optionA">
+    A. Configure a NAT instance in your VPC. Create a default route via the NAT instance and associate it with all subnets. Configure a DNS A record that points to the NAT instance public IP address.
+  </label><br>
+
+  <label for="optionB">
+    B. Configure a CloudFront distribution and configure the origin to point to the private IP addresses of your web servers. Configure a Route 53 CNAME record to your CloudFront distribution.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Place all your web servers behind ELB. Configure a Route 53 CNAME to point to the ELB DNS name. &#x2713;
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Assign EIPs to all web servers. Configure a Route 53 record set with all EIPs, with health checks and DNS failover. &#x2713;
+  </label><br>
+
+  <label for="optionE">
+    E. Configure ELB with an EIP. Place all your web servers behind ELB. Configure a Route 53 A record that points to the EIP.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Your team has a Tomcat-based Java application you need to deploy into development, test, and production environments. After some research, you opt to use
+    Elastic Beanstalk due to its tight integration with your developer tools and RDS due to its ease of management.
+  </h1>
+  <h1 class="question">
+    Your QA team lead points out that you need to roll a sanitized set of production data into your environment on a nightly basis. Similarly, other software teams in your organization want access to that same restored data via their EC2 instances in your VPC.
+  </h1>
+  <h1 class="question">
+    The optimal setup for persistence and security that meets the above requirements would be the following:
+  </h1>
+
+  <label for="optionA">
+    A. Create your RDS instance as part of your Elastic Beanstalk definition and alter its security group to allow access to it from hosts in your application subnets.
+  </label><br>
+
+  <label for="optionB">
+    B. Create your RDS instance separately and add its IP address to your application's DB connection strings in your code. Alter its security group to allow access to it from hosts within your VPC's IP address block.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Create your RDS instance separately and pass its DNS name to your app's DB connection string as an environment variable. Create a security group for client machines and add it as a valid source for DB traffic to the security group of the RDS instance itself. &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Create your RDS instance separately and pass its DNS name to your app's DB connection string as an environment variable. Alter its security group to allow access to it from hosts in your application subnets.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You're trying to delete an SSL certificate from the IAM certificate store, and you're getting the message:
+    <br><br>
+    "<code>Certificate: &lt;certificate-id&gt; is being used by CloudFront.</code>"
+  </h1>
+  <h1 class="question">
+    Which of the following statements is probably the reason why you are getting this error?
+  </h1>
+
+  <label for="optionA">
+    A. Before you can delete an SSL certificate you need to set up HTTPS on your server.
+  </label><br>
+
+  <label for="optionB">
+    B. Before you can delete an SSL certificate, you need to set up the appropriate access level in IAM.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Before you can delete an SSL certificate, you need to either rotate SSL certificates or revert from using a custom SSL certificate to using the default CloudFront certificate. &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. You can't delete SSL certificates. You need to request it from AWS.
+  </label><br>
+</form>
+    <form class="question-form">
+  <h1 class="question">
+    A company is migrating to the cloud. It wants to evaluate the configurations of virtual machines in its existing data center environment to ensure that it can size new Amazon EC2 instances accurately. 
+    <br><br>
+    The company wants to collect metrics, such as CPU, memory, and disk utilization, and it needs an inventory of what processes are running on each instance. 
+    <br><br>
+    The company would also like to monitor network connections to map communications between servers.
+    <br><br>
+    Which would enable the collection of this data MOST cost effectively?
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. Use AWS Application Discovery Service and deploy the data collection agent to each virtual machine in the data center. &#x2713;
+  </label><br>
+
+  <label for="optionB">
+    B. Configure the Amazon CloudWatch agent on all servers within the local environment and publish metrics to Amazon CloudWatch Logs.
+  </label><br>
+
+  <label for="optionC">
+    C. Use AWS Application Discovery Service and enable agentless discovery in the existing virtualization environment.
+  </label><br>
+
+  <label for="optionD">
+    D. Enable AWS Application Discovery Service in the AWS Management Console and configure the corporate firewall to allow scans over a VPN.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    The _____ service is targeted at organizations with multiple users or systems that use AWS products such as Amazon EC2, Amazon SimpleDB, and the AWS Management Console.
+  </h1>
+
+  <label for="optionA">
+    A. Amazon RDS
+  </label><br>
+
+  <label for="optionB">
+    B. AWS Integrity Management
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. AWS Identity and Access Management &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Amazon EMR
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    To get started using AWS Direct Connect, in which of the following steps do you configure Border Gateway Protocol (BGP)?
+  </h1>
+
+  <label for="optionA">
+    A. Complete the Cross Connect
+  </label><br>
+
+  <label for="optionB">
+    B. Configure Redundant Connections with AWS Direct Connect
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Create a Virtual Interface &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Download Router Configuration
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company wants to allow its Marketing team to perform SQL queries on customer records to identify market segments. The data is spread across hundreds of files. The records must be encrypted in transit and at rest. The Team Manager must have the ability to manage users and groups, but no team members should have access to services or resources not required for the SQL queries. Additionally, Administrators need to audit the queries made and receive notifications when a query violates rules defined by the Security team.
+  </h1>
+  <h1 class="question">
+    AWS Organizations has been used to create a new account and an AWS IAM user with administrator permissions for the Team Manager. Which design meets these requirements?
+  </h1>
+
+  <label for="optionA">
+    A. Apply a service control policy (SCP) that denies to all services except IAM, Amazon DynamoDB, and AWS CloudTrail. Store customer records in DynamoDB and train users to execute queries using the AWS CLI. Enable DynamoDB streams to track the queries that are issued and use an AWS Lambda function for real-time monitoring and alerting.
+  </label><br>
+
+  <label for="optionB">
+    B. Apply a service control policy (SCP) that allows to IAM, Amazon Athena, Amazon S3, and AWS CloudTrail. Store customer records as files in Amazon S3 and train users to leverage the Amazon S3 Select feature and execute queries using the AWS CLI. Enable S3 object-level logging and analyze CloudTrail events to audit and alarm on queries against personal data.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Apply a service control policy (SCP) that denies access to all services except IAM, Amazon Athena, Amazon S3, and AWS CloudTrail. Store customer record files in Amazon S3 and train users to execute queries using the CLI via Athena. Analyze CloudTrail events to audit and alarm on queries against personal data. &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Apply a service control policy (SCP) that allows access to IAM, Amazon RDS, and AWS CloudTrail. Load customer records in Amazon RDS MySQL and train users to execute queries using the AWS CLI. Stream the query logs to Amazon CloudWatch Logs from the RDS database instance. Use a subscription filter with AWS Lambda functions to audit and alarm on queries against personal data.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Which of the following is NOT an advantage of using AWS Direct Connect?
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. AWS Direct Connect provides users access to public and private resources by using two different connections while maintaining network separation between the public and private environments. &#x2713;
+  </label><br>
+
+  <label for="optionB">
+    B. AWS Direct Connect provides a more consistent network experience than Internet-based connections.
+  </label><br>
+
+  <label for="optionC">
+    C. AWS Direct Connect makes it easy to establish a dedicated network connection from your premises to AWS.
+  </label><br>
+
+  <label for="optionD">
+    D. AWS Direct Connect reduces your network costs.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You create a VPN connection, and your VPN device supports Border Gateway Protocol (BGP).  
+    Which of the following should be specified to configure the VPN connection?
+  </h1>
+
+  <label for="optionA">
+    A. Classless routing
+  </label><br>
+
+  <label for="optionB">
+    B. Classfull routing
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Dynamic routing &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Static routing
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company runs a three-tier application in AWS. Users report that the application performance can vary greatly depending on the time of day and functionality being accessed. The application includes the following components:
+    <ul>
+      <li>Eight t2.large front-end web servers that serve static content and proxy dynamic content from the application tier.</li>
+      <li>Four t2.large application servers.</li>
+      <li>One db.m4.large Amazon RDS MySQL Multi-AZ DB instance.</li>
+    </ul>
+    Operations has determined that the web and application tiers are network constrained.  
+    Which of the following should cost effectively improve application performance? (Choose two.)
+  </h1>
+
+  <label for="optionA">
+    A. Replace web and app tiers with t2.xlarge instances
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Use AWS Auto Scaling and m4.large instances for the web and application tiers &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. Convert the MySQL RDS instance to a self-managed MySQL cluster on Amazon EC2
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Create an Amazon CloudFront distribution to cache content &#x2713;
+  </label><br>
+
+  <label for="optionE">
+    E. Increase the size of the Amazon RDS instance to db.m4.xlarge
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A large company has increased its utilization of AWS over time in an unmanaged way. As such, they have a large number of independent AWS accounts across different business units, projects, and environments. The company has created a Cloud Center of Excellence team, which is responsible for managing all aspects of the AWS Cloud, including their AWS accounts.  
+    Which of the following should the Cloud Center of Excellence team do to BEST address their requirements in a centralized way? (Select two.)
+  </h1>
+
+  <label for="optionA">
+    A. Control all AWS account root user credentials. Assign AWS IAM users in the account of each user who needs to access AWS resources. Follow the policy of least privilege in assigning permissions to each user.
+  </label><br>
+
+  <label for="optionB">
+    B. Tag all AWS resources with details about the business unit, project, and environment. Send all AWS Cost and Usage reports to a central Amazon S3 bucket, and use tools such as Amazon Athena and Amazon QuickSight to collect billing details by business unit.
+  </label><br>
+
+  <label for="optionC">
+    C. Use the AWS Marketplace to choose and deploy a Cost Management tool. Tag all AWS resources with details about the business unit, project, and environment. Send all AWS Cost and Usage reports for the AWS accounts to this tool for analysis.
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Set up AWS Organizations. Enable consolidated billing, and link all existing AWS accounts to a master billing account. Tag all AWS resources with details about the business unit, project and environment.  
+    Analyze Cost and Usage reports using tools such as Amazon Athena and Amazon QuickSight to collect billing details by business unit. &#x2713;
+  </label><br>
+
+  <label for="optionE" class="correct-answer">
+    E. Using a master AWS account, create IAM users within the master account. Define IAM roles in the other AWS accounts, which cover each of the required functions in the account. Follow the policy of least privilege in assigning permissions to each role, then enable the IAM users to assume the roles that they need to use. &#x2713;
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Your website is serving on-demand training videos to your workforce. Videos are uploaded monthly in high resolution MP4 format. Your workforce is distributed globally, often on the move and using company-provided tablets that require the HTTP Live Streaming (HLS) protocol to watch a video. Your company has no video transcoding expertise and if required you may need to pay for a consultant.  
+    How do you implement the most cost-efficient architecture without compromising high availability and quality of video delivery?
+  </h1>
+
+  <label for="optionA">
+    A. Elastic Transcoder to transcode original high-resolution MP4 videos to HLS. EBS volumes to host videos and EBS snapshots to incrementally backup original files after a few days. CloudFront to serve HLS transcoded videos from EC2.
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Elastic Transcoder to transcode original high-resolution MP4 videos to HLS. S3 to host videos with Lifecycle Management to archive original files to Glacier after a few days. CloudFront to serve HLS transcoded videos from S3. &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. A video transcoding pipeline running on EC2 using SQS to distribute tasks and Auto Scaling to adjust the number of nodes depending on the length of the queue. S3 to host videos with Lifecycle Management to archive all files to Glacier after a few days. CloudFront to serve HLS transcoded videos from Glacier.
+  </label><br>
+
+  <label for="optionD">
+    D. A video transcoding pipeline running on EC2 using SQS to distribute tasks and Auto Scaling to adjust the number of nodes depending on the length of the queue. EBS volumes to host videos and EBS snapshots to incrementally backup original files after a few days. CloudFront to serve HLS transcoded videos from EC2.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Your startup wants to implement an order fulfillment process for selling a personalized gadget that needs an average of 3-4 days to produce with some orders taking up to 6 months.
+    You expect 10 orders per day on your first day, 1000 orders per day after 6 months and 10,000 orders after 12 months. Orders coming in are checked for consistency, then dispatched to your manufacturing plant for production, quality control, packaging, shipment and payment processing.
+    If the product does not meet the quality standards at any stage of the process, employees may force the process to repeat a step. Customers are notified via email about order status and any critical issues with their orders such as payment failure.
+    Your base architecture includes AWS Elastic Beanstalk for your website with an RDS MySQL instance for customer data and orders.
+    How can you implement the order fulfillment process while making sure that the emails are delivered reliably?
+  </h1>
+
+  <label for="optionA">
+    A. Add a business process management application to your Elastic Beanstalk app servers and re-use the RDS database for tracking order status. Use one of the Elastic Beanstalk instances to send emails to customers.
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Use SWF with an Auto Scaling group of activity workers and a decider instance in another Auto Scaling group with min/max=1. Use SES to send emails to customers. &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. Use an SQS queue to manage all process tasks. Use an Auto Scaling group of EC2 instances that poll the tasks and execute them. Use SES to send emails to customers.
+  </label><br>
+
+  <label for="optionD">
+    D. Use SWF with an Auto Scaling group of activity workers and a decider instance in another Auto Scaling group with min/max=1. Use the decider instance to send emails to customers.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Your team has a Tomcat-based Java application you need to deploy into development, test, and production environments. After some research, you opt to use Elastic Beanstalk due to its tight integration with your developer tools and RDS due to its ease of management.
+    Your QA team lead points out that you need to roll a sanitized set of production data into your environment on a nightly basis. Similarly, other software teams in your org want access to that same restored data via their EC2 instances in your VPC.
+    The optimal setup for persistence and security that meets the above requirements would be the following:
+  </h1>
+
+  <label for="optionA">
+    A. Create your RDS instance separately and add its IP address to your application's DB connection strings in your code. Alter its security group to allow access to it from hosts within your VPC's IP address block.
+  </label><br>
+
+  <label for="optionB">
+    B. Create your RDS instance separately and pass its DNS name to your's DB connection string as an environment variable. Alter its security group to allow access to it from hosts in your application subnets.
+  </label><br>
+
+  <label for="optionC">
+    C. Create your RDS instance as part of your Elastic Beanstalk definition and alter its security group to allow access to it from hosts in your application subnets.
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Create your RDS instance separately and pass its DNS name to your app's DB connection string as an environment variable. Create a security group for client machines and add it as a valid source for DB traffic to the security group of the RDS instance itself. &#x2713;
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You have a website which requires international presence and consequently you have set it up as follows. It is hosted on 30 EC2 instances. It is in 15 regions around the globe. Each region has 2 instances. All the instances are in a public hosted zone.
+    Which of the following is the best way to configure your site to maintain availability with minimum downtime if one of the 15 regions was to lose network connectivity for an extended period? (Choose 2 answers)
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. Create a Route 53 Latency Based Routing Record set that resolves to an Elastic Load Balancer in each region and has the Evaluate Target Health flag set to true. &#x2713;
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Create a Route 53 failover routing policy and configure an active-passive failover. &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. Create a Route 53 Failover Routing Policy and assign each resource record set a unique identifier and a relative weight.
+  </label><br>
+
+  <label for="optionD">
+    D. Create a Route 53 Geolocation Routing Policy that resolves to an Elastic Load Balancer in each region and has the Evaluate Target Health flag set to false.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You require the ability to analyze a customer's clickstream data on a website, so they can do behavioral analysis. Your customer needs to know what sequence of pages and ads their customer clicked on. This data will be used in real time to modify the page layouts as customers click through the site, to increase stickiness and advertising click-through.<br><br>
+    Which option meets the requirements for capturing and analyzing this data?
+  </h1>
+
+  <label for="optionA">
+    A. Log clicks in weblogs by URL, store to Amazon S3, and then analyze with Elastic MapReduce.
+  </label><br>
+
+  <label for="optionB">
+    B. Publish web clicks by session to an Amazon SQS queue; then periodically drain these events to Amazon RDS and analyze with SQL.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Push web clicks by session to Amazon Kinesis, then analyze behavior using Kinesis workers. &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Write click events directly to Amazon Redshift, and then analyze with SQL.
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A user wants to configure AutoScaling which scales up when the CPU utilization is above 70% and scales down when the CPU utilization is below 30%. How can the user configure AutoScaling for the above mentioned condition?
+  </h1>
+
+  <label for="optionA">
+    A. Configure ELB to notify AutoScaling on load increase or decrease
+  </label><br>
+
+  <label for="optionB">
+    B. Use AutoScaling with a schedule
+  </label><br>
+
+  <label for="optionC">
+    C. Use AutoScaling by manually modifying the desired capacity during a condition
+  </label><br>
+
+  <label for="optionD" class="correct-answer">
+    D. Use dynamic AutoScaling with a policy &#x2713;
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You want to use AWS CodeDeploy to deploy an application to Amazon EC2 instances running within an Amazon Virtual Private Cloud (VPC).<br>
+    What criterion must be met for this to be possible?
+  </h1>
+
+  <label for="optionA">
+    A. The AWS CodeDeploy agent installed on the Amazon EC2 instances must be able to access only the public AWS CodeDeploy endpoint.
+  </label><br>
+
+  <label for="optionB">
+    B. The AWS CodeDeploy agent installed on the Amazon EC2 instances must be able to access only the public Amazon S3 service endpoint.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. The AWS CodeDeploy agent installed on the Amazon EC2 instances must be able to access the public AWS CodeDeploy and Amazon S3 service endpoints &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. It is not currently possible to use AWS CodeDeploy to deploy an application to Amazon EC2 instances running within an Amazon Virtual Private Cloud (VPC.)
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You have subscribed to the AWS Business and Enterprise support plan.<br>
+    Your business has a backlog of problems, and you need about 20 of your IAM users to open technical support cases.<br>
+    How many users can open technical support cases under the AWS Business and Enterprise support plan?
+  </h1>
+
+  <label for="optionA">
+    A. 5 users
+  </label><br>
+
+  <label for="optionB">
+    B. 10 users
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Unlimited &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. 1 user
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A user has created a VPC with two subnets: one public and one private.<br>
+    The user is planning to run the patch update for the instances in the private subnet.<br>
+    How can the instances in the private subnet connect to the internet?
+  </h1>
+
+  <label for="optionA">
+    A. The private subnet can never connect to the internet
+  </label><br>
+
+  <label for="optionB" class="correct-answer">
+    B. Use NAT with an elastic IP &#x2713;
+  </label><br>
+
+  <label for="optionC">
+    C. Use the internet gateway with a private IP
+  </label><br>
+
+  <label for="optionD">
+    D. Allow outbound traffic in the security group for port 80 to allow internet updates
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    When I/O performance is more important than fault tolerance, which of the following configurations should be used?
+  </h1>
+
+  <label for="optionA">
+    A. SPAN 10
+  </label><br>
+
+  <label for="optionB">
+    B. RAID 1
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. RAID 0 &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. NFS 1
+  </label><br>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    An organization is setting up an application on AWS to have both High Availability (HA) and Disaster Recovery (DR). The organization wants to have both Recovery Point Objective (RPO) and Recovery Time Objective (RTO) of 10 minutes. Which of the below mentioned service configurations does <strong>not</strong> help the organization achieve the said RPO and RTO?
+  </h1>
+
+  <label for="optionA">
+    A. Take a snapshot of the data every 10 minutes and copy it to the other region.
+  </label><br>
+
+  <label for="optionB">
+    B. Use an elastic IP to assign to a running instance and use Route 53 to map the user's domain with that IP.
+  </label><br>
+
+  <label for="optionC" class="correct-answer">
+    C. Create ELB with multi-region routing to allow automated failover when required. &#x2713;
+  </label><br>
+
+  <label for="optionD">
+    D. Use an AMI copy to keep the AMI available in other regions.
+  </label><br>
+</form>
 
 
   </div>
   <button class="scroll-top" id="scrollTop">↑</button>
-  </div>
 
+  <!-- ========================================================= -->
+  <!-- ===== START OF THE NEW, CORRECTED JAVASCRIPT SCRIPT ===== -->
+  <!-- ========================================================= -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // Remove duplicate questions
-      const seenQuestions = new Map(); // Using Map to store both text and element
-      const questionBlocks = document.querySelectorAll(".question-block");
-      const contentDiv = document.getElementById('content');
+      
+      // --- DEDUPLICATION LOGIC ---
+      const seenQuestions = new Map();
+      
+      // This selector finds ALL possible question containers, whether they are
+      // a .question-block div or a .question-form that is NOT inside a .question-block.
+      const allQuestionContainers = document.querySelectorAll(".question-block, form.question-form:not(.question-block .question-form)");
 
-      // First pass: identify duplicates
-      questionBlocks.forEach(block => {
-        const questionElement = block.querySelector(".question");
+      allQuestionContainers.forEach(container => {
+        const questionElement = container.querySelector(".question");
+        if (!questionElement) return; // Skip if no question text is found
+
         const questionText = questionElement.textContent.trim();
 
         if (seenQuestions.has(questionText)) {
-          // If we've seen this question before, remove the entire block
-          block.remove();
+          container.remove(); // Remove the duplicate container
         } else {
-          // Store the first occurrence of this question
-          seenQuestions.set(questionText, block);
+          seenQuestions.set(questionText, container); // Store the first one we see
         }
       });
 
-      // Initialize scroll to top button
+
+      // --- SCROLL TO TOP BUTTON LOGIC ---
       const scrollTopBtn = document.getElementById('scrollTop');
-
       window.addEventListener('scroll', function () {
-        if (window.pageYOffset > 300) {
-          scrollTopBtn.style.display = 'block';
-        } else {
-          scrollTopBtn.style.display = 'none';
-        }
+        scrollTopBtn.style.display = (window.pageYOffset > 300) ? 'block' : 'none';
       });
-
       scrollTopBtn.addEventListener('click', function () {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // Search functionality
+
+      // --- SEARCH LOGIC ---
       const searchInput = document.getElementById('search');
       const clearSearchBtn = document.getElementById('clear-search');
-      const remainingQuestionBlocks = document.querySelectorAll(".question-block"); // Get updated list after deduplication
+      
+      // Get the list of unique containers that survived deduplication
+      const finalQuestionContainers = Array.from(seenQuestions.values());
 
-      searchInput.addEventListener('input', function () {
-        const query = searchInput.value.toLowerCase();
-        remainingQuestionBlocks.forEach(block => {
-          const question = block.querySelector('.question');
-          if (question.textContent.toLowerCase().includes(query)) {
-            block.classList.remove('hidden');
-          } else {
-            block.classList.add('hidden');
-          }
+      function performSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+        finalQuestionContainers.forEach(container => {
+          const questionText = container.querySelector('.question').textContent.toLowerCase();
+          
+          // Show if the text includes the query, hide otherwise
+          container.style.display = questionText.includes(query) ? 'block' : 'none';
         });
-      });
+      }
 
-      // Clear search functionality
+      searchInput.addEventListener('input', performSearch);
+
       clearSearchBtn.addEventListener('click', function () {
         searchInput.value = '';
-        remainingQuestionBlocks.forEach(block => {
-          block.classList.remove('hidden');
-        });
+        performSearch(); // Re-run search with empty query to show all
         searchInput.focus();
       });
     });
   </script>
+  <!-- ======================================================= -->
+  <!-- ===== END OF THE NEW, CORRECTED JAVASCRIPT SCRIPT ===== -->
+  <!-- ======================================================= -->
 </body>
 
 </html>
