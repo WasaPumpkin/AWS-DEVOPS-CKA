@@ -138,6 +138,413 @@
         <button class="search-button" id="clear-search">X</button>
       </div>
     </div>
+    <form class="question-form">
+  <h1 class="question">
+    What is a possible reason you would need to edit claims issued in a SAML token?
+  </h1>
+
+  <label for="optionA">A. The NameIdentifier claim must be the same as the username stored in AD..</label>
+  <label for="optionB">B. Authentication fails consistently.</label>
+  <label for="optionC">C. The NameIdentifier claim cannot be the same as the claim URI.</label>
+  <label for="optionD" class="correct-answer">D. The NameIdentifier claim cannot be the same as the username stored in AD ✓✓</label>
+</form>
+
+
+<form class="question-form">
+  <h1 class="question">
+    A user is creating a Provisioned IOPS volume.<br><br>
+    What is the maximum ratio the user should configure between Provisioned IOPS and the volume size?
+  </h1>
+
+  <label for="optionA">
+    A. 30 to 1
+  </label>
+
+  <label for="optionB">
+    B. 150 to 1
+  </label>
+
+  <label for="optionC" class="correct-answer">
+    C. 50 to 1 ✓✓
+  </label>
+
+  <label for="optionD">
+    D. 20 to 1
+  </label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">
+    API Gateway and Lambda non-proxy integrations have been chosen to implement an application by a software engineer.
+    <br><br>
+    The application is a data analysis tool that returns some statistic results when the HTTP endpoint is called. The Lambda function needs to communicate with some back-end data services such as Keen.io. However, there are chances that errors happen (e.g., wrong data requested, bad communication, etc).
+    <br><br>
+    The Lambda is written in Java and may return two exceptions: <strong>BadRequestException</strong> and <strong>InternalErrorException</strong>.
+    <br><br>
+    What should the software engineer do to map these two exceptions in API Gateway with proper HTTP return codes?
+    <br><br>
+    For example, <strong>BadRequestException</strong> and <strong>InternalErrorException</strong> are mapped to HTTP return codes <strong>400</strong> and <strong>500</strong> respectively. (Select 2)
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. Add the corresponding error codes (400 and 500) on the Method Response in API Gateway. ✓✓✓
+  </label>
+
+  <label for="optionB" class="correct-answer">
+    B. Add Integration Responses where regular expression patterns are set such as BadRequest or InternalError. Associate them with HTTP status codes  . ✓✓✓
+  </label>
+
+  <label for="optionC">
+    C. Add Method Responses where regular expression patterns are set such as BadRequest or InternalError. Associate them with HTTP status codes 400 and 500.
+  </label>
+
+  <label for="optionD">
+    D. Put the mapping logic into Lambda itself so that when exception happens, error codes are returned at the same time in a JSON body.
+  </label>
+
+  <label for="optionE">
+    E. Add the corresponding error codes (400 and 500) on the Integration Response in API Gateway
+  </label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company runs a video processing platform. Files are uploaded by users who connect to a web server, which stores them on an Amazon EFS share. This web server is running on a single Amazon EC2 instance.
+    <br><br>
+    A different group of instances, running in an Auto Scaling group, scans the EFS share directory structure for new files to process and generates new videos (thumbnails, different resolution, compression, etc.) according to the instructions file, which is uploaded along with the video files.
+    <br><br>
+    A different application running on a group of instances managed by an Auto Scaling group processes the video files and then deletes them from the EFS share. The results are stored in an S3 bucket. Links to the processed video files are emailed to the customer.
+    <br><br>
+    The company has recently discovered that as they add more instances to the Auto Scaling Group, many files are processed twice, so image processing speed is not improved. The maximum size of these video files is 2GB.
+    <br><br>
+    What should the Solutions Architect do to improve reliability and reduce the redundant processing of video files?
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A.  Rewrite the application to run from Amazon S3 and upload the video files to an S3 bucket. Each time a new file is uploaded, trigger an AWS Lambda function to put a message in an SQS queue containing the link and the instructions. Modify the video processing application to read from the SQS queue and the S3 bucket. Use the queue depth metric to adjust the size of the Auto Scaling group for video processing instances.   ✓✓✓
+  </label>
+
+  <label for="optionB">
+    B. Set up a cron job on the web server instance to synchronize the contents of the EFS share into Amazon S3. Trigger an AWS Lambda function every time a file is uploaded to process the video file and store the results in Amazon S3. Using Amazon CloudWatch Events trigger an Amazon SES job to send an email to the customer containing the link to the processed file.
+  </label>
+
+  <label for="optionC">
+    C. Rewrite the web application to run directly from Amazon S3 and use Amazon API Gateway to upload the video files to an S3 bucket. Use an S3 trigger to run an AWS Lambda function each time a file is uploaded to process and store new video files in a different bucket. Using CloudWatch Events, trigger an SES job to send an email to the customer containing the link to the processed file.
+  </label>
+
+  <label for="optionD">
+    D. Modify the web application to upload the video files directly to Amazon S3. Use Amazon CloudWatch Events to trigger an AWS Lambda function every time a file is uploaded, and have this Lambda function put a message into an Amazon queue for new files and use the queue depth metric to scale instances in the video processing Auto Scaling group.
+  </label>
+</form>
+
+
+
+<form class="question-form">
+  <h1 class="question">
+    Refer to the architecture diagram above of a batch processing solution using Simple Queue Service (SQS) to set up a message queue between EC2 instances which are used as batch processors. CloudWatch monitors the number of job requests (queued messages) and an Auto Scaling group adds or deletes batch servers automatically based on parameters set in CloudWatch alarms.
+    <br><br>
+    You can use this architecture to implement which of the following features in a cost effective and efficient manner?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Coordinate number of EC2 instances with number of Job requests automatically, thus improving cost effectiveness. ✓✓</label>
+  <label for="optionB">B. Reduce the overall time for executing Jobs through parallel processing by allowing a busy EC2 instance that receives a message to pass it to the next instance in a daisy-chain setup.</label>
+  <label for="optionC">C. Implement fault tolerance against EC2 instance failure since messages would remain in SQS and work can continue with recovery of EC2 instances. Implement fault tolerance against SQS failure by backing up messages to S3.</label>
+  <label for="optionD">D. Handle high priority Jobs before lower priority Jobs by assigning a priority metadata field to SQS messages.</label>
+  <label for="optionE">E. Implement message passing between EC2 instances within a batch by exchanging messages through SQS.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A read-only news reporting site with a combined web and application tier and a database tier that receives large and unpredictable traffic demands must be able to respond to these traffic fluctuations automatically. What AWS services should be used to meet these requirements?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Stateless instances for the web and application tier synchronized using ElastiCache Memcached in an autoscaling group monitored with CloudWatch, and RDS with read replicas. ✓✓</label>
+  <label for="optionB">B. Stateful instances for the web and application tier in an autoscaling group monitored with CloudWatch, and multi-AZ RDS.</label>
+  <label for="optionC">C. Stateful instances for the web and application tier in an autoscaling group monitored with CloudWatch, and RDS with read replicas.</label>
+  <label for="optionD">D. Stateless instances for the web and application tier synchronized using ElastiCache Memcached in an autoscaling group monitored with CloudWatch, and multi-AZ RDS.</label>
+</form>
+  <form class="question-form">
+  <h1 class="question">
+    A company wants to ensure that the workloads for each of its business units have complete autonomy and a minimal blast radius in AWS. The Security team must be able to control access to the resources and services in the account to ensure that particular services are not used by the business units.
+    How can a Solutions Architect achieve the isolation requirements?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Create individual accounts for each business unit and add the account to an OU in AWS Organizations. Modify the OU to ensure that the particular services are blocked. Federate each account with an IdP, and create separate roles for the business units and the Security team. ✓✓</label>
+  <label for="optionB">B. Create individual accounts for each business unit. Federate each account with an IdP and create separate roles and policies for business units and the Security team.</label>
+  <label for="optionC">C. Create one shared account for the entire company. Create separate VPCs for each business unit. Create individual IAM policies and resource tags for each business unit. Federate each account with an IdP, and create separate roles for the business units and the Security team.</label>
+  <label for="optionD">D. Create one shared account for the entire company. Create individual IAM policies and resource tags for each business unit. Federate the account with an IdP, and create separate roles for the business units and the Security team.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Your company currently has a 2-tier web application running in an on-premises data center. 
+    You have experienced several infrastructure failures in the past few months resulting in significant financial losses. Your CIO is strongly considering moving the application to AWS. 
+    While working on achieving buy-in from the other company executives, he asks you to develop a disaster recovery plan to help improve business continuity in the short term. 
+    He specifies a target Recovery Time Objective (RTO) of 4 hours and a Recovery Point Objective (RPO) of 1 hour or less. 
+    He also asks you to implement the solution within 2 weeks.
+    Your database is 200GB in size and you have a 20Mbps Internet connection.
+    How would you do this while minimizing costs?
+  </h1>
+
+  <label for="optionA">A. Create an EBS backed private AMI which includes a fresh install of your application. Setup a script in your data center to backup the local database every 1 hour and to encrypt and copy the resulting file to an S3 bucket using multi-part upload. </label>
+
+  <label for="optionB" class="correct-answer">B. Create an EBS backed private AMI which includes a fresh install of your application. Develop a CloudFormation template which includes your AMI and the required EC2, AutoScaling, and ELB resources to support deploying the application across Multiple-Availability-Zones. Asynchronously replicate transactions from your on-premises database to a database instance in AWS across a secure VPN connection. ✓✓</label>
+
+  <label for="optionC">C. Install your application on a compute-optimized EC2 instance capable of supporting the application's average load. Synchronously replicate transactions from your on-premises database to a database instance in AWS across a secure Direct Connect connection.</label>
+
+  <label for="optionD">D. Deploy your application on EC2 instances within an Auto Scaling group across multiple availability zones. Asynchronously replicate transactions from your on-premises database to a database instance in AWS across a secure VPN connection.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">
+    You have been asked to set up a public website on AWS with the following criteria:
+    <ul>
+      <li>The database and the application server must run in an Amazon VPC.</li>
+      <li>The database must be able to connect to the Internet for automatic patch updates.</li>
+      <li>The database must not receive any incoming traffic from the Internet.</li>
+    </ul>
+    Which solutions would be the best to satisfy all the above requirements for your planned public website on AWS? (Choose 2 answers)
+  </h1>
+
+  <label for="optionA">A. Set up both the public website and the database on a public subnet and block all incoming requests from the Internet with a Network Access Control List (NACL)</label>
+  <label for="optionB">B. Set up both the public website and the database on a private subnet and block all incoming requests from the Internet with a Network Access Control List (NACL). Set up a Security group between the public website and the database which only allows access via port 80 .</label>
+  <label for="optionC" class="correct-answer">C. Set up the public website on a public subnet and set up the database in a private subnet which connects to the Internet via a NAT instance ✓✓</label>
+  <label for="optionD" class="correct-answer">D. Set up both the public website and the database on a public subnet, and block all incoming requests from the Internet with a security group which only allows access from the IP of the public website   ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A web-startup runs its very successful social news application on Amazon EC2 with an Elastic Load Balancer, an Auto-Scaling group of Java/Tomcat application-servers, and DynamoDB as data store. The main web-application best runs on m2.xlarge instances since it is highly memory-bound. Each new deployment requires semi-automated creation and testing of a new AMI for the application servers, which takes quite a while and is therefore only done once per week.
+
+    Recently, a new chat feature has been implemented in Node.js and waits to be integrated in the architecture. First tests show that the new component is CPU-bound. Because the company has some experience with using Chef, they decided to streamline the deployment process and use AWS OpsWorks as an application life cycle tool to simplify management of the application and reduce the deployment cycles.
+
+    What configuration in AWS OpsWorks is necessary to integrate the new chat module in the most cost-efficient and flexible way?
+  </h1>
+
+  <label for="optionA">A. Create two AWS OpsWorks stacks, create two AWS OpsWorks layers, create two custom recipes</label>
+  <label for="optionB" class="correct-answer">B. Create one AWS OpsWorks stack, create two AWS OpsWorks layers, create one custom recipe ✓✓</label>
+  <label for="optionC">C. Create one AWS OpsWorks stack, create one AWS OpsWorks layer, create one custom recipe</label>
+  <label for="optionD">D. Create two AWS OpsWorks stacks, create two AWS OpsWorks layers, create one custom recipe</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A user has created a VPC with public and private subnets using the VPC Wizard. The VPC has CIDR 20.0.0.0/16. The private subnet uses CIDR 20.0.0.0/24. Which of the below mentioned entries are required in the main route table to allow the instances in VPC to communicate with each other?
+  </h1>
+
+  <label for="optionA">A. Destination : 20.0.0.0/0 and Target : ALL</label>
+  <label for="optionB" class="correct-answer">B. Destination : 20.0.0.0/16 and Target : Local ✓✓</label>
+  <label for="optionC">C. Destination : 20.0.0.0/24 and Target : Local</label>
+  <label for="optionD">D. Destination : 20.0.0.0/16 and Target : ALL</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has an application that generates a weather forecast that is updated every 15 minutes with an output resolution of 1 billion unique positions, each approximately 20 bytes in size (20 Gigabytes per forecast). Every hour, the forecast data is globally accessed approximately 5 million times (1,400 requests per second), and up to 10 times more during weather events. The forecast data is overwritten every update. Users of the current weather forecast application expect responses to queries to be returned in less than two seconds for each request.
+    <br><br>
+    Which design meets the required request rate and response time?
+  </h1>
+
+  <label for="optionA">A.  Store forecast locations in an Amazon ES cluster. Use an Amazon CloudFront distribution targeting an API Gateway endpoint with AWS Lambda functions responding to queries as the origin. Create an Amazon Lambda@Edge function that caches the data locally at edge locations for 15 minutes.</label>
+
+  <label for="optionB">B. Store forecast locations in an Amazon EFS volume. Create an Amazon CloudFront distribution that targets an Elastic Load Balancing group of an Auto Scaling fleet of Amazon EC2 instances that have mounted the Amazon EFS volume. Set the set cache-control timeout for 15 minutes in the CloudFront distribution.</label>
+
+  <label for="optionC" class="correct-answer">C. Store forecast locations in an Amazon ES cluster. Use an Amazon CloudFront distribution targeting an Amazon API Gateway endpoint with AWS Lambda functions responding to queries as the origin. Enable API caching on the API Gateway stage with a cache-control timeout set for 15 minutes . ✓✓</label>
+
+  <label for="optionD">D. Store forecast locations in an Amazon S3 as individual objects. Create an Amazon CloudFront distribution targeting an Elastic Load Balancing group of an Auto Scaling fleet of EC2 instances, querying the origin of the S3 object. Set the cache-control timeout for 15 minutes in the CloudFront distribution.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    What types of identities do Amazon Cognito identity pools support?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. They support both authenticated and unauthenticated identities. ✓✓</label>
+  <label for="optionB">B. They support only unauthenticated identities.</label>
+  <label for="optionC">C. They support neither authenticated nor unauthenticated identities.</label>
+  <label for="optionD">D. They support only authenticated identities.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Which of the following AWS services can be used to define alarms to trigger on a certain activity, such as activity success, failure, or delay in AWS Data Pipeline?
+  </h1>
+
+  <label for="optionA">A. Amazon SES</label>
+  <label for="optionB">B. Amazon CodeDeploy</label>
+  <label for="optionC" class="correct-answer">C. Amazon SNS ✓✓</label>
+  <label for="optionD">D. Amazon SQS</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    In DynamoDB, to get a detailed listing of secondary indexes on a table, you can use the _____ action.
+  </h1>
+
+  <label for="optionA">A. BatchGetItem</label>
+  <label for="optionB">B. TableName</label>
+  <label for="optionC" class="correct-answer">C. DescribeTable ✓✓</label>
+  <label for="optionD">D. GetItem</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company's application is increasingly popular and experiencing latency because of high volume reads on the database server. The service has the following properties:
+    <ul>
+      <li>A highly available REST API hosted in one region using Application Load Balancer (ALB) with auto scaling.</li>
+      <li>A MySQL database hosted on an Amazon EC2 instance in a single Availability Zone.</li>
+      <li>The company wants to reduce latency, increase in-region database read performance, and have multi-region disaster recovery capabilities that can perform a live recovery automatically without any data or performance loss (HA/DR).</li>
+    </ul>
+    Which deployment strategy will meet these requirements?
+  </h1>
+
+  <label for="optionA" class="correct-answer">
+    A. Use AWS CloudFormation StackSets to deploy the API layer in two regions. Migrate the database to an Amazon Aurora with MySQL database cluster with multiple read replicas in one region and a read replica in a different region than the source database cluster. Use Amazon Route 53 health checks to trigger a DNS failover to the standby region if the health checks to the primary load balancer fail. In the event of Route 53 failover, promote the cross-region database replica to be the master and build out new read replicas in the standby region. ✓✓
+  </label>
+
+  <label for="optionB">
+    B. Use Amazon ElastiCache for Redis Multi-AZ with an automatic failover to cache the database read queries. Use AWS OpsWorks to deploy the API layer, cache layer, and existing database layer in two regions. In the event of failure, use Amazon Route 53 health checks on the database to trigger a DNS failover to the standby region if the health checks in the primary region fail. Back up the MySQL database frequently, and in the event of a failure in an active region, copy the backup to the standby region and restore the standby database.
+  </label>
+
+  <label for="optionC">
+    C. Use AWS CloudFormation StackSets to deploy the API layer in two regions. Add the database to an Auto Scaling group. Add a read replica to the database in the second region. Use Amazon Route 53 health checks in the primary region fail. Promote the cross-region database replica to be the master and build out new read replicas in the standby region.
+  </label>
+
+  <label for="optionD">
+    D. Use Amazon ElastiCache for Redis Multi-AZ with an automatic failover to cache the database read queries. Use AWS OpsWorks to deploy the API layer, cache layer, and existing database layer in two regions. Use Amazon Route 53 health checks on the ALB to trigger a DNS failover to the standby region if the health checks in the primary region fail. Back up the MySQL database frequently, and in the event of a failure in an active region, copy the backup to the standby region and restore the standby database.
+  </label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has a requirement that only allows specially hardened AMIs to be launched into public subnets in a VPC, and for the AMIs to be associated with a specific security group.
+    <br><br>
+    Allowing non-compliant instances to launch into the public subnet could present a significant security risk if they are allowed to operate.
+    <br><br>
+    A mapping of approved AMIs to subnets to security groups exists in an Amazon DynamoDB table in the same AWS account. The company created an AWS Lambda function that, when invoked, will terminate a given Amazon EC2 instance if the combination of AMI, subnet, and security group are not approved in the DynamoDB table.
+    <br><br>
+    What should the Solutions Architect do to MOST quickly mitigate the risk of compliance deviations?
+  </h1>
+
+  <label for="optionA">
+    A. Create an Amazon CloudWatch Events rule that matches each time an EC2 instance is launched using one of the allowed AMIs, and associate it with the Lambda function as the target.
+  </label>
+
+  <label for="optionB">
+    B. For the Amazon S3 bucket receiving the AWS CloudTrail logs, create an S3 event notification configuration with a filter to match when logs contain the ec2:RunInstances action, and associate it with the Lambda function as the target.
+  </label>
+
+  <label for="optionC">
+    C. Enable AWS CloudTrail and configure it to stream to an Amazon CloudWatch Logs group. Create a metric filter in CloudWatch to match when the ec2:RunInstances action occurs, and trigger the Lambda function when the metric is greater than 0.
+  </label>
+
+  <label for="optionD" class="correct-answer">
+    D. Create an Amazon CloudWatch Events rule that matches each time an EC2 instance is launched, and associate it with the Lambda function as the target. ✓✓
+  </label>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form class="question-form">
+  <h1 class="question">
+    A user has created a VPC with a public subnet. The user has terminated all the instances which are part of the subnet. 
+    Which of the below mentioned statements is true with respect to this scenario?
+  </h1>
+
+  <label for="optionA">A. The subnet to which the instances were launched with will be deleted</label>
+
+  <label for="optionB">B. When the user launches a new instance it cannot use the same subnet</label>
+
+  <label for="optionC">C. The user cannot delete the VPC since the subnet is not deleted</label>
+
+  <label for="optionD" class="correct-answer">D. Secondary network interfaces attached to the terminated instances may persist ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A media storage application uploads user photos to Amazon S3 for processing. End users are reporting that some uploaded photos are not being processed properly. The Application Developers trace the logs and find that AWS Lambda is experiencing execution issues when thousands of users are on the system simultaneously. Issues are caused by:
+    <br>
+    - Limits around concurrent executions.
+    <br>
+    - The performance of Amazon DynamoDB when saving data.
+    <br><br>
+    Which actions can be taken to increase the performance and reliability of the application? (Choose two.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Configure a dead letter queue that will reprocess failed or timed-out Lambda functions ✓✓</label>
+
+  <label for="optionB" class="correct-answer">B. Evaluate and adjust the write capacity units (WCUs) for the DynamoDB tables. ✓✓</label>
+
+  <label for="optionC">C. Add an Amazon ElastiCache layer to increase the performance of Lambda functions.</label>
+
+  <label for="optionD">D. Evaluate and adjust the read capacity units (RCUs) for the DynamoDB tables. .</label>
+
+  <label for="optionE">E. Use S3 Transfer Acceleration to provide lower-latency access to end users.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">
+    You have deployed a web application, targeting a global audience across multiple AWS Regions under the domain name example.com.
+    <br><br>
+    You decide to use Route53 Latency-Based Routing to serve web requests to users from the region closest to the user. To provide business continuity in the event of server downtime you configure weighted record sets associated with two web servers in separate Availability Zones per region.
+    <br><br>
+    During a DR test you notice that when you disable all web servers in one of the regions Route53 does not automatically direct all users to the other region.
+    <br><br>
+    What could be happening? (Choose 2 answers)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. You did not set "Evaluate Target Health" to 'Yes" on the latency alias resource record set associated with example.com in the region where you disabled the servers. ✓✓</label>
+
+  <label for="optionB">B. The value of the weight associated with the latency alias resource record set in the region with the disabled servers is higher than the weight for the other region.</label>
+
+  <label for="optionC">C. One of the two working web servers in the other region did not pass its HTTP health check.</label>
+
+  <label for="optionD">D. Latency resource record sets cannot be used in combination with weighted resource record sets.</label>
+
+  <label for="optionE" class="correct-answer">E. You did not setup an HTTP health check for one or more of the weighted resource record sets associated with the disabled web servers. ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    In DynamoDB, which of the following operations is not possible by the console?
+  </h1>
+
+  <label for="optionA">A. Updating an item</label>
+  <label for="optionB">B. Copying an item</label>
+  <label for="optionC" class="correct-answer">C. Blocking an item ✓✓</label>
+  <label for="optionD">D. Deleting an item</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has decided to move some workloads onto AWS to create a grid environment to run market analytics.
+    The grid will consist of many similar instances, spun-up by a job-scheduling function. Each time a large analytics
+    workload is completed, a new VPC is deployed along with job scheduler and grid nodes. Multiple grids could be
+    running in parallel. Key requirements are:
+    <ul>
+      <li>Grid instances must communicate with Amazon S3 to retrieve data to be processed.</li>
+      <li>Grid instances must communicate with Amazon DynamoDB to track intermediate data.</li>
+      <li>The job scheduler needs only to communicate with the Amazon EC2 API to start new grid nodes.</li>
+      <li>No internet access is allowed, either directly or via the on-premises proxy.</li>
+      <li>The application must seamlessly communicate with Amazon S3, DynamoDB, and EC2 API without needing reconfiguration for each deployment.</li>
+    </ul>
+    Which of the following should the Solutions Architect do to achieve this target architecture? (Choose three.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Enable VPC endpoints for Amazon S3 and DynamoDB ✓✓</label>
+  <label for="optionB">B. Disable Private DNS Name Support</label>
+  <label for="optionC">C. Configure the application on the grid instances to use the private DNS name of the Amazon S3 endpoint</label>
+  <label for="optionD">D. Populate the on-premises DNS server with the private IP addresses of the EC2 endpoint</label>
+  <label for="optionE" class="correct-answer">E. Enable an interface VPC endpoint for EC2 ✓✓</label>
+  <label for="optionF" class="correct-answer">F. Configure Amazon S3 endpoint policy to permit access only from the grid nodes ✓✓</label>
+</form>
+
+
+
+
+
+
+
 <form class="question-form">
   <h1 class="question">
     Someone is creating a VPC for their application hosting. He has created two private subnets in the same availability zone and created one subnet in a separate availability zone. He wants to make a High Availability system with an internal Elastic Load Balancer.
@@ -738,8 +1145,8 @@
 </form>
 
 
-  <label for="optionD">D. numeql</label>
-</form>
+ 
+
 
 
 
