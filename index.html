@@ -138,6 +138,7 @@
         <button class="search-button" id="clear-search">X</button>
       </div>
     </div>
+
     <form class="question-form">
   <h1 class="question">
     What is a possible reason you would need to edit claims issued in a SAML token?
@@ -147,6 +148,130 @@
   <label for="optionB">B. Authentication fails consistently.</label>
   <label for="optionC">C. The NameIdentifier claim cannot be the same as the claim URI.</label>
   <label for="optionD" class="correct-answer">D. The NameIdentifier claim cannot be the same as the username stored in AD ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A big company has a service to process gigantic clickstream data sets which are often the result of holiday shopping traffic on a retail website, or sudden dramatic growth on the data network of a media or social networking site. It is becoming more and more expensive to analyze these clickstream datasets for its on-premise infrastructure. As the sample data set keeps growing, fewer applications are available to provide a timely response. The service is using a Hadoop cluster with Cascading. How can they migrate the applications to AWS in the best way?
+  </h1>
+
+  <label for="optionA">A. Put the source data to a Kinesis stream and migrate the processing service to an AWS EMR cluster with Cascading. Enable EMR to directly read and query data from Kinesis streams. Write the output to Redshift.</label>
+  <label for="optionB">B. Put the source data to a Kinesis stream and migrate the processing service to AWS Lambda to utilize its scaling feature. Enable Lambda to directly read and query data from Kinesis stream. Write the output to RDS database.</label>
+  <label for="optionC" class="correct-answer">C. Put the source data to S3 and migrate the processing service to an AWS EMR Hadoop cluster with Cascading. Enable EMR to directly read and query data from S3 buckets. Write the output to RDS database ✓✓</label>
+  <label for="optionD">D. Put the source data to a S3 bucket and migrate the processing service to AWS EC2 with auto scaling. Ensure that the auto scaling configuration has proper maximum and minimum number of instances. Monitor the performance in CloudWatch dashboard. Write the output to DynamoDB table for downstream to process.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    What is the name of licensing model in which I can use your existing Oracle Database licenses to run Oracle deployments on Amazon RDS?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Bring Your Own License ✓✓</label>
+  <label for="optionB">B. Role Bases License</label>
+  <label for="optionC">C. Enterprise License</label>
+  <label for="optionD">D. License Included</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    You have launched an EC2 instance with four (4) 500 GB EBS Provisioned IOPS volumes attached. The EC2 instance is EBS-Optimized and supports 500 Mbps throughput between EC2 and EBS. The four EBS volumes are configured as a single RAID 0 device, and each Provisioned IOPS volume is provisioned with 4,000 IOPS (4,000 16KB reads or writes), for a total of 16,000 random IOPS on the instance. The EC2 instance initially delivers the expected 16,000 IOPS random read and write performance. Sometime later, in order to increase the total random I/O performance of the instance, you add an additional two 500 GB EBS Provisioned IOPS volumes to the RAID. Each volume is provisioned to 4,000 IOPS like the original four, for a total of 24,000 IOPS on the EC2 instance. Monitoring shows that the EC2 instance CPU utilization increased from 50% to 70%, but the total random IOPS measured at the instance level does not increase at all.
+    <br><br>
+    What is the problem and a valid solution?
+  </h1>
+
+  <label for="optionA">A. Small block sizes cause performance degradation, limiting the I/O throughput; configure the instance device driver and filesystem to use 64KB blocks to increase throughput.</label>
+  <label for="optionB" class="correct-answer">B. The EBS-Optimized throughput limits the total IOPS that can be utilized; use an EBS-Optimized instance that provides larger throughput ✓✓</label>
+  <label for="optionC">C. The standard EBS Instance root volume limits the total IOPS rate; change the instance root volume to also be a 500GB 4,000 Provisioned IOPS volume.</label>
+  <label for="optionD">D. Larger storage volumes support higher Provisioned IOPS rates; increase the provisioned volume storage of each of the 6 EBS volumes to 1TB.</label>
+  <label for="optionE">E. RAID 0 only scales linearly to about 4 devices; use RAID 0 with 4 EBS Provisioned IOPS volumes, but increase each Provisioned IOPS EBS volume to 6,000 IOPS.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    Which of the following commands accepts binary data as parameters?
+  </h1>
+
+  <label for="optionA">A. --ciphertext-key</label>
+  <label for="optionB" class="correct-answer">B. --user-data  ✓✓</label>
+  <label for="optionC">C. --aws-customer-key</label>
+  <label for="optionD">D. --describe-instances-user</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A Solutions Architect needs to migrate a legacy application from on premises to AWS. On premises, the application runs on two Linux servers behind a load balancer and accesses a database that is master-master on two servers. Each application server requires a license file that is tied to the MAC address of the server's network adapter. It takes the software vendor 12 hours to send new license files through email. The application requires configuration files to use static IPv4 addresses to access the database servers, not DNS.
+    <br><br>
+    Given these requirements, which steps should be taken together to enable a scalable architecture for the application servers? (Choose two.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Create bootstrap automation to attach an ENI from the pool, read the database IP addresses from AWS Systems Manager Parameter Store, and inject those parameters into the local configuration files. Keep SSM up to date using a Lambda function . ✓✓</label>
+  <label for="optionB" class="correct-answer">B. Create a pool of ENIs, request license files from the vendor for the pool, and store the license files within Amazon S3. Create automation to download an unused license, and attach the corresponding ENI at boot time. ✓✓</label>
+  <label for="optionC">C. Create a bootstrap automation to request a new license file from the vendor with a unique return email. Have the server configure itself with the received license file.</label>
+  <label for="optionD">D. Install the application on an EC2 instance, configure the application, and configure the IP address information. Create an AMI from this instance and use it for all instances.</label>
+  <label for="optionE">E. Create a pool of ENIs, request license files from the vendor for the pool, store the license files on an Amazon EC2 instance, modify the configuration files, and create an AMI from the instance. Use this AMI for all instances .</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is migrating its on-premises build artifact server to an AWS solution. The current system consists of an Apache HTTP server that serves artifacts to clients on the local network, restricted by the perimeter firewall. The artifact consumers are largely build automation scripts that download artifacts via anonymous HTTP, which the company will be unable to modify within its migration timetable.
+    <br><br>
+    The company decides to move the solution to Amazon S3 static website hosting. The artifact consumers will be migrated to Amazon EC2 instances located within both public and private subnets in a virtual private cloud (VPC).
+    <br><br>
+    Which solution will permit the artifact consumers to download artifacts without modifying the existing automation scripts?
+  </h1>
+
+  <label for="optionA">A. Create a NAT gateway within a public subnet of the VPC. Add a default route pointing to the NAT gateway into the route table associated with the subnets containing consumers. Configure the bucket policy to allow the s3:ListBucket and s3:GetObject actions using the condition IpAddress and the condition key aws:SourceIp matching the elastic IP address of the NAT gateway.</label>
+  <label for="optionB" class="correct-answer">B. Create a VPC endpoint and add it to the route table associated with subnets containing consumers. Configure the bucket policy to allow s3:ListBucket and s3:GetObject actions using the condition and the condition key aws:sourceVpce matching the identification of the VPC StringEquals endpoint. ✓✓</label>
+  <label for="optionC">C. Create an IAM role and instance profile for Amazon EC2 and attach it to the instances that consume build artifacts. Configure the bucket policy to allow the s3:ListBucket and s3:GetObjects actions for the principal matching the IAM role created.</label>
+  <label for="optionD">D. Create a VPC endpoint and add it to the route table associated with subnets containing consumers. Configure the bucket policy to allow s3:ListBucket and s3:GetObject actions using the condition and the condition key aws:SourceIp matching the VPC CIDR block. IpAddress</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A user is planning to host a web server as well as an app server on a single EC2 instance which is a part of the public subnet of a VPC. How can the user set up to have two separate public IPs and separate security groups for both the application as well as the web server?
+  </h1>
+
+  <label for="optionA">A. Launch VPC with two separate subnets and make the instance a part of both the subnets.</label>
+  <label for="optionB" class="correct-answer">B. Launch a VPC instance with two network interfaces. Assign a separate security group and elastic IP to them. ✓✓</label>
+  <label for="optionC">C. Launch a VPC instance with two network interfaces. Assign a separate security group to each and AWS will assign a separate public IP to them.</label>
+  <label for="optionD">D. Launch a VPC with ELB such that it redirects requests to separate VPC instances of the public subnet.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    An AWS customer runs a public blogging website. The site users upload two million blog entries a month. The average blog entry size is 200 KB. The access rate to blog entries drops to negligible 6 months after publication and users rarely access a blog entry 1 year after publication.
+    <br><br>
+    Additionally, blog entries have a high update rate during the first 3 months following publication, this drops to no updates after 6 months. The customer wants to use CloudFront to improve his user's load times.
+    <br><br>
+    Which of the following recommendations would you make to the customer?
+  </h1>
+
+  <label for="optionA">A. Create a CloudFront distribution with "US/Europe" price class for US/Europe users and a different CloudFront distribution with "All Edge Locations" for the remaining users.</label>
+  <label for="optionB" class="correct-answer">B. Create a CloudFront distribution with S3 access restricted only to the CloudFront identity and partition the blog entry's location in S3 according to the month it was uploaded to be used with CloudFront behaviors. ✓✓</label>
+  <label for="optionC">C. Create a CloudFront distribution with Restrict Viewer Access, Forward Query String set to true and minimum TTL of 0.</label>
+  <label for="optionD">D. Duplicate entries into two different buckets and create two separate CloudFront distributions where S3 access is restricted only to CloudFront identity.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    To ensure failover capabilities on an elastic network interface (ENI), what should you use for incoming traffic?
+  </h1>
+
+  <label for="optionA">A. A Route53 A record</label>
+  <label for="optionB" class="correct-answer">B. A secondary private IP ✓✓</label>
+  <label for="optionC">C. A secondary public IP</label>
+  <label for="optionD">D. A secondary ENI</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    An organization is planning to host an application on the AWS VPC. The organization wants dedicated instances. However, an AWS consultant advised the organization not to use dedicated instances with VPC as the design has a few limitations. Which of the below mentioned statements is not a limitation of dedicated instances with VPC?
+  </h1>
+
+  <label for="optionA">A. All instances launched with this VPC will always be dedicated instances and the user cannot use a default tenancy model for them.</label>
+  <label for="optionB">B. It does not support the AWS RDS with a dedicated tenancy VPC.</label>
+  <label for="optionC" class="correct-answer">C. The user cannot use Reserved Instances with a dedicated tenancy model. ✓✓</label>
+  <label for="optionD">D. The EBS volume will not be on the same tenant hardware as the EC2 instance though the user has configured dedicated tenancy.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    An organization is setting up their website on AWS. The organization is working on various security measures to be performed on the AWS EC2 instances. Which of the below mentioned security mechanisms will not help the organization to avoid future data leaks and identify security weaknesses?
+  </h1>
+
+  <label for="optionA">A. Run penetration testing on AWS with prior approval from Amazon.</label>
+  <label for="optionB">B. Perform SQL injection for application testing.</label>
+  <label for="optionC" class="correct-answer">C. Perform a Code Check for any memory leaks. ✓✓</label>
+  <label for="optionD">D. Perform a hardening test on the AWS instance.</label>
 </form>
 
 
