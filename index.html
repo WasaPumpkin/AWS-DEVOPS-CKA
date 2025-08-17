@@ -3856,6 +3856,572 @@
   <label for="optionC" class="correct-answer">C. Create a role in IAM and assign it to the EC2 instance. ✓</label>
   <label for="optionD">D. Add the API Credentials in the Security Group and assign it to the EC2 instance.</label>
 </form>
+<form class="question-form">
+  <h1 class="question">
+    An advertising company is currently working on a proof of concept project that automatically provides SEO analytics for its clients. 
+    Your company has a VPC in AWS that operates in a dual-stack mode in which IPv4 and IPv6 communication is allowed. 
+    You deployed the application to an Auto Scaling group of EC2 instances with an Application Load Balancer in front that evenly distributes the incoming traffic. 
+    You are ready to go live but you need to point your domain name (tutorialsdojo.com) to the Application Load Balancer. <br><br>
+    In Route 53, which record types will you use to point the DNS name of the Application Load Balancer? (Select TWO.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Alias with a type "A" record set ✓✓</label>
+  <label for="optionB">B. Non-Alias with a type "A" record set</label>
+  <label for="optionC">C. Alias with a type of "MX" record set</label>
+  <label for="optionD" class="correct-answer">D. Alias with a type "AAAA" record set ✓✓</label>
+  <label for="optionE">E. Alias with a type "CNAME" record set</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company runs a shopping application that uses Amazon DynamoDB to store customer information. 
+    In case of data corruption, a solutions architect needs to design a solution that meets a recovery point objective (RPO) of 15 minutes and a recovery time objective (RTO) of 1 hour. <br><br>
+    What should the solutions architect recommend to meet these requirements?
+  </h1>
+
+  <label for="optionA">A. Schedule Amazon Elastic Block Store (Amazon EBS) snapshots for the DynamoDB table every 15 minutes. For RPO recovery, restore the DynamoDB table by using the EBS snapshot.</label>
+  <label for="optionB" class="correct-answer">B. Configure DynamoDB point-in-time recovery. For RPO recovery, restore to the desired point in time. ✓</label>
+  <label for="optionC">C. Export the DynamoDB data to Amazon S3 Glacier on a daily basis. For RPO recovery, import the data from S3 Glacier to DynamoDB.</label>
+  <label for="optionD">D. Configure DynamoDB global tables. For RPO recovery, point the application to a different AWS Region.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company plans to use a durable storage service to store on-premises database backups to the AWS cloud. 
+    To move their backup data, they need to use a service that can store and retrieve objects through standard file storage protocols for quick recovery. <br><br>
+    Which of the following options will meet this requirement?
+  </h1>
+
+  <label for="optionA">A. Use the AWS Storage Gateway volume gateway to store the backup data and directly access it using Amazon S3 API actions.</label>
+  <label for="optionB">B. Use Amazon EBS volumes to store all the backup data and attach it to an Amazon EC2 instance.</label>
+  <label for="optionC">C. Use AWS Snowball Edge to directly backup the data in Amazon S3 Glacier.</label>
+  <label for="optionD" class="correct-answer">D. Use the AWS Storage Gateway file gateway to store all the backup data in Amazon S3. ✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company needs to use Amazon S3 to store irreproducible financial documents. 
+    For their quarterly reporting, the files are required to be retrieved after a period of 3 months. 
+    There will be some occasions when a surprise audit will be held, which requires access to the archived data that they need to present immediately. <br><br>
+    What will you do to satisfy this requirement in a cost-effective way?
+  </h1>
+
+  <label for="optionA">A. Use Amazon Glacier Deep Archive</label>
+  <label for="optionB">B.  Use Amazon S3 - Intelligent Tiering</label>
+  <label for="optionC" class="correct-answer">C. Use Amazon S3 Standard - Infrequent Access  ✓✓</label>
+  <label for="optionD">D. Use Amazon S3 Standard</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company needs to use Amazon S3 to store irreproducible financial documents. 
+    For their quarterly reporting, the files are required to be retrieved after a period of 3 months. 
+    There will be some occasions when a surprise audit will be held, which requires access to the archived data that they need to present immediately. <br><br>
+    What will you do to satisfy this requirement in a cost-effective way?
+  </h1>
+
+  <label for="optionA">A. Use Amazon Glacier Deep Archive</label>
+  <label for="optionB" class="correct-answer">B. Use Amazon S3 - Intelligent Tiering ✓✓</label>
+  <label for="optionC">C. Use Amazon S3 Standard - Infrequent Access</label>
+  <label for="optionD">D. Use Amazon S3 Standard</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company deployed a high-performance computing (HPC) cluster that spans multiple EC2 instances across multiple Availability Zones and processes various wind simulation models. 
+    Currently, the Solutions Architect is experiencing a slowdown in their applications and upon further investigation, it was discovered that it was due to latency issues. <br><br>
+    Which is the MOST suitable solution that the Solutions Architect should implement to provide low-latency network performance necessary for tightly-coupled node-to-node communication of the HPC cluster?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Set up a cluster placement group within a single Availability Zone in the same AWS Region ✓✓</label>
+  <label for="optionB">B. Set up a spread placement group across multiple Availability Zones in multiple AWS Regions</label>
+  <label for="optionC">C. Set up AWS Direct Connect connections across multiple Availability Zones for increased bandwidth throughput and more consistent network experience</label>
+  <label for="optionD">D. Use EC2 Dedicated Instances</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is developing a two-tier web application on AWS. The company's developers have deployed the application on an Amazon EC2 instance that connects directly to a backend Amazon RDS database. 
+    The company must not hardcode database credentials in the application. The company must also implement a solution to automatically rotate the database credentials on a regular basis. <br><br>
+    Which solution will meet these requirements with the LEAST operational overhead?
+  </h1>
+
+  <label for="optionA">A. Store the database credentials as encrypted parameters in AWS Systems Manager Parameter Store. Turn on automatic rotation for the encrypted parameters. Attach the required permission to the EC2 role to grant access to the encrypted parameters.</label>
+  <label for="optionB" class="correct-answer">B. Store the database credentials as a secret in AWS Secrets Manager. Turn on automatic rotation for the secret. Attach the required permission to the EC2 role to grant access to the secret ✓✓</label>
+  <label for="optionC">C. Store the database credentials in the instance metadata. Use Amazon EventBridge (Amazon CloudWatch Events) rules to run a scheduled AWS Lambda function that updates the RDS credentials and instance metadata at the same time.</label>
+  <label for="optionD">D. Store the database credentials in a configuration file in an encrypted Amazon S3 bucket. Use Amazon EventBridge (Amazon CloudWatch Events) rules to run a scheduled AWS Lambda function that updates the RDS credentials and the credentials in the configuration file at the same time. Use S3 Versioning to ensure the ability to fall back to previous values.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A manufacturing company launched a new type of IoT sensor. The sensor will be used to collect large streams of data records. 
+    You need to create a solution that can ingest and analyze the data in real-time with millisecond response times. <br><br>
+    Which of the following is the best option that you should implement in this scenario?
+  </h1>
+
+  <label for="optionA">A. Ingest the data using Amazon Simple Queue Service and create an AWS Lambda function to store the data in Amazon Redshift</label>
+  <label for="optionB">B. Ingest the data using Amazon Kinesis Data Streams and create an AWS Lambda function to store the data in Amazon Redshift</label>
+  <label for="optionC">C. Ingest the data using Amazon Kinesis Data Firehose and create an AWS Lambda function to store the data in Amazon DynamoDB</label>
+  <label for="optionD" class="correct-answer">D. Ingest the data using Amazon Kinesis Data Streams and create an AWS Lambda function to store the data in Amazon DynamoDB ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    In Amazon EC2, you can manage your instances from the moment you launch them up to their termination. 
+    You can flexibly control your computing costs by changing the EC2 instance state. <br><br>
+    Which of the following statements is true regarding EC2 billing? (Select TWO.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. You will be billed when your On-Demand instance is preparing to hibernate with a stopping state ✓✓</label>
+  <label for="optionB" class="correct-answer">B. You will be billed when your On-Demand instance is in pending state ✓✓</label>
+  <label for="optionC">C. You will not be billed for any instance usage while an instance is not in the running state</label>
+  <label for="optionD">D. You will be billed when your Spot instance is preparing to stop with a stopping state</label>
+  <label for="optionE">E. You will be billed when your Reserved instance is in terminated state</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A solutions architect must design a solution that uses Amazon CloudFront with an Amazon S3 origin to store a static website. 
+    The company's security policy requires that all website traffic be inspected by AWS WAF. <br><br>
+    How should the solutions architect comply with these requirements?
+  </h1>
+
+  <label for="optionA">A. Configure an S3 bucket policy to accept requests coming from the AWS WAF Amazon Resource Name (ARN) only</label>
+  <label for="optionB">B. Configure Amazon CloudFront to forward all incoming requests to AWS WAF before requesting content from the S3 origin</label>
+  <label for="optionC">C. Configure a security group that allows Amazon CloudFront IP addresses to access Amazon S3 only. Associate AWS WAF to CloudFront</label>
+  <label for="optionD" class="correct-answer">D. Configure Amazon CloudFront and Amazon S3 to use an origin access identity (OAI) to restrict access to the S3 bucket. Enable AWS WAF on the distribution ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company stores its application logs in an Amazon CloudWatch Logs log group. 
+    A new policy requires the company to store all application logs in Amazon OpenSearch Service (Amazon Elasticsearch Service) in near-real time. <br><br>
+    Which solution will meet this requirement with the LEAST operational overhead?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Create an Amazon Kinesis Data Firehose delivery stream. Configure the log group as the delivery stream's source. Configure Amazon OpenSearch Service (Amazon Elasticsearch Service) as the delivery stream's destination ✓✓</label>
+  <label for="optionB">B. Create an AWS Lambda function. Use the log group to invoke the function to write the logs to Amazon OpenSearch Service (Amazon Elasticsearch Service)</label>
+  <label for="optionC">C. Configure a CloudWatch Logs subscription to stream the logs to Amazon OpenSearch Service (Amazon Elasticsearch Service)</label>
+  <label for="optionD">D. Install and configure Amazon Kinesis Agent on each application server to deliver the logs to Amazon Kinesis Data Streams. Configure Kinesis Data Streams to deliver the logs to Amazon OpenSearch Service (Amazon Elasticsearch Service)</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    The media company that you are working for has a video transcoding application running on Amazon EC2. 
+    Each EC2 instance polls a queue to find out which video should be transcoded, and then runs a transcoding process. 
+    If this process is interrupted, the video will be transcoded by another instance based on the queuing system. 
+    This application has a large backlog of videos which need to be transcoded. Your manager would like to reduce this backlog by adding more EC2 instances, however, these instances are only needed until the backlog is reduced. <br><br>
+    In this scenario, which type of Amazon EC2 instance is the most cost-effective type to use?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Spot instances ✓✓</label>
+  <label for="optionB">B. Reserved instances</label>
+  <label for="optionC">C. Dedicated instances</label>
+  <label for="optionD">D. On-demand instances</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company runs an application on a large fleet of Amazon EC2 instances. The application reads and writes entries into an Amazon DynamoDB table. 
+    The size of the DynamoDB table continuously grows but the application needs only data from the last 30 days. 
+    The company needs a solution that minimizes cost and development effort. <br><br>
+    Which solution meets these requirements?
+  </h1>
+
+  <label for="optionA">A. Use an AWS CloudFormation template to deploy the complete solution. Redeploy the CloudFormation stack every 30 days and delete the original stack</label>
+  <label for="optionB">B. Use an EC2 instance that runs a monitoring application from AWS Marketplace. Configure the monitoring application to use Amazon DynamoDB Streams to store the timestamp when a new item is created in the table. Use a script that runs on the EC2 instance to delete items that have a timestamp that is older than 30 days</label>
+  <label for="optionC">C. Configure Amazon DynamoDB Streams to invoke an AWS Lambda function when a new item is created in the table. Configure the Lambda function to delete items in the table that are older than 30 days</label>
+  <label for="optionD" class="correct-answer">D. Extend the application to add an attribute that has a value of the current timestamp plus 30 days to each new item that is created in the table. Configure DynamoDB to use the attribute as the TTL attribute ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is building an internal application that serves as a repository for images uploaded by a couple of users. 
+    Whenever a user uploads an image, it would be sent to Kinesis Data Streams for processing before it is stored in an S3 bucket. 
+    If the upload was successful, the application will return a prompt informing the user that the operation was successful. 
+    The entire processing typically takes about 5 minutes to finish. <br><br>
+    Which of the following options will allow you to asynchronously process the request to the application from upload request to Kinesis, S3, and return a reply in the most cost-effective manner?
+  </h1>
+
+  <label for="optionA">A. Use a combination of Lambda and Step Functions to orchestrate service components and asynchronously process the requests</label>
+  <label for="optionB">B. Replace the Kinesis Data Streams with an Amazon SQS queue. Create a Lambda function that will asynchronously process the requests</label>
+  <label for="optionC">C. Use a combination of SNS to buffer the requests and then asynchronously process them using On-Demand EC2 Instances</label>
+  <label for="optionD" class="correct-answer">D.  Use a combination of SQS to queue the requests and then asynchronously process them using On-Demand EC2 Instances  ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A government agency plans to store confidential tax documents on AWS. 
+    Due to the sensitive information in the files, the Solutions Architect must restrict the data access requests made to the storage solution to a specific Amazon VPC only. 
+    The solution should also prevent the files from being deleted or overwritten to meet the regulatory requirement of having a write-once-read-many (WORM) storage model. <br><br>
+    Which combination of the following options should the Architect implement? (Select TWO.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Create a new Amazon S3 bucket with the S3 Object Lock feature enabled. Store the documents in the bucket and set the Legal Hold option for object retention ✓✓</label>
+  <label for="optionB" class="correct-answer">B. Configure an Amazon S3 Access Point for the S3 bucket to restrict data access to a particular Amazon VPC only ✓✓</label>
+  <label for="optionC">C. Set up a new Amazon S3 bucket to store the tax documents and integrate it with AWS Network Firewall. Configure the Network Firewall to only accept data access requests from a specific Amazon VPC</label>
+  <label for="optionD">D. Store the tax documents in the Amazon S3 Glacier Instant Retrieval storage class to restrict fast data retrieval to a particular Amazon VPC of your choice</label>
+  <label for="optionE">E. Enable Object Lock but disable Object Versioning on the new Amazon S3 bucket to comply with the write-once-read-many (WORM) storage model requirement</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A computer animation film studio has a web application running on an Amazon EC2 instance. 
+    It uploads 5 GB video objects to an Amazon S3 bucket. Video uploads are taking longer than expected, which impacts the performance of your application. <br><br>
+    Which method will help improve the performance of the application?
+  </h1>
+
+  <label for="optionA">A. Enable Enhanced Networking with the Elastic Network Adapter (ENA) on your EC2 instances</label>
+  <label for="optionB" class="correct-answer">B. Use Amazon S3 Multipart Upload API ✓✓</label>
+  <label for="optionC">C. Leverage on Amazon CloudFront and use HTTP POST method to reduce latency</label>
+  <label for="optionD">D. Use Amazon Elastic Block Store Provisioned IOPS and an Amazon EBS-optimized instance</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company plans to migrate all of their applications to AWS. The Solutions Architect suggested storing all the data on EBS volumes. 
+    The Chief Technical Officer is worried that EBS volumes are not appropriate for the existing workloads due to compliance requirements, downtime scenarios, and IOPS performance. <br><br>
+    Which of the following are valid points in proving that EBS is the best service to use for migration? (Select TWO.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. EBS volumes support live configuration changes while in production which means that you can modify the volume type, volume size, and IOPS capacity without service interruptions ✓✓</label>
+  <label for="optionB">B. Amazon EBS provides the ability to create snapshots (backups) of any EBS volume and write a copy of the data in the volume to Amazon RDS, where it is stored redundantly in multiple Availability Zones</label>
+  <label for="optionC">C. EBS volumes can be attached to any EC2 instance in any Availability Zone</label>
+  <label for="optionD">D. When you create an EBS volume in an Availability Zone, it is automatically replicated on a separate AWS region to prevent data loss due to a failure of any single hardware component</label>
+  <label for="optionE" class="correct-answer">E. An EBS volume is off-instance storage that can persist independently from the life of an instance ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A bicycle sharing company is developing a multi-tier architecture to track the location of its bicycles during peak operating hours. 
+    The company wants to use these data points in its existing analytics platform. 
+    A Solutions Architect must determine the most viable multi-tier option to support this architecture. 
+    The data points must be accessible from the REST API. <br><br>
+    Which action meets these requirements for storing and retrieving location data?
+  </h1>
+
+  <label for="optionA">A. Use Amazon Athena with Amazon S3</label>
+  <label for="optionB" class="correct-answer">B. Use Amazon API Gateway with Amazon Kinesis Data Analytics  ✓✓</label>
+  <label for="optionC">C. Use Amazon QuickSight with Amazon Redshift</label>
+  <label for="optionD">D. Use Amazon API Gateway with AWS Lambda</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">
+    A production MySQL database hosted on Amazon RDS is running out of disk storage. 
+    The management has consulted its Solutions Architect to increase the disk space without impacting the database performance. <br><br>
+    How can the Solutions Architect satisfy the requirement with the LEAST operational overhead?
+  </h1>
+
+  <label for="optionA">A. Change the default_storage_engine of the DB instance's parameter group to MyISAM</label>
+  <label for="optionB">B. Increase the allocated storage for the DB instance</label>
+  <label for="optionC">C. Modify the DB instance storage type to Provisioned IOPS</label>
+  <label for="optionD" class="correct-answer">D. Modify the DB instance settings and enable storage autoscaling ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company plans to migrate a MySQL database from an on-premises data center to the AWS Cloud. 
+    This database will be used by a legacy batch application that has steady-state workloads in the morning but has its peak load at night for the end-of-day processing. 
+    You need to choose an EBS volume that can handle a maximum of 450 GB of data and can also be used as the system boot volume for your EC2 instance. <br><br>
+    Which of the following is the most cost-effective storage type to use in this scenario?
+  </h1>
+
+  <label for="optionA">A. Amazon EBS Cold HDD (sc1)</label>
+  <label for="optionB">B. Amazon EBS Provisioned IOPS SSD (io1)</label>
+  <label for="optionC" class="correct-answer">C. Amazon EBS General Purpose SSD (gp2) ✓✓</label>
+  <label for="optionD">D. Amazon EBS Throughput Optimized HDD (st1)</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    There are a lot of outages in the Availability Zone of your RDS database instance to the point that you have lost access to the database. <br><br>
+    What could you do to prevent losing access to your database in case that this event happens again?
+  </h1>
+
+  <label for="optionA">A. Create a read replica</label>
+  <label for="optionB">B. Increase the database instance size</label>
+  <label for="optionC" class="correct-answer">C. Enable Multi-AZ failover ✓✓</label>
+  <label for="optionD">D. Make a snapshot of the database</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A content management system (CMS) is hosted on a fleet of auto-scaled, On-Demand EC2 instances that use Amazon Aurora as its database. 
+    Currently, the system stores the file documents that the users upload in one of the attached EBS Volumes. 
+    Your manager noticed that the system performance is quite slow and he has instructed you to improve the architecture of the system. <br><br>
+    In this scenario, what will you do to implement a scalable, high-available POSIX-compliant shared file system?
+  </h1>
+
+  <label for="optionA">A. Create an S3 bucket and use this as the storage for the CMS</label>
+  <label for="optionB" class="correct-answer">B. Use EFS ✓✓</label>
+  <label for="optionC">C. Use ElastiCache</label>
+  <label for="optionD">D. Upgrade your existing EBS volumes to Provisioned IOPS SSD Volumes</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    There was an incident in your production environment where the user data stored in the S3 bucket has been accidentally deleted by one of the Junior DevOps Engineers. 
+    The issue was escalated to your manager and after a few days, you were instructed to improve the security and protection of your AWS resources. <br><br>
+    What combination of the following options will protect the S3 objects in your bucket from both accidental deletion and overwriting? (Select TWO.)
+  </h1>
+
+  <label for="optionA">A. Enable Amazon S3 Intelligent-Tiering</label>
+  <label for="optionB" class="correct-answer">B. Enable Versioning ✓✓</label>
+  <label for="optionC" class="correct-answer">C. Enable Multi-Factor Authentication Delete ✓✓</label>
+  <label for="optionD">D. Provide access to S3 data strictly through pre-signed URL only</label>
+  <label for="optionE">E. Disallow S3 Delete using an IAM bucket policy</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company runs an online marketplace web application on AWS. The application serves hundreds of thousands of users during peak hours. 
+    The company needs a scalable, near-real-time solution to share the details of millions of financial transactions with several other internal applications. 
+    Transactions also need to be processed to remove sensitive data before being stored in a document database for low-latency retrieval. <br><br>
+    What should a solutions architect recommend to meet these requirements?
+  </h1>
+
+  <label for="optionA">A. Store the transactions data into Amazon DynamoDB. Set up a rule in DynamoDB to remove sensitive data from every transaction upon write. Use DynamoDB Streams to share the transactions data with other applications</label>
+  <label for="optionB">B. Stream the transactions data into Amazon Kinesis Data Firehose to store data in Amazon DynamoDB and Amazon S3. Use AWS Lambda integration with Kinesis Data Firehose to remove sensitive data. Other applications can consume the data stored in Amazon S3</label>
+  <label for="optionC" class="correct-answer">C. Stream the transactions data into Amazon Kinesis Data Streams. Use AWS Lambda integration to remove sensitive data from every transaction and then store the transactions data in Amazon DynamoDB. Other applications can consume the transactions data off the Kinesis data stream ✓✓</label>
+  <label for="optionD">D. Store the batched transactions data in Amazon S3 as files. Use AWS Lambda to process every file and remove sensitive data before updating the files in Amazon S3. The Lambda function then stores the data in Amazon DynamoDB. Other applications can consume transaction files stored in Amazon S3</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A leading IT consulting company has an application which processes a large stream of financial data by an Amazon ECS Cluster then stores the result to a DynamoDB table. 
+    You have to design a solution to detect new entries in the DynamoDB table then automatically trigger a Lambda function to run some tests to verify the processed data. <br><br>
+    What solution can be easily implemented to alert the Lambda function of new entries while requiring minimal configuration change to your architecture?
+  </h1>
+
+  <label for="optionA">A. Invoke the Lambda functions using SNS each time that the ECS Cluster successfully processed financial data</label>
+  <label for="optionB" class="correct-answer">B. Enable DynamoDB Streams to capture table activity and automatically trigger the Lambda function ✓✓</label>
+  <label for="optionC">C. Use Systems Manager Automation to detect new entries in the DynamoDB table then automatically invoke the Lambda function for processing</label>
+  <label for="optionD">D. Use CloudWatch Alarms to trigger the Lambda function whenever a new entry is created in the DynamoDB table</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company wants to streamline the process of creating multiple AWS accounts within an AWS Organization. 
+    Each organizational unit (OU) must be able to launch new accounts with preapproved configurations from the security team, which will standardize the baselines and network configurations for all accounts in the organization. <br><br>
+    Which solution entails the least amount of effort to implement?
+  </h1>
+
+  <label for="optionA">A. Set up an AWS Config aggregator on the root account of the organization to enable multi-account, multi-region data aggregation. Deploy conformance packs to standardize the baselines and network configurations for all accounts</label>
+  <label for="optionB" class="correct-answer">B. Set up an AWS Control Tower Landing Zone. Enable pre-packaged guardrails to enforce policies or detect violations ✓✓</label>
+  <label for="optionC">C. Configure AWS Resource Access Manager (AWS RAM) to launch new AWS accounts as well as standardize the baselines and network configurations for each organizational unit</label>
+  <label for="optionD">D. Centralize the creation of AWS accounts using AWS Systems Manager OpsCenter. Enforce policies and detect violations to all AWS accounts using AWS Security Hub</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has an application that ingests incoming messages. These messages are then quickly consumed by dozens of other applications and microservices. 
+    The number of messages varies drastically and sometimes spikes as high as 100,000 each second. The company wants to decouple the solution and increase scalability. <br><br>
+    Which solution meets these requirements?
+  </h1>
+
+  <label for="optionA">A. Persist the messages to Amazon Kinesis Data Analytics. All the applications will read and process the messages</label>
+  <label for="optionB">B. Deploy the application on Amazon EC2 instances in an Auto Scaling group, which scales the number of EC2 instances based on CPU metrics</label>
+  <label for="optionC">C. Write the messages to Amazon Kinesis Data Streams with a single shard. All applications will read from the stream and process the messages</label>
+  <label for="optionD" class="correct-answer">D. Publish the messages to an Amazon Simple Notification Service (Amazon SNS) topic with one or more Amazon Simple Queue Service (Amazon SQS) subscriptions. All applications then process the messages from the queues ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A production MySQL database hosted on Amazon RDS is running out of disk storage. 
+    The management has consulted its Solutions Architect to increase the disk space without impacting the database performance. <br><br>
+    How can the Solutions Architect satisfy the requirement with the LEAST operational overhead?
+  </h1>
+
+  <label for="optionA">A. Modify the DB instance storage type to Provisioned IOPS</label>
+  <label for="optionB">B. Increase the allocated storage for the DB instance</label>
+  <label for="optionC">C. Change the default_storage_engine of the DB instance's parameter group to MyISAM</label>
+  <label for="optionD" class="correct-answer">D. Modify the DB instance settings and enable storage autoscaling ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company wants to run applications in containers in the AWS Cloud. These applications are stateless and can tolerate disruptions within the underlying infrastructure. 
+    The company needs a solution that minimizes cost and operational overhead. <br><br>
+    What should a Solutions Architect do to meet these requirements?
+  </h1>
+
+  <label for="optionA">A. Use On-Demand Instances in an Amazon EC2 Auto Scaling group to run the application containers</label>
+  <label for="optionB" class="correct-answer">B. Use Spot Instances in an Amazon Elastic Kubernetes Service (Amazon EKS) managed node group  ✓✓</label>
+  <label for="optionC">C. Use Spot Instances in an Amazon EC2 Auto Scaling group to run the application containers </label>
+  <label for="optionD">D. Use On-Demand Instances in an Amazon Elastic Kubernetes Service (Amazon EKS) managed node group</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A Solutions Architect is designing the cloud architecture for a new application being deployed on AWS. 
+    The process should run in parallel while adding and removing application nodes as needed based on the number of jobs to be processed. 
+    The processor application is stateless. The Solutions Architect must ensure that the application is loosely coupled and the job items are durably stored. <br><br>
+    Which design should the Solutions Architect use?
+  </h1>
+
+  <label for="optionA">A. Create an Amazon SNS topic to send the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch configuration that uses the AMI. Create an Auto Scaling group using the launch configuration. Set the scaling policy for the Auto Scaling group to add and remove nodes based on CPU usage</label>
+
+  <label for="optionB">B. Create an Amazon SQS queue to hold the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch configuration that uses the AMI. Create an Auto Scaling group using the launch configuration. Set the scaling policy for the Auto Scaling group to add and remove nodes based on network usage</label>
+
+  <label for="optionC" class="correct-answer">C. Create an Amazon SQS queue to hold the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch template that uses the AMI. Create an Auto Scaling group using the launch template. Set the scaling policy for the Auto Scaling group to add and remove nodes based on the number of items in the SQS queue ✓✓</label>
+
+  <label for="optionD">D. Create an Amazon SNS topic to send the jobs that need to be processed. Create an Amazon Machine Image (AMI) that consists of the processor application. Create a launch template that uses the AMI. Create an Auto Scaling group using the launch template. Set the scaling policy for the Auto Scaling group to add and remove nodes based on the number of messages published to the SNS topic</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is hosting a web application on AWS using a single Amazon EC2 instance that stores user-uploaded documents in an Amazon EBS volume. 
+    For better scalability and availability, the company duplicated the architecture and created a second EC2 instance and EBS volume in another Availability Zone, placing both behind an Application Load Balancer. 
+    After completing this change, users reported that, each time they refreshed the website, they could see one subset of their documents or the other, but never all of the documents at the same time. <br><br>
+    What should a Solutions Architect propose to ensure users see all of their documents at once?
+  </h1>
+
+  <label for="optionA">A. Copy the data so both EBS volumes contain all the documents</label>
+  <label for="optionB">B. Configure the Application Load Balancer to direct a user to the server with the documents</label>
+  <label for="optionC" class="correct-answer">C. Copy the data from both EBS volumes to Amazon EFS. Modify the application to save new documents to Amazon EFS ✓✓</label>
+  <label for="optionD">D. Configure the Application Load Balancer to send the request to both servers. Return each document from the correct server</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A Solutions Architect designed a real-time data analytics system based on Kinesis Data Stream and Lambda. 
+    A week after the system has been deployed, the users noticed that it performed slowly as the data rate increases. 
+    The Architect identified that the performance of the Kinesis Data Streams is causing this problem. <br><br>
+    Which of the following should the Architect do to improve performance?
+  </h1>
+
+  <label for="optionA">A. Improve the performance of the stream by decreasing the number of its shards using the MergeShard command</label>
+  <label for="optionB" class="correct-answer">B. Increase the number of shards of the Kinesis stream by using the UpdateShardCount command ✓✓</label>
+  <label for="optionC">C. Implement Step Scaling to the Kinesis Data Stream</label>
+  <label for="optionD">D. Replace the data stream with Amazon Kinesis Data Firehose instead</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    An organization stores and manages financial records of various companies in its on-premises data center, which is almost out of space. 
+    The management decided to move all of their existing records to a cloud storage service. All future financial records will also be stored in the cloud. 
+    For additional security, all records must be prevented from being deleted or overwritten. <br><br>
+    Which of the following should you do to meet the above requirement?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Use AWS DataSync to move the data. Store all of your data in Amazon S3 and enable object lock ✓✓</label>
+  <label for="optionB">B. Use AWS Storage Gateway to establish hybrid cloud storage. Store all of your data in Amazon S3 and enable object lock</label>
+  <label for="optionC">C. Use AWS Storage Gateway to establish hybrid cloud storage. Store all of your data in Amazon EBS and enable object lock</label>
+  <label for="optionD">D. Use AWS DataSync to move the data. Store all of your data in Amazon EFS and enable object lock</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company recently launched an e-commerce application that is running in the eu-east-2 region, which strictly requires six EC2 instances running at all times. 
+    In that region, there are 3 Availability Zones (AZs) that you can use — eu-east-2a, eu-east-2b, and eu-east-2c. <br><br>
+    Which of the following deployments provide 100% fault tolerance if any single AZ in the region becomes unavailable? (Select TWO.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. eu-east-2a with six EC2 instances, eu-east-2b with six EC2 instances, and eu-east-2c with no EC2 instances  ✓✓</label>
+  <label for="optionB">B. XXXXXXXXXX</label>
+  <label for="optionC">C. eu-east-2a with two EC2 instances, eu-east-2b with four EC2 instances, and eu-east-2c with two EC2 instances</label>
+  <label for="optionD" class="correct-answer">D. eu-east-2a with three EC2 instances, eu-east-2b with three EC2 instances, and eu-east-2c with three EC2 instances ✓✓</label>
+  <label for="optionE">E. eu-east-2a with two EC2 instances, eu-east-2b with two EC2 instances, and eu-east-2c with two EC2 instances</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has several microservices that send messages to an Amazon SQS queue and a backend application that polls the queue to process the messages. 
+    The company also has a Service Level Agreement (SLA) which defines the acceptable amount of time that can elapse from the point when the messages are received until a response is sent. 
+    The backend operations are I/O-intensive as the number of messages is constantly growing, causing the company to miss its SLA. 
+    The Solutions Architect must implement a new architecture that improves the application's processing time and load management. <br><br>
+    Which of the following is the MOST effective solution that can satisfy the given requirement?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Create an AMI of the backend application's EC2 instance. Use the image to set up an Auto Scaling group and configure a target tracking scaling policy based on the ApproximateAgeOfOldestMessage metric ✓✓</label>
+  <label for="optionB">B. Create an AMI of the backend application's EC2 instance. Use the image to set up an Auto Scaling group and configure a target tracking scaling policy based on the CPUUtilization metric with a target value of 80%</label>
+  <label for="optionC">C. Create an AMI of the backend application's EC2 instance and replace it with a larger instance size</label>
+  <label for="optionD">D. Create an AMI of the backend application's EC2 instance and launch it to a cluster placement group</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    An online stocks trading application that stores financial data in an S3 bucket has a lifecycle policy that moves older data to Glacier every month. 
+    There is a strict compliance requirement where a surprise audit can happen at any time, and you should be able to retrieve the required data in under 15 minutes under all circumstances. 
+    Your manager instructed you to ensure that retrieval capacity is available when you need it and should handle up to 150 MB/s of retrieval throughput. <br><br>
+    Which of the following should you do to meet the above requirement? (Select TWO.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Use Expedited Retrieval to access the financial data ✓✓</label>
+  <label for="optionB" class="correct-answer">B. Purchase provisioned retrieval capacity ✓✓</label>
+  <label for="optionC">C. Retrieve the data using Amazon Glacier Select</label>
+  <label for="optionD">D. Do no nothing</label>
+  <label for="optionE">E. Use Bulk Retrieval to access the financial data</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has a web application hosted in AWS cloud where the application logs are sent to Amazon CloudWatch. 
+    Lately, the web application has recently been encountering some errors which can be resolved simply by restarting the instance. <br><br>
+    What will you do to automatically restart the EC2 instances whenever the same application error occurs?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. First, look at the existing CloudWatch logs for keywords related to the application error to create a custom metric. Then, create a CloudWatch alarm for that custom metric which invokes an action to restart the EC2 instance ✓✓</label>
+  <label for="optionB">B. First, look at the existing Flow logs for keywords related to the application error to create a custom metric. Then, create a CloudWatch alarm for that custom metric which invokes an action to restart the EC2 instance</label>
+  <label for="optionC">C. First, look at the existing Flow logs for keywords related to the application error to create a custom metric. Then, create a CloudWatch alarm for that custom metric which calls a Lambda function that invokes an action to restart the EC2 instance</label>
+  <label for="optionD">D. First, look at the existing CloudWatch logs for keywords related to the application error to create a custom metric. Then, create an alarm in Amazon SNS for that custom metric which invokes an action to restart the EC2 instance</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    An online trading platform with thousands of clients across the globe is hosted in AWS. 
+    To reduce latency, you have to direct user traffic to the nearest application endpoint to the client. 
+    The traffic should be routed to the closest edge location via an Anycast static IP address. 
+    AWS Shield should also be integrated into the solution for DDoS protection. <br><br>
+    Which of the following is the MOST suitable service that the Solutions Architect should use to satisfy the above requirements?
+  </h1>
+
+  <label for="optionA">A. AWS WAF</label>
+  <label for="optionB" class="correct-answer">B. AWS Global Accelerator ✓✓</label>
+  <label for="optionC">C. AWS PrivateLink</label>
+  <label for="optionD">D. Amazon CloudFront</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company needs guaranteed Amazon EC2 capacity in three specific Availability Zones in a specific AWS Region for an upcoming event that will last 1 week. <br><br>
+    What should the company do to guarantee the EC2 capacity?
+  </h1>
+
+  <label for="optionA">A. Purchase Reserved instances that specify the Region needed</label>
+  <label for="optionB">B. Create an On Demand Capacity Reservation that specifies the Region needed</label>
+  <label for="optionC">C. Purchase Reserved instances that specify the Region and three Availability Zones needed</label>
+  <label for="optionD" class="correct-answer">D. Create an On-Demand Capacity Reservation that specifies the Region and three Availability Zones needed ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company needs secure access to its Amazon RDS for MySQL database that is used by multiple applications. 
+    Each IAM user must use a short-lived authentication token to connect to the database. <br><br>
+    Which of the following is the most suitable solution in this scenario?
+  </h1>
+
+  <label for="optionA">A. Use AWS Secrets Manager to generate and store short-lived authentication tokens</label>
+  <label for="optionB">B. Use an MFA token to access and connect to a database</label>
+  <label for="optionC">C. Use AWS SSO to access the RDS database</label>
+  <label for="optionD" class="correct-answer">D. Use IAM DB Authentication and create database accounts using the AWS-provided AWSAuthenticationPlugin plugin in MySQL ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    An organization needs to control the access for several S3 buckets. 
+    They plan to use a gateway endpoint to allow access to trusted buckets. <br><br>
+    Which of the following could help you achieve this requirement?
+  </h1>
+
+  <label for="optionA">A. Generate a bucket policy for trusted S3 buckets</label>
+  <label for="optionB">B. Generate a bucket policy for trusted VPCs</label>
+  <label for="optionC">C. Generate an endpoint policy for trusted VPCs</label>
+  <label for="optionD" class="correct-answer">D. Generate an endpoint policy for trusted S3 buckets ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company installed sensors to track the number of people who visit the park. 
+    The data is sent every day to an Amazon Kinesis stream with default settings for processing, 
+    in which a consumer is configured to process the data every other day. 
+    You noticed that the S3 bucket is not receiving all of the data that is being sent to the Kinesis stream. 
+    You checked the sensors if they are properly sending the data to Amazon Kinesis and verified that the data is indeed sent every day. <br><br>
+    What could be the reason for this?
+  </h1>
+
+  <label for="optionA">A. There is a problem in the sensors. They probably had some intermittent connection hence, the data is not sent to the stream</label>
+  <label for="optionB" class="correct-answer">B. By default, the data records are only accessible for 24 hours from the time they are added to a Kinesis stream ✓✓</label>
+  <label for="optionC">C. By default, Amazon S3 stores the data for 1 day and moves it to Amazon Glacier</label>
+  <label for="optionD">D. Your AWS account was hacked and someone has deleted some data in your Kinesis stream</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is using a combination of API Gateway and Lambda for the web services of the online web portal that is being accessed by hundreds of thousands of clients each day. 
+    They will be announcing a new revolutionary product and it is expected that the web portal will receive a massive number of visitors all around the globe. <br><br>
+    How can you protect the backend systems and applications from traffic spikes?
+  </h1>
+
+  <label for="optionA">A. Manually upgrade the EC2 instances being used by API Gateway</label>
+  <label for="optionB">B. Deploy Multi-AZ in API Gateway with Read Replica</label>
+  <label for="optionC" class="correct-answer">C. Use throttling limits in API Gateway ✓✓</label>
+  <label for="optionD">D. API Gateway will automatically scale and handle massive traffic spikes so you do not have to do anything</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is building an ecommerce web application on AWS. 
+    The application sends information about new orders to an Amazon API Gateway REST API to process. 
+    The company wants to ensure that orders are processed in the order that they are received. <br><br>
+    Which solution will meet these requirements?
+  </h1>
+
+  <label for="optionA">A. Use an API Gateway integration to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic when the application receives an order. Subscribe an AWS Lambda function to the topic to perform processing</label>
+  <label for="optionB" class="correct-answer">B. Use an API Gateway integration to send a message to an Amazon Simple Queue Service (Amazon SQS) FIFO queue when the application receives an order. Configure the SQS FIFO queue to invoke an AWS Lambda function for processing ✓✓</label>
+  <label for="optionC">C. Use an API Gateway integration to send a message to an Amazon Simple Queue Service (Amazon SQS) standard queue when the application receives an order. Configure the SQS standard queue to invoke an AWS Lambda function for processing</label>
+  <label for="optionD">D. Use an API Gateway authorizer to block any requests while the application processes an order</label>
+</form>
+
 
 
 <form class="question-form">
