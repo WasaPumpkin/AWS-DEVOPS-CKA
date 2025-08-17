@@ -4422,6 +4422,69 @@
   <label for="optionD">D. Use an API Gateway authorizer to block any requests while the application processes an order</label>
 </form>
 
+<form class="question-form">
+  <h1 class="question">
+    A company needs to store data in Amazon S3 and must prevent the data from being changed. 
+    The company wants new objects that are uploaded to Amazon S3 to remain unchangeable for a nonspecific amount of time until the company decides to modify the objects. 
+    Only specific users in the company's AWS account can have the ability to delete the objects. <br><br>
+    What should a solutions architect do to meet these requirements?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Create an S3 bucket with S3 Object Lock enabled. Enable versioning. Add a legal hold to the objects. Add the s3:PutObjectLegalHold permission to the IAM policies of users who need to delete the objects ✓✓</label>
+  <label for="optionB">B. Create an S3 Glacier vault. Apply a write-once, read-many (WORM) vault lock policy to the objects</label>
+  <label for="optionC">C. Create an S3 bucket. Use AWS CloudTrail to track any S3 API events that modify the objects. Upon notification, restore the modified objects from any backup versions that the company has</label>
+  <label for="optionD">D. Create an S3 bucket with S3 Object Lock enabled. Enable versioning. Set a retention period of 100 years. Use governance mode as the S3 bucket's default retention mode for new objects</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    An AI-powered Forex trading application consumes thousands of data sets to train its machine learning model. 
+    The application's workload requires a high-performance, parallel hot storage to process the training datasets concurrently. 
+    It also needs cost-effective cold storage to archive those datasets that yield low profit. <br><br>
+    Which of the following Amazon storage services should the developer use?
+  </h1>
+
+  <label for="optionA">A. Use Amazon FSx For Windows File Server and Amazon S3 for hot and cold storage respectively</label>
+  <label for="optionB" class="correct-answer">B. Use Amazon FSx For Lustre and Amazon S3 for hot and cold storage respectively ✓✓</label>
+  <label for="optionC">C. Use Amazon FSx For Lustre and Amazon EBS Provisioned IOPS SSD (io1) volumes for hot and cold storage respectively</label>
+  <label for="optionD">D. Use Amazon Elastic File System and Amazon S3 for hot and cold storage respectively</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is using Amazon VPC that has a CIDR block of 10.31.0.0/27 connected to the on-premises data center. 
+    There was a requirement to create a Lambda function that will process massive amounts of cryptocurrency transactions every minute and then store the results to EFS. 
+    After setting up the serverless architecture and connecting the Lambda function to the VPC, the Solutions Architect noticed an increase in invocation errors with EC2 error types such as EC2ThrottledException at certain times of the day. <br><br>
+    Which of the following are the possible causes of this issue? (Select TWO.)
+  </h1>
+
+  <label for="optionA">A. The attached IAM execution role of your function does not have the necessary permissions to access the resources of your VPC</label>
+  <label for="optionB" class="correct-answer">B. Your VPC does not have sufficient subnet ENIs or subnet IPs ✓✓</label>
+  <label for="optionC">C. The associated security group of your function does not allow outbound connections</label>
+  <label for="optionD">D. Your VPC does not have a NAT gateway</label>
+  <label for="optionE" class="correct-answer">E. You only specified one subnet in your Lambda function configuration. That single subnet runs out of available IP addresses and there is no other subnet or Availability Zone which can handle the peak load ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A startup is building an AI-based face recognition application in AWS, where they store millions of images in an S3 bucket. 
+    As the Solutions Architect, you have to ensure that each and every image uploaded to their system is stored without any issues. <br><br>
+    What is the correct indication that an object was successfully stored when you put objects in Amazon S3?
+  </h1>
+
+  <label for="optionA">A. You will receive an email from Amazon SNS informing you that the object is successfully stored</label>
+  <label for="optionB" class="correct-answer">B. HTTP 200 result code and MD5 checksum ✓✓</label>
+  <label for="optionC">C. Amazon S3 has 99.999999999% durability hence, there is no need to confirm that data was inserted</label>
+  <label for="optionD">D. You will receive an SMS from Amazon SNS informing you that the object is successfully stored</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A mobile application stores pictures in Amazon Simple Storage Service (S3) and allows application sign-in using an OpenID Connect-compatible identity provider. <br><br>
+    Which AWS Security Token Service approach to temporary access should you use for this scenario?
+  </h1>
+
+  <label for="optionA">A. AWS Identity and Access Management roles</label>
+  <label for="optionB">B. SAML-based Identity Federation</label>
+  <label for="optionC">C. Cross-Account Access</label>
+  <label for="optionD" class="correct-answer">D. Web Identity Federation ✓✓</label>
+</form>
 
 
 <form class="question-form">
