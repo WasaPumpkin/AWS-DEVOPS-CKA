@@ -4485,6 +4485,211 @@
   <label for="optionC">C. Cross-Account Access</label>
   <label for="optionD" class="correct-answer">D. Web Identity Federation ✓✓</label>
 </form>
+<form class="question-form">
+  <h1 class="question">
+    A company generates large financial datasets with millions of rows. The Solutions Architect needs to store all the data in a columnar fashion to reduce the number of disk I/O requests and reduce the amount of data needed to load from the disk. The bank has an existing third-party business intelligence application that will connect to the storage service and then generate daily and monthly financial reports for its clients around the globe. <br><br>
+    In this scenario, which is the best storage service to use to meet the requirement?
+  </h1>
+
+  <label for="optionA">A. Amazon DynamoDB</label>
+  <label for="optionB">B. Amazon Aurora</label>
+  <label for="optionC" class="correct-answer">C. Amazon Redshift ✓✓</label>
+  <label for="optionD">D. Amazon RDS</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is storing sensitive user information in an Amazon S3 bucket. The company wants to provide secure access to this bucket from the application tier running on Amazon EC2 instances inside a VPC. Which combination of steps should a solutions architect take to accomplish this? (Select TWO.)
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Configure a VPC gateway endpoint for Amazon S3 ✓✓</label>
+  <label for="optionB">B. Create a bucket policy to make the objects in the S3 bucket public</label>
+  <label for="optionC" class="correct-answer">C. Create a bucket policy that limits access to only the application tier running in the VPC ✓✓</label>
+  <label for="optionD">D. Create an IAM user with an S3 access policy and copy the IAM credentials to the EC2 instance</label>
+  <label for="optionE">E. Create a NAT instance and have the EC2 instances use the NAT instance to access the S3 bucket</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has a cloud architecture that is composed of Linux and Windows EC2 instances that process high volumes of financial data 24 hours a day, 7 days a week. To ensure high availability of the systems, the Solutions Architect needs to create a solution that allows them to monitor the memory and disk utilization metrics of all the instances. Which of the following is the most suitable monitoring solution to implement?
+  </h1>
+
+  <label for="optionA">A. Use the default CloudWatch configuration to EC2 instances where the memory and disk utilization metrics are already available. Install the AWS Systems Manager (SSM) Agent to all the EC2 instances.</label>
+  <label for="optionB" class="correct-answer">B. Install the CloudWatch agent to all the EC2 instances that gathers the memory and disk utilization data. View the custom metrics in the Amazon CloudWatch console. ✓✓</label>
+  <label for="optionC">C. Use Amazon Inspector and install the Inspector agent to all EC2 instances.</label>
+  <label for="optionD">D. Enable the Enhanced Monitoring option in EC2 and install CloudWatch agent to all the EC2 instances to be able to view the memory and disk utilization in the CloudWatch dashboard.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is building an application in the AWS Cloud. The application will store data in Amazon S3 buckets in two AWS Regions. The company must use an AWS Key Management Service (AWS KMS) customer managed key to encrypt all data that is stored in the S3 buckets. The data in both S3 buckets must be encrypted and decrypted with the same KMS key. The data and the key must be stored in each of the two Regions. Which solution will meet these requirements with the LEAST operational overhead?
+  </h1>
+
+  <label for="optionA">A. Create an S3 bucket in each Region. Configure the S3 buckets to use server-side encryption with Amazon S3 managed encryption keys (SSE-S3). Configure replication between the S3 buckets.</label>
+  <label for="optionB" class="correct-answer">B. Create a customer managed multi-Region KMS key. Create an S3 bucket in each Region. Configure replication between the S3 buckets. Configure the application to use the KMS key with client-side encryption. ✓✓</label>
+  <label for="optionC">C. Create a customer managed KMS key and an S3 bucket in each Region. Configure the S3 buckets to use server-side encryption with Amazon S3 managed encryption keys (SSE-S3). Configure replication between the S3 buckets.</label>
+  <label for="optionD">D. Create a customer managed KMS key and an S3 bucket in each Region. Configure the S3 buckets to use server-side encryption with AWS KMS keys (SSE-KMS). Configure replication between the S3 buckets.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is running a batch application on Amazon EC2 instances. The application consists of a backend with multiple Amazon RDS databases. The application is causing a high number of reads on the databases. A solutions architect must reduce the number of database reads while ensuring high availability. What should the solutions architect do to meet this requirement?
+  </h1>
+
+  <label for="optionA">A. Use Amazon Route 53 DNS caching</label>
+  <label for="optionB" class="correct-answer">B. Add Amazon RDS read replicas ✓✓</label>
+  <label for="optionC">C. Use Amazon ElastiCache for Redis</label>
+  <label for="optionD">D. Use Amazon ElastiCache for Memcached</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company developed a financial analytics web application hosted in a Docker container using the MEAN (MongoDB, Express.js, AngularJS, and Node.js) stack. You want to easily port that web application to AWS Cloud which can automatically handle all the tasks such as load balancing, auto-scaling, monitoring, and placing your containers across your cluster. Which of the following services can be used to fulfill this requirement?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. AWS Elastic Beanstalk ✓✓</label>
+  <label for="optionB">B. AWS ECS</label>
+  <label for="optionC">C. AWS Compute Optimizer</label>
+  <label for="optionD">D. AWS CloudFormation</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company created a VPC with a single subnet then launched an On-Demand EC2 instance in that subnet. You have attached an Internet gateway (IGW) to the VPC and verified that the EC2 instance has a public IP. The main route table of the VPC is as shown below. However, the instance still cannot be reached from the Internet when you tried to connect to it from your computer. Which of the following should be made to the route table to fix this issue?
+  </h1>
+
+  <label for="optionA">A. Add this new entry to the route table: 0.0.0.0/27 -> Your Internet Gateway</label>
+  <label for="optionB" class="correct-answer">B. Add this new entry to the route table: 0.0.0.0/0 -> Your Internet Gateway ✓✓</label>
+  <label for="optionC">C. Add the following entry to the route table: 10.0.0.0/27 -> Your Internet Gateway</label>
+  <label for="optionD">D. Modify the above route table: 10.0.0.0/27 -> Your Internet Gateway</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A data analytics startup is collecting clickstream data and stores them in an S3 bucket. You need to launch an AWS Lambda function to trigger the ETL jobs to run as soon as new data becomes available in Amazon S3. Which of the following services can you use as an extract, transform, and load (ETL) service in this scenario?
+  </h1>
+
+  <label for="optionA">A. S3 Select</label>
+  <label for="optionB">B. AWS Step Functions</label>
+  <label for="optionC" class="correct-answer">C. AWS Glue ✓✓</label>
+  <label for="optionD">D. Redshift Spectrum</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A web application is hosted on an EC2 instance that processes sensitive financial information which is launched in a private subnet. All of the data are stored in an Amazon S3 bucket. Financial information is accessed by users over the Internet. The security team of the company is concerned that the Internet connectivity to Amazon S3 is a security risk. In this scenario, what will you do to resolve this security vulnerability in the most cost-effective manner?
+  </h1>
+
+  <label for="optionA">A. Change the web architecture to access the financial data in S3 through an interface VPC endpoint, which is powered by AWS PrivateLink.</label>
+  <label for="optionB">B. Change the web architecture to access the financial data in your S3 bucket through a VPN connection.</label>
+  <label for="optionC">C. Change the web architecture to access the financial data hosted in your S3 bucket by creating a custom VPC endpoint service.</label>
+  <label for="optionD" class="correct-answer">D. Change the web architecture to access the financial data through a Gateway VPC Endpoint. ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A health organization is using a large Dedicated EC2 instance with multiple EBS volumes to host its health records web application. The EBS volumes must be encrypted due to the confidentiality of the data that they are handling and also to comply with the HIPAA (Health Insurance Portability and Accountability Act) standard. In EBS encryption, what service does AWS use to secure the volume's data at rest? (Select TWO.)
+  </h1>
+
+  <label for="optionA">A. By using the SSL certificates provided by the AWS Certificate Manager (ACM).</label>
+  <label for="optionB">B. By using S3 Server-Side Encryption.</label>
+  <label for="optionC">C. By using a password stored in CloudHSM.</label>
+  <label for="optionD" class="correct-answer">D. By using your own keys in AWS Key Management Service (KMS). ✓✓</label>
+  <label for="optionE">E. By using S3 Client-Side Encryption.</label>
+  <label for="optionF" class="correct-answer">F. By using Amazon-managed keys in AWS Key Management Service (KMS). ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company has an Amazon S3 bucket that contains critical data. The company must protect the data from accidental deletion. Which combination of steps should a solutions architect take to meet these requirements? (Choose two.)
+  </h1>
+
+  <label for="optionA">A. Enable default encryption on the S3 bucket.</label>
+  <label for="optionB" class="correct-answer">B. Enable MFA Delete on the S3 bucket. ✓✓</label>
+  <label for="optionC">C. Create a lifecycle policy for the objects in the S3 bucket.</label>
+  <label for="optionD">D. Create a bucket policy on the S3 bucket.</label>
+  <label for="optionE" class="correct-answer">E. Enable versioning on the S3 bucket. ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A Solutions Architect is implementing a new High-Performance Computing (HPC) system in AWS that involves orchestrating several Amazon Elastic Container Service (Amazon ECS) tasks with an EC2 launch type that is part of an Amazon ECS cluster. The system will be frequently accessed by users around the globe and it is expected that there would be hundreds of ECS tasks running most of the time. The Architect must ensure that its storage system is optimized for high-frequency read and write operations. The output data of each ECS task is around 10 MB but the obsolete data will eventually be archived and deleted so the total storage size won't exceed 10 TB.
+    Which of the following is the MOST suitable solution that the Architect should recommend?
+  </h1>
+
+  <label for="optionA">A. Set up an SMB file share by creating an Amazon FSx File Gateway in Storage Gateway. Set the file share as the container mount point in the ECS task definition of the Amazon ECS cluster.</label>
+  <label for="optionB" class="correct-answer">B. Launch an Amazon Elastic File System (Amazon EFS) with Provisioned Throughput mode and set the performance mode to Max I/O. Configure the EFS file system as the container mount point in the ECS task definition of the Amazon ECS cluster. ✓✓</label>
+  <label for="optionC">C. Launch an Amazon DynamoDB table with Amazon DynamoDB Accelerator (DAX) and DynamoDB Streams enabled. Configure the table to be accessible by all Amazon ECS cluster instances. Set the DynamoDB table as the container mount point in the ECS task definition of the Amazon ECS cluster.</label>
+  <label for="optionD">D. Launch an Amazon Elastic File System (Amazon EFS) file system with Bursting Throughput mode and set the performance mode to General Purpose. Configure the EFS file system as the container mount point in the ECS task definition of the Amazon ECS cluster.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">
+    A Solutions Architect working for a startup is designing a High Performance Computing (HPC) application which is publicly accessible for their customers. The startup founders want to mitigate distributed denial-of-service (DDoS) attacks on their application.
+    Which of the following options are not suitable to be implemented in this scenario? (Select TWO.)
+  </h1>
+
+  <label for="optionA">A. Use an Amazon CloudFront service for distributing both static and dynamic content.</label>
+  <label for="optionB" class="correct-answer">B. Add multiple Elastic Fabric Adapters (EFA) to each EC2 instance to increase the network bandwidth. ✓✓</label>
+  <label for="optionC" class="correct-answer">C. Use Dedicated EC2 instances to ensure that each instance has the maximum performance possible. ✓✓</label>
+  <label for="optionD">D. Use an Application Load Balancer with Auto Scaling groups for your EC2 instances. Prevent direct Internet traffic to your Amazon RDS database by deploying it to a new private subnet.</label>
+  <label for="optionE">E. Use AWS Shield and AWS WAF.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    All objects uploaded to an Amazon S3 bucket must be encrypted for security compliance. The bucket will use server-side encryption with Amazon S3-Managed encryption keys (SSE-S3) to encrypt data using 256-bit Advanced Encryption Standard (AES-256) block cipher.
+    Which of the following request headers must be used?
+  </h1>
+
+  <label for="optionA">A. x-amz-server-side-encryption-customer-key</label>
+  <label for="optionB">B. x-amz-server-side-encryption-customer-algorithm</label>
+  <label for="optionC">C. x-amz-server-side-encryption-customer-key-MD5</label>
+  <label for="optionD" class="correct-answer">D. x-amz-server-side-encryption ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A solutions architect is designing a customer-facing application for a company. The application's database will have a clearly defined access pattern throughout the year and will have a variable number of reads and writes that depend on the time of year. The company must retain audit records for the database for 7 days. The recovery point objective (RPO) must be less than 5 hours.
+    Which solution meets these requirements?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Use Amazon Aurora MySQL with auto scaling. Activate the database auditing parameter ✓✓</label>
+  <label for="optionB">B. Use Amazon RDS with Provisioned IOPS. Activate the database auditing parameter. Perform database snapshots every 5 hours</label>
+  <label for="optionC">C. Use Amazon Redshift. Configure concurrency scaling. Activate audit logging. Perform database snapshots every 4 hours</label>
+  <label for="optionD">D. Use Amazon DynamoDB with auto scaling. Use on-demand backups and Amazon DynamoDB Streams</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is preparing to store confidential data in Amazon S3. For compliance reasons, the data must be encrypted at rest. Encryption key usage must be logged for auditing purposes. Keys must be rotated every year.
+    Which solution meets these requirements and is the MOST operationally efficient?
+  </h1>
+
+  <label for="optionA">A. Server-side encryption with customer-provided keys (SSE-C)</label>
+  <label for="optionB">B. Server-side encryption with Amazon S3 managed keys (SSE-S3)</label>
+  <label for="optionC">C. Server-side encryption with AWS KMS (SSE-KMS) customer master keys (CMKs) with manual rotation</label>
+  <label for="optionD" class="correct-answer">D. Server-side encryption with AWS KMS (SSE-KMS) customer master keys (CMKs) with automatic rotation ✓✓</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company uses NFS to store large video files in on-premises network attached storage. Each video file ranges in size from 1MB to 500 GB. The total storage is 70 TB and is no longer growing. The company decides to migrate the video files to Amazon S3. The company must migrate the video files as soon as possible while using the least possible network bandwidth.
+    Which solution will meet these requirements?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Create an AWS Snowball Edge job. Receive a Snowball Edge device on premises. Use the Snowball Edge client to transfer data to the device. Return the device so that AWS can import the data into Amazon S3. ✓✓</label>
+  <label for="optionB">B. Create an S3 bucket. Create an IAM role that has permissions to write to the S3 bucket. Use the AWS CLI to copy all files locally to the S3 bucket.</label>
+  <label for="optionC">C. Deploy an S3 File Gateway on premises. Create a public service endpoint to connect to the S3 File Gateway. Create an S3 bucket. Create a new NFS file share on the S3 File Gateway. Point the new file share to the S3 bucket. Transfer the data from the existing NFS file share to the S3 File Gateway.</label>
+  <label for="optionD">D. Set up an AWS Direct Connect connection between the on-premises network and AWS. Deploy an S3 File Gateway on premises. Create a public virtual interface (VIF) to connect to the S3 File Gateway. Create an S3 bucket. Create a new NFS file share on the S3 File Gateway. Point the new file share to the S3 bucket. Transfer the data from the existing NFS file share to the S3 File Gateway.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company uses 50 TB of data for reporting. The company wants to move this data from on-premises to AWS. A custom application in the company's data center runs a weekly data transformation job. The company plans to pause the application until the data transfer is complete and needs to begin the transfer process as soon as possible.
+    The data center does not have any available network bandwidth for additional workloads. A solutions architect must transfer the data and must configure the transformation job to continue to run in the AWS Cloud. Which solution will meet these requirements with the LEAST operational overhead?
+  </h1>
+
+  <label for="optionA" class="correct-answer">A. Order an AWS Snowball Edge Storage Optimized device. Copy the data to the device. Create a custom transformation job by using AWS Glue. ✓✓</label>
+  <label for="optionB">B. Order an AWS Snowcone device to move the data. Deploy the transformation application to the device.</label>
+  <label for="optionC">C. Order an AWS Snowball Edge Storage Optimized device that includes Amazon EC2 compute. Copy the data to the device. Create a new EC2 instance on AWS to run the transformation application.</label>
+  <label for="optionD">D. Use AWS DataSync to move the data. Create a custom transformation job by using AWS Glue.</label>
+</form>
+<form class="question-form">
+  <h1 class="question">
+    A company is using an On-Demand EC2 instance to host a legacy web application that uses an Amazon Instance Store-Backed AMI. The web application should be decommissioned as soon as possible and hence, you need to terminate the EC2 instance.
+    When the instance is terminated, what happens to the data on the root volume?
+  </h1>
+
+  <label for="optionA">A. Data is unavailable until the instance is restarted.</label>
+  <label for="optionB">B. Data is automatically saved as an EBS snapshot.</label>
+  <label for="optionC">C. Data is automatically saved as an EBS volume.</label>
+  <label for="optionD" class="correct-answer">D. Data is automatically deleted. ✓✓</label>
+</form>
 
 
 <form class="question-form">
