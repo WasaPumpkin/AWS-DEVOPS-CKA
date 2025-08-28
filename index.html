@@ -149,6 +149,108 @@
         <button class="search-button" id="clear-search">X</button>
       </div>
     </div>
+<form class="question-form">
+  <h1 class="question">A fintech company wants to build a customer support chatbot that can answer complex financial queries using their proprietary knowledge base. The solution must ensure data privacy, support multiple foundation models, and implement content filtering. The company requires the ability to fine-tune responses based on their specific financial terminology.
+  Which combination of services should the solutions architect recommend?</h1>
+  
+  <label for="optionA" class="correct-answer">A. Amazon Bedrock with Knowledge Bases, Amazon Bedrock Guardrails, and custom prompt templates ✓✓</label>
+  <label for="optionB">B. Amazon SageMaker JumpStart with custom endpoints and Amazon Comprehend</label>
+  <label for="optionC">C. Amazon Lex with Lambda functions and Amazon Kendra</label>
+  <label for="optionD">D. Amazon Q Business with custom connectors and AWS WAF</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A media company stores 500TB of video content across multiple Availability Zones using Amazon EFS. They need a disaster recovery strategy that provides RTO of 4 hours and RPO of 1 hour for a secondary region 2000km away. The solution must be cost-effective and automatically handle failover.
+  What should the solutions architect recommend?</h1>
+   <label for="optionA">A. Use EFS Backup with cross-region replication and AWS Backup cross-region copy</label>
+  <label for="optionB" class="correct-answer">B. Configure EFS Replication to the secondary region with Amazon Route 53 health checks ✓✓</label>
+  <label for="optionC">C. Use AWS DataSync with S3 Cross-Region Replication and EFS mount targets</label>
+  <label for="optionD">D. Implement AWS Storage Gateway with Volume Gateway in both regions</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">An e-commerce platform processes orders through multiple microservices: payment validation, inventory check, shipping calculation, and notification sending. The workflow must handle partial failures, implement exponential backoff, and provide detailed execution tracking. Some steps may take up to 15 minutes to complete.
+  Which solution provides the MOST resilient and observable architecture?</h1>
+
+  <label for="optionA">A. AWS Step Functions Express Workflows with Amazon SQS dead letter queues</label>
+  <label for="optionB" class="correct-answer">B. AWS Step Functions Standard Workflows with error handling and retry policies ✓✓</label>
+  <label for="optionC">C. Amazon EventBridge with Lambda functions and DLQ configuration</label>
+  <label for="optionD">D. Amazon SQS FIFO queues with Lambda functions and CloudWatch alarms</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A multinational corporation has 50 VPCs across 8 AWS regions with complex routing requirements. They need hub-and-spoke connectivity with selective routing between specific VPCs, bandwidth limits per connection, and centralized network monitoring. The solution must support future growth to 200 VPCs.
+  What is the MOST scalable and manageable solution?</h1>
+  
+  <label for="optionA" class="correct-answer">A. AWS Transit Gateway with multiple route tables and Network Manager ✓✓</label>
+  <label for="optionB">B. VPC Peering connections with custom route tables in each VPC</label>
+  <label for="optionC">C. AWS PrivateLink endpoints with Route 53 Resolver rules</label>
+  <label for="optionD">D. Site-to-Site VPN connections through a central hub VPC</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A SaaS company has an Aurora PostgreSQL database with real-time transactional data and needs to perform complex analytics without impacting production performance. They require near real-time analytics (under 15 seconds latency) and cost-effective scaling for varying analytical workloads.
+  Which solution provides the BEST performance and cost optimization?</h1>
+
+
+  <label for="optionA" class="correct-answer">A. Aurora zero-ETL integration with Amazon Redshift Serverless ✓✓</label>
+  <label for="optionB">B. Amazon RDS Read Replicas with Amazon Redshift Spectrum</label>
+  <label for="optionC">C. AWS DMS continuous replication to Amazon Redshift</label>
+  <label for="optionD">D. Aurora Global Database with cross-region read replicas for analytics</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A healthcare application runs on Amazon EKS and processes PHI data. The solution requires pod-level network isolation, image vulnerability scanning, runtime security monitoring, and compliance with HIPAA requirements. The application has varying workloads and needs automatic scaling.
+  Which combination ensures the HIGHEST security posture?</h1>
+ 
+  <label for="optionA">A. EKS on Fargate with AWS Security Hub, GuardDuty, and VPC Flow Logs</label>
+  <label for="optionB">B. EKS on EC2 with Calico network policies, Falco, and AWS Systems Manager</label>
+  <label for="optionC" class="correct-answer">C. EKS on Fargate with Amazon Inspector, GuardDuty EKS Protection, and AWS Security Hub ✓✓</label>
+  <label for="optionD">D. ECS on Fargate with AWS Config rules and CloudTrail logging</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A machine learning company runs training workloads that can tolerate interruptions but must complete within 48 hours. Current costs are $50,000/month using On-Demand instances. They want to reduce costs by 70% while maintaining performance and reliability.
+  What combination provides the MAXIMUM cost savings with acceptable risk?</h1>
+ 
+
+  <label for="optionA">A. 80% Spot Instances with Spot Fleet diversification + 20% Savings Plans</label>
+  <label for="optionB">B. 60% Spot Instances + 40% Reserved Instances with convertible terms</label>
+  <label for="optionC" class="correct-answer">C. 70% Spot Instances with Auto Scaling + 30% Compute Savings Plans ✓✓</label>
+  <label for="optionD">D. 90% Spot Instances with mixed instance types + 10% On-Demand for critical workloads</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A gaming company needs to process 1 million events per second from mobile games for real-time leaderboards, fraud detection, and player behavior analysis. The solution must handle traffic spikes during events and provide exactly-once processing guarantees.
+  Which architecture provides the BEST scalability and reliability?</h1>
+
+
+  <label for="optionA">A. Amazon Kinesis Data Streams with Lambda functions and DynamoDB</label>
+  <label for="optionB" class="correct-answer">B. Amazon MSK with Kafka Streams applications on EKS ✓✓</label>
+  <label for="optionC">C. Amazon Kinesis Data Firehose with Amazon OpenSearch Service</label>
+  <label for="optionD">D. Amazon MSK Serverless with Lambda event source mapping</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">An e-commerce website experiences sophisticated DDoS attacks and application-layer threats including bot traffic, SQL injection attempts, and geographic-based attacks. They need protection while maintaining performance for legitimate users during flash sales.
+  Which solution provides comprehensive protection with minimal latency impact?</h1>
+  
+  <label for="optionA" class="correct-answer">A. AWS Shield Advanced + WAF v2 with rate limiting + CloudFront with custom origins ✓✓</label>
+  <label for="optionB">B. AWS WAF v2 + Application Load Balancer + GuardDuty threat intelligence</label>
+  <label for="optionC">C. CloudFlare integration + AWS Shield Standard + VPC Flow Logs analysis</label>
+  <label for="optionD">D. AWS Shield Advanced + WAF v2 with ML-based rules + API Gateway throttling</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A manufacturing company needs to integrate their on-premises NFS file system with AWS for backup, archival, and cloud-based analytics. They require local caching for frequently accessed data, automatic tiering to different S3 storage classes, and bandwidth optimization for their 100 Mbps connection.
+  Which Storage Gateway configuration meets these requirements MOST effectively?</h1>
+
+
+  <label for="optionA" class="correct-answer">A. File Gateway with S3 Intelligent-Tiering and CloudWatch bandwidth throttling ✓✓</label>
+  <label for="optionB">B. Volume Gateway (Stored Volumes) with S3 lifecycle policies</label>
+  <label for="optionC">C. Volume Gateway (Cached Volumes) with S3 Standard-IA and Glacier</label>
+  <label for="optionD">D. File Gateway with S3 Standard and manual lifecycle rules</label>
+</form>
 
     <form class="question-form">
   <h1 class="question">
@@ -171,6 +273,185 @@
   <label for="optionC" class="correct-answer">C. Use Amazon Athena directly with Amazon S3 to run the queries as needed. ✓✓</label>
   <label for="optionD">D. Use AWS Glue to catalog the logs. Use a transient Apache Spark cluster on Amazon EMR to run the SQL queries as needed.</label>
 </form>
+<form class="question-form">
+  <h1 class="question">A global fintech firm needs to detect fraudulent transactions in real time (within 100 ms) across millions of transactions per day. They require accurate anomaly detection powered by machine learning models that self-improve, low-latency responses, and separation of sensitive PII. What architecture gives the best blend of sub-100 ms latency, model retraining capability, and data privacy?</h1>
+
+  <label for="optionA" class="correct-answer">A. Kinesis Data Streams → Lambda (real-time inference with SageMaker Real-time endpoint), plus SageMaker Pipelines for retraining; sensitive data masked in-stream ✓✓</label>
+  <label for="optionB">B. DynamoDB Streams → Lambda for immediate checks (rule-based), anomalies batched to S3 → Sagemaker Autopilot retraining weekly</label>
+  <label for="optionC">C. Amazon MSK → custom inference microservices on EKS + step functions for retraining</label>
+  <label for="optionD">D. Kinesis Data Firehose → Redshift + daily retraining batch jobs; inference via API Gateway REST</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">An enterprise SaaS platform must support read-heavy workloads globally, with active-active write capability across three AWS Regions, and automatic conflict resolution. Which architecture is the most reliable, scalable, and lowest total cost?</h1>
+
+  <label for="optionA">A. Aurora Global Database with multi-master write at each region (with conflict resolution)</label>
+  <label for="optionB" class="correct-answer">B. Use Amazon DynamoDB global tables with timestamp-based conflict resolution and local reads/writes ✓✓</label>
+  <label for="optionC">C. Amazon Aurora Serverless v2 with cross-region read replicas and TTL conflict logic in the app</label>
+  <label for="optionD">D. Self-managed Cassandra cluster on EC2 across regions</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A healthcare platform ingests logs of PHI updates (size, type, timestamp). They need real-time billing metrics (per update), full audit logs, and HIPAA-compliant encryption and access control. Which architecture best accomplishes real-time billing metrics while keeping full auditability and security?</h1>
+
+  <label for="optionA" class="correct-answer">A. Kinesis Data Streams with server-side encryption → Lambda updating DynamoDB (billing) + Kinesis Data Firehose to S3 (audit logs). S3 encrypted, access via Lake Formation ✓✓</label>
+  <label for="optionB">B. S3 Put into SPLUNK via S3 bucket policy → Kinesis Data Firehose → EMR billing jobs</label>
+  <label for="optionC">C. CloudWatch Logs ingestion → Lambda → DynamoDB + archiving; no Firehose</label>
+  <label for="optionD">D. Kinesis → Lambda → direct CloudWatch Metrics (billing) + S3</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A sports analytics company ingests player-tracking data (10 TB/day) and must provide sub-second queries on rolling 7-day aggregations for dashboards. What is the most cost-efficient, performant data store and query architecture?</h1>
+
+  <label for="optionA">A. Kinesis Firehose → S3 (Parquet) + Athena with partitioning and Presto caching</label>
+  <label for="optionB" class="correct-answer">B. Kinesis → Redshift Spectrum querying S3 + WLM queues ✓✓</label>
+  <label for="optionC">C. Kinesis → Kinesis Data Analytics → DynamoDB global tables with GSI for real-time dashboards</label>
+  <label for="optionD">D. Kinesis → Lambda writes into ElastiCache Redis; backup to S3</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A retail chain wants local inference at hundreds of stores with intermittent connectivity. Models must run locally, update daily, and central logs must sync when connectivity returns. Which architecture ensures local inference with occasional sync, and centralized monitoring?</h1>
+
+  <label for="optionA" class="correct-answer">A. AWS IoT Greengrass + SageMaker Neo + S3 sync for logs ✓✓</label>
+  <label for="optionB">B. SageMaker Edge Manager with local Docker containers; CloudWatch Logs forwarded when connected</label>
+  <label for="optionC">C. Lambda@Edge in CloudFront distributions; batch sync logs</label>
+  <label for="optionD">D. EC2 at each store running ECS with Docker pulled from ECR; logs batched to S3</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A financial trading firm needs zero data loss (RPO=0) for trading records and full capability to continue operation in less than 5 minutes upon region outage. Which DR strategy meets these requirements most effectively?</h1>
+
+  <label for="optionA" class="correct-answer">A. Aurora multi-master global cluster across two regions + Route 53 health check failover ✓✓</label>
+  <label for="optionB">B. S3 replication with Cross-Region Replication; Lambda failover</label>
+  <label for="optionC">C. Active-active DynamoDB global tables + Route 53 weighted latency routing</label>
+  <label for="optionD">D. DataSync replication of RDS snapshots every minute</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A media service must deliver live video stream metadata with sub-10 ms end-to-end latency to users worldwide, scaling automatically with unpredictable spikes. Which service combination provides the lowest-latency global streaming layer?</h1>
+
+  <label for="optionA">A. Lambda + API Gateway HTTP API + CloudFront distribution</label>
+  <label for="optionB">B. AWS App Runner + Global Accelerator + ALB</label>
+  <label for="optionC">C. API Gateway WebSocket API + Lambda + CloudFront</label>
+  <label for="optionD" class="correct-answer">D. Lambda@Edge functions at CloudFront edge nodes ✓✓</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">An enterprise requires employee access to on-premises internal apps through AWS, with multi-factor authentication, session logging, just-in-time access, and no direct VPC exposure. Which architecture satisfies all constraints?</h1>
+
+  <label for="optionA" class="correct-answer">A. AWS SSO with SAML federation to on-prem AD; session logs in CloudTrail ✓✓</label>
+  <label for="optionB">B. AWS Client VPN with IAM authentication, AWS CloudWatch logging, NACLs</label>
+  <label for="optionC">C. AWS IAM Identity Center with just-in-time AWS SSO provisioning, access via Bastion hosts permanently running in Transit Gateway</label>
+  <label for="optionD">D. AWS Directory Service Enterprise Edition, Integrated Windows Authentication, and custom audit logs</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A large enterprise allows users to run large generative AI workloads via Bedrock and SageMaker, but needs to enforce cost quotas (per-user), track usage per model, and ensure outputs are checked for sensitive content. Which architecture provides fine-grained governance and content filtering?</h1>
+
+  <label for="optionA" class="correct-answer">A. API Gateway + Lambda middle layer that checks quotas (linked to DynamoDB), invokes Bedrock or SageMaker, passing output to Amazon Bedrock Guardrails or custom filter, logs full audit ✓✓</label>
+  <label for="optionB">B. Allow direct Bedrock usage configured with per-user IAM quotas; CloudWatch for usage</label>
+  <label for="optionC">C. SageMaker Endpoint secured by VPC; quotas enforced via Savings Plans</label>
+  <label for="optionD">D. Bedrock + tagging; logs to CloudTrail; quotas manual via billing alerts</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">An IoT sensor fleet sends data to Kinesis Firehose, which delivers to Lambda. If Lambda fails for transient issues, the user must retry with exponential backoff and preserve ordering per device. Which architecture ensures reliable, ordered, and backoff-capable processing?</h1>
+
+  <label for="optionA" class="correct-answer">A. Kinesis Data Streams with per-shard dedicated Lambda + DLQ + retry logic; ordering preserved per shard ✓✓</label>
+  <label for="optionB">B. SQS FIFO with visibility timeout and Lambda retry; fail → DLQ</label>
+  <label for="optionC">C. Standard SQS → Lambda with manual backoff implementation</label>
+  <label for="optionD">D. Firehose → Lambda; rely on automatic retries; accept possible reordering</label>
+</form>
+<form class="question-form">
+  <h1 class="question">A global e-commerce company uses a serverless architecture where customer orders are processed by an AWS Lambda function. During peak sales events, the order processing system experiences significant spikes in traffic, leading to occasional data loss due to Lambda concurrency limits being hit and retries failing. The company needs a highly scalable and resilient solution that ensures no order data is lost, even during extreme load, and allows for asynchronous processing without over-provisioning. Which solution will meet these requirements most cost-effectively?</h1>
+
+  <label for="optionA" class="correct-answer">A. Implement an Amazon Kinesis Data Stream in front of the Lambda function. Configure the Lambda function to poll the Kinesis stream. Set appropriate BatchSize and BatchWindow for the Lambda trigger to control processing rate. ✓✓</label>
+  <label for="optionB">B. Implement an Amazon SQS queue in front of the Lambda function. Configure the Lambda function to poll the SQS queue. Adjust the VisibilityTimeout and configure a Dead-Letter Queue (DLQ) for failed messages.</label>
+  <label for="optionC">C. Configure an Amazon EventBridge Pipe between an SQS queue and the Lambda function. Use a filter on the pipe to only process valid order events.</label>
+  <label for="optionD">D. Use AWS Step Functions to orchestrate a workflow where each step invokes a Lambda function for order processing. Implement a Map state to handle concurrent orders and configure retries within the state machine.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A financial institution operates a critical on-premises application with a large relational database. They need to implement a disaster recovery (DR) strategy on AWS that achieves an RPO of less than 15 minutes and an RTO of less than 4 hours, while minimizing ongoing infrastructure costs when not in a DR state. The DR plan must allow for a quick failover to AWS with minimal data loss. Which solution meets these requirements most effectively and cost-efficiently?</h1>
+
+  <label for="optionA">A. Use AWS DataSync to periodically transfer database backups to Amazon S3. In a DR event, restore the database from S3 to an Amazon EC2 instance running a database, and then redirect traffic.</label>
+  <label for="optionB">B. Implement AWS Direct Connect for low-latency connectivity. Use database-native replication (e.g., SQL Server Always On Availability Groups, Oracle Data Guard) to continuously replicate the on-premises database to an Amazon EC2 instance or Amazon RDS instance in standby mode.</label>
+  <label for="optionC">C. Deploy an AWS Storage Gateway (Volume Gateway - cached mode) on-premises. Replicate the database backups to the gateway, which then stores them in Amazon S3. In a DR event, launch an EC2 instance and restore the database from an S3 snapshot.</label>
+  <label for="optionD" class="correct-answer">D. Utilize AWS Database Migration Service (DMS) with Change Data Capture (CDC) to continuously replicate the on-premises database to an Amazon RDS instance. Keep the RDS instance in a stopped state or as a low-cost, minimal instance type, scaling up only during DR. ✓✓</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A large enterprise with multiple AWS accounts (development, staging, production) is adopting a serverless-first strategy. They need a centralized mechanism to ensure all AWS Lambda functions adhere to strict security policies, including encryption at rest for ephemeral storage, network access controls, and least-privilege IAM roles. Furthermore, they need to prevent developers from deploying functions that do not comply with these standards. Which combination of AWS services provides the most robust and scalable solution for governance and security enforcement?</h1>
+
+  <label for="optionA" class="correct-answer">A. Use AWS Config rules to monitor Lambda function configurations for compliance. Deploy an AWS Organizations Service Control Policy (SCP) to deny non-compliant Lambda actions. ✓✓</label>
+  <label for="optionB">B. Implement AWS Security Hub to aggregate findings from Amazon Inspector (for code vulnerabilities) and AWS GuardDuty (for runtime threats). Use AWS Identity and Access Management (IAM) permission boundaries for Lambda execution roles.</label>
+  <label for="optionC">C. Utilize AWS Systems Manager State Manager to automatically apply security configurations to Lambda functions after deployment. Leverage AWS Control Tower for multi-account governance.</label>
+  <label for="optionD">D. Employ AWS CloudFormation hooks to validate Lambda function templates before deployment. Integrate Amazon Macie for sensitive data detection within Lambda ephemeral storage and configure VPC endpoints for Lambda to restrict network access.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A media company is building a real-time content recommendation engine. User interactions trigger requests to an ML model that must provide predictions within 50ms (p99 latency). The system needs to handle up to 10,000 inferences per second and automatically scale to meet demand while optimizing costs. The ML model is deployed as a Docker container. Which architecture best addresses these requirements?</h1>
+
+  <label for="optionA" class="correct-answer">A. Deploy the ML model on Amazon SageMaker real-time endpoints. Configure auto-scaling policies based on invocation metrics and use an appropriate instance type for low latency. ✓✓</label>
+  <label for="optionB">B. Deploy the ML model as a Docker container on AWS Fargate behind an Application Load Balancer (ALB). Configure Fargate auto-scaling based on CPU utilization and request count.</label>
+  <label for="optionC">C. Package the ML model into an AWS Lambda function (container image). Use Amazon API Gateway to expose the Lambda function, and configure provisioned concurrency for low latency.</label>
+  <label for="optionD">D. Deploy the ML model on Amazon EC2 instances in an Auto Scaling Group. Use a custom AMI with the model pre-loaded and configure a Network Load Balancer (NLB) for high throughput.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A data analytics company needs to ingest data from various sources (relational databases, S3 buckets from partners, streaming data from IoT devices) into a central data lake on Amazon S3. The data varies in volume and velocity. The primary goal is to ensure all data is ingested reliably and made available for analytics as quickly as possible, while aggressively minimizing ingestion costs. Which approach offers the most cost-effective and scalable ingestion strategy?</h1>
+
+  <label for="optionA" class="correct-answer">A. For relational databases, use AWS Glue Data Catalog for metadata and AWS Glue ETL jobs to extract and load data into S3. For partner S3, use S3 Batch Operations. For IoT streams, use Amazon Kinesis Data Firehose to S3. ✓✓</label>
+  <label for="optionB">B. For relational databases, use AWS DMS to replicate to an Amazon RDS instance, then use AWS Glue to extract to S3. For partner S3, use AWS DataSync to transfer to S3. For IoT streams, use Amazon Kinesis Data Streams with Lambda to S3.</label>
+  <label for="optionC">C. For all data sources, use AWS Step Functions to orchestrate custom Python scripts running on Amazon EC2 instances that pull data and upload to S3.</label>
+  <label for="optionD">D. For relational databases, use AWS Data Pipeline to schedule Copy Activity. For partner S3, manually configure S3 bucket policies for cross-account access. For IoT streams, use AWS IoT Core rules engine to send data directly to S3.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A SaaS provider is developing a multi-tenant application using AWS Lambda and Amazon DynamoDB. Each tenant has their own isolated data within a single DynamoDB table, identified by a tenantId partition key. The application needs to ensure that a Lambda function, acting on behalf of a specific tenant, can only access data belonging to that tenant and nothing else, even if the Lambda's underlying IAM role has broader permissions. How can this tenant-level data isolation be enforced most securely and efficiently?</h1>
+
+  <label for="optionA">A. Implement fine-grained access control within the Lambda function code, validating the tenantId in every request against the authenticated user's tenant context before making DynamoDB calls.</label>
+  <label for="optionB" class="correct-answer">B. Use Amazon Cognito Identity Pools to generate temporary AWS credentials for each authenticated user. Attach an IAM policy to the Cognito Identity Pool role that uses DynamoDB Condition Keys (e.g., dynamodb:LeadingKeys) to restrict access based on the tenantId. ✓✓</label>
+  <label for="optionC">C. Create a separate DynamoDB table for each tenant and configure the Lambda function to dynamically switch between tables based on the authenticated tenant.</label>
+  <label for="optionD">D. Leverage AWS AppSync with an IAM authorizer and define VTL resolvers that include a tenantId in the DynamoDB query, ensuring only relevant items are fetched.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A company is running a mission-critical microservices application on Amazon ECS (Elastic Container Service) with Fargate. They are experiencing inconsistent performance spikes and want to optimize both latency and cost. The application has varying traffic patterns, with predictable daily peaks and occasional unpredictable surges. Which combination of strategies will best optimize performance and cost for this scenario?</h1>
+
+  <label for="optionA" class="correct-answer">A. Implement Target Tracking auto-scaling policies based on CPU and memory utilization. Use Capacity Providers to manage EC2 Spot Instances for non-critical services. ✓✓</label>
+  <label for="optionB">B. Use Step Scaling policies with aggressive scaling adjustments. Switch Fargate launch type to EC2 launch type to have more control over underlying instances.</label>
+  <label for="optionC">C. Implement Target Tracking auto-scaling based on Application Load Balancer (ALB) request count per target. Utilize Provisioned Concurrency for critical Fargate tasks.</label>
+  <label for="optionD">D. Use AWS Auto Scaling groups for ECS Fargate, configuring a Scheduled Scaling policy for predictable peaks and a Predictive Scaling policy for unpredictable surges.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A large enterprise with multiple on-premises data centers needs to establish secure, highly available, and scalable network connectivity to their AWS environment, which spans several VPCs in different regions. All traffic between on-premises and AWS, and between AWS VPCs, must be inspected by a centralized firewall managed by the security team. Which networking architecture best addresses these requirements?</h1>
+
+  <label for="optionA">A. Establish multiple AWS Direct Connect connections from each data center to separate Virtual Private Gateways (VPGs) attached to individual VPCs. Use VPC Peering for inter-VPC communication.</label>
+  <label for="optionB" class="correct-answer">B. Configure AWS Site-to-Site VPN connections from each data center to a Transit Gateway. Attach all VPCs to the Transit Gateway. Deploy a centralized firewall appliance in a dedicated inspection VPC, routing all inter-VPC and hybrid traffic through it. ✓✓</label>
+  <label for="optionC">C. Use a VPN CloudHub setup with multiple Site-to-Site VPN connections from each data center to a single AWS Virtual Private Gateway (VPG). Configure routing tables to direct traffic between VPCs.</label>
+  <label for="optionD">D. Deploy a third-party SD-WAN appliance in each data center and in a central AWS VPC. Use IPsec tunnels between all appliances to form a mesh network, and route all traffic through the central AWS appliance for inspection.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A gaming company wants to analyze real-time player telemetry data to detect anomalies and identify potential cheating instantly. The data arrives as a continuous stream of events. The solution needs to process millions of events per second, perform aggregations and pattern matching with sub-second latency, and trigger alerts for suspicious activities. Which combination of AWS services will provide the most efficient and scalable real-time analytics solution?</h1>
+
+  <label for="optionA">A. Ingest data into Amazon Kinesis Data Firehose, store in Amazon S3, and then use AWS Glue to transform and analyze with Amazon Athena.</label>
+  <label for="optionB" class="correct-answer">B. Ingest data into Amazon Kinesis Data Streams. Process the stream with Amazon Kinesis Data Analytics for Apache Flink to perform real-time aggregations and pattern matching. Send alerts via Amazon SNS. ✓✓</label>
+  <label for="optionC">C. Ingest data into Amazon Managed Streaming for Apache Kafka (MSK). Use Amazon EC2 instances with Apache Kafka clients to process and analyze the stream, then send alerts.</label>
+  <label for="optionD">D. Ingest data directly into a Lambda function, which then stores it in Amazon DynamoDB. Use DynamoDB Streams to trigger another Lambda function for anomaly detection and alerting.</label>
+</form>
+
+<form class="question-form">
+  <h1 class="question">A large pharmaceutical company develops multiple machine learning models for drug discovery. They need a robust MLOps solution that enables data scientists to experiment, train, and deploy models efficiently, while maintaining strict governance, version control, and auditability for all model artifacts, code, and lineage from experimentation to production deployment. Which combination of AWS services provides the most comprehensive solution for ML model governance and versioning?</h1>
+
+  <label for="optionA">A. Use Amazon SageMaker Studio for experimentation and notebook management. Store model artifacts in Amazon S3. Use Git for version control of code. Deploy models via custom Flask applications on Amazon EC2.</label>
+  <label for="optionB" class="correct-answer">B. Utilize Amazon SageMaker Model Building Pipelines for orchestrating ML workflows. Store model artifacts and metadata in Amazon SageMaker Model Registry. Manage code with AWS CodeCommit. Deploy models to Amazon SageMaker Endpoints. ✓✓</label>
+  <label for="optionC">C. Implement AWS Step Functions to coordinate training and deployment steps. Store model artifacts in Amazon S3. Use AWS CodeArtifact for package management. Deploy models as container images to Amazon ECS.</label>
+  <label for="optionD">D. Leverage Amazon SageMaker JumpStart for pre-built models. Use AWS Data Pipeline for data processing. Store model artifacts in Amazon EFS. Deploy models using AWS Lambda for inference.</label>
+</form>
+
 <form class="question-form">
   <h1 class="question">
     A document sharing website is using AWS as its cloud infrastructure. Free users can upload a total of 5 GB of data while premium users can upload as much as 5 TB. Their application uploads the user files, which can have a max file size of 1 TB, to an S3 bucket.<br><br>
